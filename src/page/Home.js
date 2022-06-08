@@ -18,8 +18,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1 className='fs-3 mt-2 mb-2 fw-bold  '> Taz fruits🍒</h1>
-  <Heder/>     
+    
 <div className='container-xxl'>
  
 <br></br>
@@ -35,10 +34,14 @@ const Home = () => {
 <br></br>
 
 
-<div className='d-flex'>
+<div className='d-flex justify-center'>
+<a href='/fruits'>
+ <div className='phone_fruits'></div> 
+</a>
 
-<div className='phone_fruits'></div>
+<a href='/legumes'>
 <div className='phone_legumes'></div>
+</a>
 </div>
 
 <div className='d-flex'>
@@ -47,11 +50,13 @@ const Home = () => {
 <div class="row">
     <div class="category col-3 m-3 ">
       <div className=''>
+        <a href='/fruits'>
      <img className='fruits  img-fluid mr-2' src={fruits}></img>
+</a> 
      <img className='legumes  mt-1 umg-fluid ' src={legumes}></img>
      </div>
     </div>
-    <div class="col">
+    <div class="col ">
       <Produits/>
     </div>
   </div>

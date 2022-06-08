@@ -27,7 +27,7 @@ dispatch(fetchartilces())
 
 
   <div className='container'>
-             <div className='row flex'>
+             <div className='row d-flex justify-start'>
 
 {
     articles.map(article =>{
