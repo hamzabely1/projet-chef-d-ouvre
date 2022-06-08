@@ -20,7 +20,6 @@ const qua = {
     useEffect(()=>{
 dispatch(fetchartilces())
     },[dispatch])
-    console.log('h',articles);
 
 
   return (
@@ -34,7 +33,7 @@ dispatch(fetchartilces())
     articles.map(article =>{
         return(
           
-               <div className='qua col-md-3 d-flex flex-column'>
+               <div className='card cards col-md-3 d-flex flex-column'>
             <img src={article.image} className='w-100 mt-1'></img>
                <p className='mt-1'>{article.nom}</p>  
                <div className='d-flex mt-1 '>

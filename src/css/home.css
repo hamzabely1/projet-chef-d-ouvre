@@ -23,7 +23,7 @@ background-image: url();
 height: 200px;
 
 }
-.qua{
+.cards{
     height:250px;
     width: 180px;
     background-color: white;
@@ -36,23 +36,10 @@ height: 200px;
     margin: 15px;
     
 }
-#quaa1{
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    width: 200px;
-    border-radius: 15px;
-    background-color: black;
-    margin-right: 15px;
-    margin-left: 15px;
-    align-items: center;
-    color: white;
-   
-    
-}
 
 
-.qua:hover{
+
+.cards:hover{
 border: solid 1px #FF920D;
 }
 .size-img{
@@ -64,9 +51,9 @@ border: solid 1px #FF920D;
 
 
 @media screen and (max-width: 500px) {
-  .qua {
-    height: 200px;
-    width: 150px;
+  .cards {
+    height: 180px;
+    width: 120px;
     }
 
 
@@ -85,12 +72,35 @@ border: solid 1px #FF920D;
     border-radius: 5px;
  }
 
+ @media screen and (max-width: 500px) {
+    .category {
     
-  
- @media screen and (max-width: 800px) {
-    taile-img{
+     height: 0px;
+     width: 0px;
+      }
+
+     .phone_legumes{
         height: 80px;
-        width: 150px;
-        border-radius:5px;
+        width: 160px;
+        
+        margin-left: 8px;
+        border-radius: 5px;
+        background-image: url("../img/legumes.jpg");
+        background-size: contain;
+
+    }
+    .phone_fruits{
+    height: 80px;
+    width: 160px;
+    text-decoration: 'hamza';
+    margin-left: 30px;
+    border-radius: 5px;
+    background-image: url('../img/fruits.jpeg');
+    background-size: contain;
     }
     }
+  
+
+
+
+ 
