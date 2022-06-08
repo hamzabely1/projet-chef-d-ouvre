@@ -1,18 +1,96 @@
+
+
 .cerclefruit{
-    height: 55px;
-    width: 55px;
-   border: solid #FF920D;
-    border-radius: 80px;
+  
+background-image: url();
 }
 .cerclelegume{
-    height: 55px;
-    width: 55px;
+    height: 80px;
+    width: 80px;
    border: solid #FF920D;
-    border-radius: 80px;
+    border-radius: 2px;
 }
 .cercleall{
-    height: 70px;
-    width: 70px;
+    height:100px;
+    width: 100px;
    border: solid #FF920D;
     border-radius: 80px;
 }
+
+
+.slider{
+    background-color:black ;
+height: 200px;
+
+}
+.qua{
+    height:250px;
+    width: 180px;
+    background-color: white;
+    margin: 25px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 15px;
+    
+}
+#quaa1{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 200px;
+    border-radius: 15px;
+    background-color: black;
+    margin-right: 15px;
+    margin-left: 15px;
+    align-items: center;
+    color: white;
+   
+    
+}
+
+
+.qua:hover{
+border: solid 1px #FF920D;
+}
+.size-img{
+    height: 150px;
+    width: 300px;
+    border-radius:5px;
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .qua {
+    height: 200px;
+    width: 150px;
+    }
+
+
+  }
+
+ .img-display-legumes{
+     background-image: url('https://img-3.journaldesfemmes.fr/HwUgYMFAXpGcR9A7Xrw4oF67Mf4=/1500x/smart/409e102e633d42759746f73e286431a3/ccmcms-jdf/11057068.jpg');
+     height: 200px;
+     width: 400px;
+     border-radius: 5px;
+ }
+ .img-display-fruits{
+    background-image: url('https://fac.img.pmdstatic.net/fit/https.3A.2F.2Fi.2Epmdstatic.2Enet.2Ffac.2F2021.2F02.2F01.2F5dd61eb2-1ed2-46c2-b1ec-d0b2b279c9fe.2Ejpeg/1200x900/quality/80/crop-from/center/regime-cetogene-ou-low-carb-15-fruits-pauvres-en-glucides-a-privilegier.jpeg');
+    height: 200px;
+    width: 400px;
+    border-radius: 5px;
+ }
+
+    
+  
+ @media screen and (max-width: 800px) {
+    taile-img{
+        height: 80px;
+        width: 150px;
+        border-radius:5px;
+    }
+    }

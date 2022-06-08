@@ -1,131 +1,71 @@
 import React from 'react'
 import Heder from '../component/Heder'
 
-import slider1 from '../img/slider1.png'
 
 import homecss from '../css/home.css'
 import pomme from '../img/pomme.png'
-import brocolli from '../img/broccoli.png'
-import all from '../img/all.png'
 import Footer from '../component/Footer'
+import legumes from '../img/legumes.jpg'
+import fruits from '../img/fruits.jpeg'
+import broccolli from '../img/broccoli.png'
+import Carousele from '../component/Carousele'
+import Produits from './Produits'
+import Pourquoi_nous from './Pourquoi_nous'
+const orange = {
+  color:'#FF920D'
+}
 const Home = () => {
-
 
 
   return (
     <div>
 
-<h1 className='fs-3 mt-2 mb-2'> Taz fruits🍒</h1>
-
-<Heder/>
+      <h1 className='fs-3 mt-2 mb-2 fw-bold  '> Taz fruits🍒</h1>
 
 
-<div class="container-sm">
+      <Heder/>
 
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+
+<div className='container-lg'>
+<br></br>
+<Carousele/>
+<br></br>
+
+
+
+
+
+
+<h2 className='fs-2'>Categori</h2>
+<br></br>
+<div className='container-sm'>
+<div className='d-flex justify-content-around'>
+<div class="card text-white w-50 ">
+  <img src={fruits} class=" rounded-2 w-100 h-75 " alt="..."/>
+  <div class="card-img-overlay">
+    <h5  class="card-title fs-2 fw-bold">Fruits</h5>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src={slider1} class="d-block w-100" alt="..."/>
-      <div class="carousel-caption d-none d-md-block">
-      <button className='btn btn-dark'>shop</button>
-
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src={slider1} class="d-block w-100" alt="..."/>
-      <div class="carousel-caption d-none d-md-block">
-      <button className='btn btn-dark'>shop</button>
-
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src={slider1} class="d-block w-100" alt="..."/>
-      <div class="carousel-caption d-none d-md-block">
-      
-<button className='btn btn-dark'>shop</button>
-
-      </div>
-    </div>
+</div>
+<div className="card text-white w-50 ml-10">
+  <img src={legumes} class="rounded-2 w-100 h-75" alt="..."/>
+  <div class="card-img-overlay">
+    <h5 class="card-title fw-bold fs-2">Légumes</h5>
+    <p class="card-text"></p>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+</div>
+</div>
+</div>
+<br></br>
+<h1 className='fs-2'>Notre Produits</h1>
+<Produits/>
+<Pourquoi_nous/>
 </div>
 
-<div className=''>
+<Footer/>
+
+    </div>
 
 
-</div>
-
-<div className='d-flex justify-content-center'>
-
-<div className='cerclefruit ml-2 align-center mt-3'>
-<img className='mt-2' src={pomme}></img>
-<p className='mt-3' >h</p>
-
-
-</div>
-
-<div>
-
-
-<div className='cercleall ml-10 '>
-<img className='w-100' src={all}></img>
-
-
-</div>
-
-</div>
-
-
-<div>
-
-
-
-<div className='cerclelegume ml-10 mt-3'>
-<img className='w-50 mt-2 ml-3' src={brocolli}></img>
-<h4 className='mt-4'>hamza</h4>
-
-</div>
-
-</div>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-</div>
-
- 
   )
 }
 
