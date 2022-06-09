@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <div>
     
-<div className='container-xxl'>
+<div className='container-sm'>
  
 <br></br>
 <Carousele/>

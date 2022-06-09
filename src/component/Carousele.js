@@ -6,7 +6,7 @@ const Carousele = () => {
   return (
     <div>
 
-<div className='container border border-succesy border-4 rounded-2 bg-succesy'>
+<div className=' border border-succesy  rounded-2 bg-succesy'>
       <Carousel>
         <Carousel.Item>
           <div className="row justify-content-around ">

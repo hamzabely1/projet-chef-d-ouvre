@@ -25,9 +25,8 @@ height: 200px;
 }
 .cards{
     height:250px;
-    width: 180px;
+    width: 160px;
     background-color: white;
-   
     border-radius: 15px;
     display: flex;
     justify-content: center;
