@@ -34,11 +34,11 @@ const Home = () => {
 <br></br>
 
 
-<div className='d-flex justify-center'>
+<div className='d-flex justify-content-center'>
 <a href='/fruits'>
  <div className='phone_fruits'></div> 
 </a>
-
+<p className='mr-1 ml-1'  ></p>
 <a href='/legumes'>
 <div className='phone_legumes'></div>
 </a>
@@ -56,7 +56,7 @@ const Home = () => {
      <img className='legumes  mt-1 umg-fluid ' src={legumes}></img>
      </div>
     </div>
-    <div class="col ">
+    <div class="col collona">
       <Produits/>
     </div>
   </div>

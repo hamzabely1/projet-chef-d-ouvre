@@ -49,16 +49,18 @@ border: solid 1px #FF920D;
 
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   .cards {
     height: 180px;
     width: 120px;
     margin: 10px;
     }
+    
 
 
 
   }
+
 
  .img-display-legumes{
      background-image: url('https://img-3.journaldesfemmes.fr/HwUgYMFAXpGcR9A7Xrw4oF67Mf4=/1500x/smart/409e102e633d42759746f73e286431a3/ccmcms-jdf/11057068.jpg');
@@ -81,22 +83,33 @@ border: solid 1px #FF920D;
       }
 
      .phone_legumes{
-        height: 80px;
-        width: 160px;
-        
-     margin-left: 5px;
-        border-radius: 5px;
-        background-image: url("../img/legumes.jpg");
+        height: 38px;
+        width: 120px;
+        border: solid #FF920D;
+
+        border-radius: 20px;
         background-size: contain;
 
     }
+    .phone_fruits::before{
+        color: #FF920D;
+        content: "Fruits ";
+        
+    }
+    .phone_legumes::before{
+        color: #FF920D;
+        content: "Légumes";
+        
+    }
+
+
     .phone_fruits{
-    height: 80px;
-    width: 160px;
+    height: 38px;
+    width: 120px;
     text-decoration: 'hamza';
-    margin-right: 5px;
-    border-radius: 5px;
-    background-image: url('../img/fruits.jpeg');
+    
+    border-radius: 20px;
+border: solid #FF920D;
     background-size: contain;
     }
     }
@@ -104,4 +117,15 @@ border: solid 1px #FF920D;
 
 
 
- 
+    @media screen and (max-width: 360px) {
+        .collona{
+            columns: 2;
+        }
+    }
+
+    
+    @media screen and (max-width: 375px)  {
+        .collona{
+            columns: 2;
+        }
+    }
