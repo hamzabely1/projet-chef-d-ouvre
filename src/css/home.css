@@ -101,6 +101,12 @@ border: solid 1px #FF920D;
         content: "Légumes";
         
     }
+    .collona{
+        columns: 1;
+    }
+    .category{
+        display: none;
+    }
 
 
     .phone_fruits{
@@ -120,6 +126,9 @@ border: solid #FF920D;
     @media screen and (max-width: 360px) {
         .collona{
             columns: 2;
+        }
+        .cards{
+            margin: 2px;
         }
     }
 

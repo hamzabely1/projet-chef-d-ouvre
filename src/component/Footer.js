@@ -10,7 +10,7 @@ const Footer = () => {
 <div className="card">
 
  
-<footer class="footer-distributed">
+<footer class="footer-distributed bg-dark text-light">
 
 <div class="footer-left">
     <img src="img/logo.png"/>

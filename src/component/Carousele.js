@@ -6,7 +6,7 @@ const Carousele = () => {
   return (
     <div>
 
-<div className=' border border-succesy  rounded-2 bg-succesy'>
+<div className='rounded-2 bg-succesy'>
       <Carousel>
         <Carousel.Item>
           <div className="row justify-content-around ">
@@ -14,13 +14,9 @@ const Carousele = () => {
     <div className="col-4">
      
  <p className='fs-1'>Abricots France</p>
-      <div className='d-flex mt-5'>
-     <img className='w-50 img-fluid mr-3 ml-20 ' src={promo}></img>
-<div>
-    <p className='fs-4  '>1,70 $</p>
-<button className='btn btn-dark '>achet</button>
-</div>
-      </div>
+     
+<button className='btn btn-dark'>achet</button>
+    
     </div>
     <div className="col-4">
     <img

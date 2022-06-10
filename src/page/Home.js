@@ -34,7 +34,7 @@ const Home = () => {
 <br></br>
 
 
-<div className='d-flex justify-content-center'>
+<div className='d-flex justify-content-around'>
 <a href='/fruits'>
  <div className='phone_fruits'></div> 
 </a>
