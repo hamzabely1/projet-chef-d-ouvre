@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\article;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Usercontroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('article',[ArticleController::class,'index']);
+Route::post('add_user',[Usercontroller::class,'store']);

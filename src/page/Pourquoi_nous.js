@@ -1,6 +1,5 @@
 import React from 'react'
-import camion from '../img/camion.png'
-import panier from '../img/panier.png'
+
 
 
 
@@ -12,31 +11,23 @@ const Pourquoi_nous = () => {
   return (
     <div>
 
+<p className='fs-2 mt-2 mb-2 border-bottom  border-warning w-100 d-flex justify-content-center'>Pourquoi nous choisir</p>
 
+<div className="clearfix">
+  <img className='img-fluid ' src='https://scontent.flyn1-1.fna.fbcdn.net/v/t39.30808-6/271653610_641926630490924_2192467740122210177_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=KSYUc6oQG5EAX9mQlwL&_nc_ht=scontent.flyn1-1.fna&oh=00_AT9pfd2-j_bLE_fu855-qUmgJJKypPeIqO7MlqLUHfWjiA&oe=62A9EC49' class="col-md-6 float-md-end mb-3 ms-md-3" alt="..."/>
+<p className='fs-3'>Taz en marche</p>
+  <p>
+    A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.
+  </p>
 
-<div className="container border border-succesy">
-  <div className="row">
-    <div className="col">
-    <h2 className='fs-4'>100% Bio</h2>
-    <p>Il est recommandé de manger au moins 5 fruits et légumes par jour. Ce conseil intégré par tous peut être dur à suivre quotidiennement. Voici quelques pistes pour consommer facilement au moins 5 fruits ou légumes par jour.</p>
-    <br></br>
-    <h1 className='fs-4'>Toujours frais</h1>
-     <p>Le brocoli est un légume crucifère de la famille des choux. Il n'est pas toujours très apprécié... Et pourtant, bien cuisiné, il peut se révéler extrêmement goûteux et surtout plein de bienfaits pour le corps et la santé !</p>
-    </div>
-    <div className="col">
-     <img src={panier}></img>
-    </div>
-    <div className="col">
-     <h1 className='fs-4'>Famille en bonne santé</h1>
-     <p>Le brocoli est un légume crucifère de la famille des choux. Il n'est pas toujours très apprécié... Et pourtant, bien cuisiné, il peut se révéler extrêmement goûteux et surtout plein de bienfaits pour le corps et la santé !</p>
-<br></br>
-     <h1 className='fs-4'>Toujours frais</h1>
-     <p>Le brocoli est un légume crucifère de la famille des choux. Il n'est pas toujours très apprécié... Et pourtant, bien cuisiné, il peut se révéler extrêmement goûteux et surtout plein de bienfaits pour le corps et la santé !</p>
+  <p>
+    As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
+  </p>
 
-    </div>
-  </div>
+  <p>
+    And yet, here you are, still persevering in reading this placeholder text, hoping for some more insights, or some hidden easter egg of content. A joke, perhaps. Unfortunately, there's none of that here.
+  </p>
 </div>
-
     </div>
   )
 }

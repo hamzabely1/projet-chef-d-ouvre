@@ -1,5 +1,4 @@
 import React from 'react'
-import Heder from '../component/Heder'
 
 
 import homecss from '../css/home.css'
@@ -9,6 +8,7 @@ import fruits from '../img/fruits.jpeg'
 import Carousele from '../component/Carousele'
 import Produits from './Produits'
 import Pourquoi_nous from './Pourquoi_nous'
+import Equipe from './Equipe'
 
 const orange = {
   color:'#FF920D'
@@ -30,8 +30,8 @@ const Home = () => {
 
 
 
-<h2 className='fs-2'>Categori</h2>
 <br></br>
+
 
 
 <div className='d-flex justify-content-around'>
@@ -48,12 +48,13 @@ const Home = () => {
 
 
 <div class="row">
-    <div class="category col-3 m-3 ">
+    <div class="category col-3 mt-5 ">
+      
       <div className=''>
         <a href='/fruits'>
-     <img className='fruits  img-fluid mr-2' src={fruits}></img>
+     <img className='fruits rounded  img-fluid ' src={fruits}></img>
 </a> 
-     <img className='legumes  mt-1 umg-fluid ' src={legumes}></img>
+     <img className='legumes rounded mt-2  umg-fluid ' src={legumes}></img>
      </div>
     </div>
     <div class="col collona">
@@ -61,18 +62,12 @@ const Home = () => {
     </div>
   </div>
 
-
-  
-
-
-
-
-
-
 </div>
+
 <br></br>
 <Pourquoi_nous/>
 <br></br>
+<Equipe/>
 </div>
 
 <Footer/>

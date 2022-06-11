@@ -25,7 +25,7 @@ dispatch(fetchartilces())
   return (
     <div>
 
-
+<p className='fs-1 border-bottom border-warning'>En evidents</p>
   <div className='container'>
              <div className='row d-flex justify-center'>
 

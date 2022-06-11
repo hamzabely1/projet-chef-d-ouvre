@@ -1,6 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchregister } from '../app/RegisterSlice';
+import { adduser } from '../app/RegisterSlice';
 
 const Register = () => {
+
+  let dispatch = useDispatch()
+
+
+
+  
+
+
+
+  useEffect=(()=>{
+
+    dispatch(fetchregister())
+  },[])
+
+
+
+
+
+
+
+
+
+
     const flex={
         display:'flex',
         justifyContent :'center'
@@ -23,7 +49,7 @@ const Register = () => {
 
 
 <label>Nom</label>
-<input name='name'   className="form-control input-sm" type="text" placeholder="NOM" aria-label="Repository description" />
+<input name='name'  onChange={(e)=>set}  className="form-control input-sm" type="text" placeholder="NOM" aria-label="Repository description" />
 <br></br>
 <label>Prénom</label>
 

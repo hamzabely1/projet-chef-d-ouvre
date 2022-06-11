@@ -4,39 +4,38 @@ import { Link } from 'react-router-dom'
 
 const Heder = () => {
 
-    const orange = {
-      color:'#FF920D'
-    }
+ 
   return (
   <div>
-<nav class="navbar navbar-expand-lg bg-dark text-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="home">Taz fruits🍒</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+
+<nav className="navbar navbar-expand-lg text-info">
+  <div className="container-fluid">
+    <a className="orange navbar-brand fs-3 fw-semibold"  href="home">Taz fruits🍒</a>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+    <div  className="fw-semibold collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/home">Home</a>
         </li>
   
-        <li class="nav-item dropdown">
-          <a class="nav-link active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            A propo
+        <li className="fw-semibold nav-item dropdown">
+          <a className="nav-link active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Equipe
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active">Category</a>
+        <li className="fw-semibold nav-item">
+          <a className="nav-link active">Category</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+      <form className="d-flex" role="search">
        
-<a  href='/login' className="mr-2">Login</a>
+<a  href='/login' className="mr-2 text-black">Login</a>
        
 
       
-        <a href='/register'  class="" >Register</a>
+        <a href='/register'  className="text-black" >Register</a>
       </form>
     </div>
   </div>
