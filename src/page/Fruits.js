@@ -1,18 +1,19 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { fetchartilces } from '../app/ArticlesSlice'
+import { useState } from 'react'
+import axios from 'axios'
 const Fruits = () => {
 
+  const [articles,setartciles] = useState()
 
-let dispatch = useDispatch()
-
-const articles = useSelector(state=> state.articles.list)
-
-useEffect(()=>{
-dispatch(fetchartilces())
-},[dispatch])
+  useEffect=(()=> {
+      axios.get('http://127.0.0.1:8000/api/articles')
+        .then(res => {
+          const articles = res.data;
+         setartciles({ articles});
+        })
+    },[])
+  
 
 
   return (

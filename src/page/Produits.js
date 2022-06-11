@@ -1,26 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { fetchartilces } from '../app/ArticlesSlice'
-
+import axios from 'axios'
+import { articles } from '../store/artilces'
 const Produits = () => {
 
-    let dispatch = useDispatch()
 
-const qui ={
-    
-    color:' white'
-}
-const qua = {
-   height:' 100%', 
-}
-    const articles = useSelector(state=>state.articles.list)
+  /*Mon api avec lance fetch qui recuper la table de mes articles*/
+  const  [articles,setArticles]= useState([])
 
-    useEffect(()=>{
-dispatch(fetchartilces())
-    },[dispatch])
-
+  useEffect(() => {
+    const apiUrl = 'http://127.0.0.1:8000/api/articles';
+    axios.get(apiUrl).then((resp) => {
+      const all = resp.data;
+      setArticles(all);
+    });
+  }, [setArticles]);
+   
 
   return (
     <div>
