@@ -25,8 +25,23 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(request $request)
     {
+
+
+        $artciles = new article();
+        $artciles->nom = $request->input('nom');
+        $artciles->image = $request->file('image')->store('articles');
+        $artciles->prix = $request->input('prix');
+        $artciles->type = $request->input('type');
+        $artciles->note = $request->input('note');
+        $artciles->description = $request->input('description');
+        $artciles->origines = $request->input('origines');
+
+
+        $artciles->save();
+        return $artciles;
+
 
     }
 
@@ -36,9 +51,9 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        return article::find($id);
     }
 
     /**

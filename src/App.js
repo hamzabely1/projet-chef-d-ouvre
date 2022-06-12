@@ -5,7 +5,8 @@ import Fruits from './page/Fruits';
 import Heder from './component/Heder';
 import Register from './connexion/Register';
 import Login from './connexion/Login';
-
+import Articles from './page/Articles';
+import Admin from './page/Admin';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
 <Route path='register' element={<Register/>}/>
 
 <Route path='login' element={<Login/>}/>
+<Route path='articles' element={<Articles/>}/>
+<Route path='admin' element={<Admin/>}/>
 
 </Routes>
 

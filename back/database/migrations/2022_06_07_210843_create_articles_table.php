@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('image');
             $table->string('prix');
             $table->string('description');
-            $table->string('vote');
+            $table->string('note')->nullable(0);
+            $table->string('origines');
             $table->timestamps();
         });
     }

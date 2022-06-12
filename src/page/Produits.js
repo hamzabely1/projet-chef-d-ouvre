@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
-import { articles } from '../store/artilces'
+import { Link } from 'react-router-dom'
 const Produits = () => {
 
 
@@ -23,6 +23,9 @@ const Produits = () => {
 <p className='fs-1 border-bottom border-warning'>En evidents</p>
   <div className='container'>
              <div className='row d-flex justify-center'>
+           
+
+             
 
 {
     articles.map(article =>{
@@ -42,8 +45,15 @@ const Produits = () => {
 </svg>
 
 </div>
-<p className='mt-1'>{article.prix}</p>     
+<p className='mt-1'>{article.prix}</p>   
+<a href='{article.id}'>
 
+<button className='btn btn-dark'>d</button>
+
+
+</a>
+
+ 
 </div>
 
    
