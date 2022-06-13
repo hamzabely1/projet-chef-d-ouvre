@@ -14,7 +14,7 @@ const Carousele = () => {
         <div className="row justify-content-around">
     <div className="col-4">
     <p className='fs-1 fw-semibold'>Abrico</p>
-     <p className='fw-semibold mb-2 mt-2'>7.96 € / KG</p>
+     <p className='mb-2 mt-2'>7.96 € / KG</p>
     <button className='btn btn-dark mt-2'>shop</button>
     </div>
    
@@ -32,7 +32,7 @@ const Carousele = () => {
         <div className="row justify-content-around">
     <div className="col-4">
     <p className='fs-1 fw-semibold'>Tomate</p>
-     <p className='fw-semibold mb-2 mt-2'>7.96 € / KG</p>
+     <p className='mb-2 mt-2'>7.96 € / KG</p>
     <button className='btn btn-dark mt-2'>shop</button>
     </div>
    
@@ -50,7 +50,7 @@ const Carousele = () => {
         <div className="row justify-content-around">
     <div className="col-4">
     <p className='fs-1 fw-semibold'>Mirtil</p>
-     <p className='fw-semibold mb-2 mt-2'>7.96 € / KG</p>
+     <p className='mb-2 mt-2'>7.96 € / KG</p>
     <button className='btn btn-dark mt-2'>shop</button>
     </div>
    

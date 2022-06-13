@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -15,8 +16,7 @@ class ArticleController extends Controller
     public function index()
     {
          $article = article::all();
-        return
-        response()->json($article);
+        return response()->json($article);
 
        }
 
@@ -30,8 +30,11 @@ class ArticleController extends Controller
 
 
         $artciles = new article();
+        $file_name = Str::random(50).'.'.$request->image->GetClientOriginalExtension();
+
+        $request->image->move('articles/',$file_name);
         $artciles->nom = $request->input('nom');
-        $artciles->image = $request->file('image')->store('articles');
+        $artciles->image = 'articles/'.$file_name;
         $artciles->prix = $request->input('prix');
         $artciles->type = $request->input('type');
         $artciles->note = $request->input('note');
@@ -53,8 +56,6 @@ class ArticleController extends Controller
      */
     public function store($id)
     {
-       $articles = article::find($id);
-        return response()->json($articles);
     }
 
     /**
@@ -63,9 +64,11 @@ class ArticleController extends Controller
      * @param  \App\Models\article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(article $article)
+    public function show($id)
     {
-        //
+
+       $articles = article::find($id);
+       return response()->json($articles);
     }
 
     /**
