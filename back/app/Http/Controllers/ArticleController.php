@@ -31,7 +31,6 @@ class ArticleController extends Controller
 
         $artciles = new article();
         $file_name = Str::random(50).'.'.$request->image->GetClientOriginalExtension();
-
         $request->image->move('articles/',$file_name);
         $artciles->nom = $request->input('nom');
         $artciles->image = 'articles/'.$file_name;

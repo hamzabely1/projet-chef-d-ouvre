@@ -34,17 +34,10 @@ formArticles.append('origines',origines);
 formArticles.append('image',image);
 formArticles.append('note',note);
 
-console.warn(nom);
 let result = await fetch('http://127.0.0.1:8000/api/add_articles',{
   method:'POST',
   body:formArticles
-})
-    
-
-   
-   
-console.log('capo');
-}
+})}
 
 
 

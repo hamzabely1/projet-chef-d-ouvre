@@ -1,47 +1,40 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-
 
 import css from '../css/register.css'
 const Register = () => {
 
 
 
-  const[errors,setErrors] = useState('');
-
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    password:""
-  });
-
-  const {name, email,password} = user;
-  const onInputChange = e => {
-    setUser({...user, [e.target.name]: e.target.value });
-  };
-
-
-
+const [nom,setNom]= useState('')
+const [email,setEmail]= useState('')
+const [password,setPassword]= useState('')
 
   
-const envoi =() =>{
 
- 
-  if(name == ''){
+
+
+
+async function envoi (){
+  const formUser= new FormData();
+  formUser.append('nom',nom);
+  formUser.append('email',email);
+  formUser.append('password',password);
+
+  if(nom == ''){
 alert('choisissez un nom')
   }else if(email == ''){
 alert('choisissez un email')
   }else if(password == ""){
     alert('choisissez un password')
 
-  }else if(name != '' && email != '' && password != ''){
+  }else if(nom != '' && email != '' && password != ''){
+    let result = await fetch('http://127.0.0.1:8000/api/add_user',{
+      method:'POST',
+      body:formUser
+  
 
- 
- axios.post("http://127.0.0.1:8000/api/add_user",user);
- setErrors('Registration Successful')
-
- setUser({name:"",email:"",password:""})
+    })
+  
  }
 
   }
@@ -69,7 +62,7 @@ alert('choisissez un email')
 
 
 <label>Nom</label>
-<input value={name} name='name'  onChange={e => onInputChange(e)}   className="form-control input-sm" type="text" placeholder="NOM" aria-label="Repository description" />
+<input  name='nom'   onChange={(e)=>setNom(e.target.value)}  className="form-control input-sm" type="text" placeholder="NOM" aria-label="Repository description" />
 <br></br>
 <label>Prénom</label>
 
@@ -78,36 +71,17 @@ alert('choisissez un email')
 <br></br>
 <label>Votre Email</label>
 
-<input value={email} name='email'  onChange={e => onInputChange(e)}   className="form-control input-sm" type="text" placeholder="Email" aria-label="Repository description" />
+<input name='email'  onChange={(e)=>setEmail(e.target.value)}   className="form-control input-sm" type="text" placeholder="Email" aria-label="Repository description" />
 <br></br>
 <label>Créé votre mots de passe</label>
 
-<input value={password} name='password'  onChange={e => onInputChange(e)}   className="form-control input-sm" type="text" placeholder="Mots de passe" aria-label="Repository description" />
+<input  name='password'   onChange={(e)=>setPassword(e.target.value)}   className="form-control input-sm" type="text" placeholder="Mots de passe" aria-label="Repository description" />
 <br></br>
 
-
-
-
 <button  onClick={envoi}  className="btn btn-dark" type="button">S'inscrire</button>
-
 </form>
 
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
 
     </div>
   )
