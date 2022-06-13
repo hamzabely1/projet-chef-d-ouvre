@@ -9,7 +9,8 @@ const Articles = () => {
 
 
 useEffect(() => {
-  const apiUrl = `http://127.0.0.1:8000/api/articles/{id}`;
+  const id = this.props.match.params.id
+  const apiUrl = `http://127.0.0.1:8000/api/articles/${id}`;
   axios.get(apiUrl).then((resp) => {
     const all = resp.data;
     setArticles(all);

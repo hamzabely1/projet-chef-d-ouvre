@@ -53,7 +53,8 @@ class ArticleController extends Controller
      */
     public function store($id)
     {
-        return article::find($id);
+       $articles = article::find($id);
+        return response()->json($articles);
     }
 
     /**

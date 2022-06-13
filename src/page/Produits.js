@@ -46,7 +46,7 @@ const Produits = () => {
 
 </div>
 <p className='mt-1'>{article.prix}</p>   
-<a href='{article.id}'>
+<a href='articles'>
 
 <button className='btn btn-dark'>d</button>
 
