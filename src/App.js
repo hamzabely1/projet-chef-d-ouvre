@@ -8,6 +8,8 @@ import Login from './connexion/Login';
 import Articles from './page/Articles';
 import Admin from './page/Admin';
 
+import Legumes from './page/Legumes';
+
 function App() {
   return (
     <div className="App">
@@ -24,6 +26,7 @@ function App() {
 <Route path='home' element={<Home/>}/>
 <Route path='fruits' element={<Fruits/>}/>
 <Route path='register' element={<Register/>}/>
+<Route path='legumes' element={<Legumes/>}/>
 
 <Route path='login' element={<Login/>}/>
 <Route path='home/articles/:id' element={<Articles/>}/>

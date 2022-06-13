@@ -2,43 +2,53 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import categories_fruits from '../img/categories_fruits.jpg'
+
+
+
 const Fruits = () => {
 
-  const [articles,setartciles] = useState()
+  const  [articles,setArticles]= useState([])
 
-  useEffect=(()=> {
-      axios.get('http://127.0.0.1:8000/api/articles')
-        .then(res => {
-          const articles = res.data;
-         setartciles({ articles});
-        })
-    },[])
-  
+  useEffect(() => {
+    const apiUrl = 'http://127.0.0.1:8000/api/articles';
+    axios.get(apiUrl).then((resp) => {
+      const all = resp.data;
+      setArticles(all);
+    });
+  }, [setArticles]);
+
+
+
+
+
+
+
+
 
 
   return (
     <div>
 
 
-
 <div className='container-xl'>
-<img className='img-fluid' src='https://static.visiondirect.info/media/wysiwyg/Blog/summer-fruits-and-vegetables.jpg'></img>
+<img className='img_fluid' src={categories_fruits}></img>
 
 <h1 className='fs-3'>Notre Fruit</h1>
 </div>
-
-
-
-
-<div className='container'>
+<div className='container-sm'>
              <div className='row d-flex justify-center'>
 
-{
-    articles.map(article =>{
-        return(
-          
-               <div className='card cards col-md-3 d-flex flex-column'>
-            <img src={article.image} className='w-100 mt-1'></img>
+             {
+
+ articles.filter(articless => 
+articless.type === "fruits").map(article=>(
+     
+            <Link className='card cards col-md-3 d-flex flex-column' state={{article:article}} to={`articles/${article.id}`}>
+
+               
+            <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className='w-100 mt-1'></img>
                <p className='mt-1'>{article.nom}</p>  
                <div className='d-flex mt-1 '>
                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
@@ -51,13 +61,11 @@ const Fruits = () => {
 </svg>
 
 </div>
-<p className='mt-1'>{article.prix}</p>     
+<p className='mt-1'>{article.prix}</p>   
 
-</div>
-
-   
-     )
-    })
+ </Link> 
+     
+))
 }
 
 </div>

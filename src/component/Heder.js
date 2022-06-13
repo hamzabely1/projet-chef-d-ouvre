@@ -25,8 +25,16 @@ const Heder = () => {
            Equipe
           </a>
         </li>
-        <li className="nav-item">
-          <a className="nav-link active">Category</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Catégories
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="fruits">Fruits🍎</a></li>
+            <hr></hr>
+            <li><a class="dropdown-item" href="legumes">Legumes🍋</a></li>
+            
+          </ul>
         </li>
       </ul>
       <form className="d-flex" role="search">
