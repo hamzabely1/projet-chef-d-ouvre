@@ -7,7 +7,7 @@ const Carousele = () => {
   return (
     <div>
 
-<div className='background_orange rounded  border-warning  p-3  bg-opacity-10 border-start-0 border-end-0  '>
+<div className='background_orange r  border-warning  p-3  bg-opacity-10 border-start-0 border-end-0  '>
       <Carousel>
     
         <Carousel.Item>
@@ -18,7 +18,7 @@ const Carousele = () => {
     <button className='btn btn-dark mt-2'>shop</button>
     </div>
    
-    <div className="col-2  w-25 img-fluid">
+    <div className="col-2  w-80 img-fluid">
     <img
             className="d-block w-100 img-fluid justify-content-end"
             src={slider_abrico}
@@ -36,7 +36,7 @@ const Carousele = () => {
     <button className='btn btn-dark mt-2'>shop</button>
     </div>
    
-    <div className="col-2 w-25 img-fluid ">
+    <div className="col-2 w-80 img-fluid ">
     <img
             className=" w-100 img-fluid justify-content-end"
             src={slider_tomate}
@@ -54,7 +54,7 @@ const Carousele = () => {
     <button className='btn btn-dark mt-2'>shop</button>
     </div>
    
-    <div className="col-2  w-25 img-fluid">
+    <div className="col-2  w-80 img-fluid">
     <img
             className="d-block w-100 img-fluid justify-content-end"
             src={slider_mirtil}

@@ -197,9 +197,9 @@ border: solid #FF920D;
 
 @media screen and (max-width: 768px) {
   .cards {
-    height: 180px;
-    width: 120px;
-    margin: 10px;
+    height: 250px;
+    width: 180px;
+    margin-top: 10mm;
     }
     
 }

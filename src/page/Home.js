@@ -44,23 +44,48 @@ const Home = () => {
 </a>
 </div>
 
-<div className='d-flex'>
+<div>
+
+<div>
+
+<div className='d-flex justify-content-center'>
 
 
 <div class="row">
-    <div class="category col-3 mt-5 ">
-      
-      <div className=''>
-        <a href='/fruits'>
-     <img className='fruits rounded  img-fluid ' src={fruits}></img>
-</a> 
-     <img className='legumes rounded mt-2  umg-fluid ' src={legumes}></img>
-     </div>
+  <div class="col-sm-6">
+    <div class="card w-100">
+      <div class="card-body">
+        <h5 class="card-title">Fruits🍎</h5>
+
+        <div className='d-flex'>
+                  <p class="card-text">Le fruit favorise la reproduction de l'espèce, en protégeant la ou les graines et en favorisant leur dissémination.</p>
+                  <img className='w-25 img-fluid' src='https://www.orticaweb.it/wp-content/uploads/2018/04/fragole.jpg'></img>
+
+        </div>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
     </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Legumes🍋</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+
     <div class="col collona">
       <Produits/>
     </div>
-  </div>
+
 
 </div>
 
