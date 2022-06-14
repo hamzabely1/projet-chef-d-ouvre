@@ -36,6 +36,7 @@ class ArticleController extends Controller
         $artciles->image = 'articles/'.$file_name;
         $artciles->prix = $request->input('prix');
         $artciles->type = $request->input('type');
+    
         $artciles->note = $request->input('note');
         $artciles->description = $request->input('description');
         $artciles->origines = $request->input('origines');

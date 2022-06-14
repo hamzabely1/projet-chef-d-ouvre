@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import axios from 'axios';
 import css from '../css/register.css'
 const Register = () => {
 
@@ -15,12 +15,8 @@ const [password,setPassword]= useState('')
 
 
 async function envoi (){
-  const formUser= new FormData();
-  formUser.append('nom',nom);
-  formUser.append('email',email);
-  formUser.append('password',password);
-
-  if(nom == ''){
+ 
+  if(nom ==''){
 alert('choisissez un nom')
   }else if(email == ''){
 alert('choisissez un email')
@@ -28,16 +24,13 @@ alert('choisissez un email')
     alert('choisissez un password')
 
   }else if(nom != '' && email != '' && password != ''){
-    let result = await fetch('http://127.0.0.1:8000/api/add_user',{
-      method:'POST',
-      body:formUser
-  
+    await axios.post('http://127.0.0.1:8000/api/add_user',{
+      name: nom,
+      email: email,
+      password: password
+    }).then(res =>console.log(res))
+ }}
 
-    })
-  
- }
-
-  }
 /*mon css avec React*/
 
     const flex={

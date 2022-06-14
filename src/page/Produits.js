@@ -29,14 +29,10 @@ const Produits = () => {
 <p className='fs-1 border-bottom border-warning'>En evidents</p>
   <div className='container'>
              <div className='row d-flex justify-center'>
-           
-
-             
-
 {
     articles.map(article =>{
         return(
-            <Link style={hover} className='card cards col-md-3 d-flex flex-column' state={{article:article}} to={`articles/${article.id}`}>
+            <Link style={hover} className='cards col-md-3 d-flex flex-column' state={{article:article}} to={`/articles/${article.id}`}>
 
                
             <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className='w-100 mt-1'></img>

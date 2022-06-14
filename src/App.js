@@ -29,7 +29,7 @@ function App() {
 <Route path='legumes' element={<Legumes/>}/>
 
 <Route path='login' element={<Login/>}/>
-<Route path='home/articles/:id' element={<Articles/>}/>
+<Route path='articles/:id' element={<Articles/>}/>
 <Route path='admin' element={<Admin/>}/>
 
 </Routes>

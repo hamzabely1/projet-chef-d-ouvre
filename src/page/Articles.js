@@ -3,82 +3,83 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import Produits from './Produits'
 const Articles = () => {
 
-let location = useLocation();
+  let location = useLocation();
 
-const {article} = location.state
- 
+  const { article } = location.state
+
 
 
 
   return (
-
-
+    
     <div>
+      <hr></hr>
+      <div class="container-sm ">
+       
+          <div class="container-fliud ">
+            <div class=" mb-3">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} class="img-fluid rounded-start w-100" alt="..." />
 
-<p>{article.id}</p>
-<p>{article.nom}</p>
+
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+
+
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item fs-2">{article.nom}</li>
+                      <li class="list-group-item">{article.prix}€/ KG</li>
+                      <li class="list-group-item">Quantite:
+                        <input type='number' min='0' max='10' className='borber border-dark'></input>kg
 
 
 
-<div class="container">
-		<div class="card">
-			<div class="container-fliud">
-				<div class="wrapper row">
-					<div class="preview col-md-6">
-						
-						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
-						</div>
-						<ul class="preview-thumbnail nav nav-tabs">
-						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						</ul>
-						
-					</div>
-					<div class="details col-md-6">
-						<h3 class="product-title">men's shoes fashion</h3>
-						<div class="rating">
-							<div class="stars">
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star checked"></span>
-								<span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<span class="review-no">41 reviews</span>
-						</div>
-						<p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-						<h4 class="price">current price: <span>$180</span></h4>
-						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-						<h5 class="sizes">sizes:
-							<span class="size" data-toggle="tooltip" title="small">s</span>
-							<span class="size" data-toggle="tooltip" title="medium">m</span>
-							<span class="size" data-toggle="tooltip" title="large">l</span>
-							<span class="size" data-toggle="tooltip" title="xtra large">xl</span>
-						</h5>
-						<h5 class="colors">colors:
-							<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
-							<span class="color green"></span>
-							<span class="color blue"></span>
-						</h5>
-						<div class="action">
-							<button class="add-to-cart btn btn-default" type="button">add to cart</button>
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                      </li>
+                      <li class="list-group-item"><p>type: {article.type}</p></li>
+                    </ul>
+
+                    <li class="list-group-item"><p>origins: {article.origines}</p></li>
+
+                    <button className='btn btn-dark mt-2'>Ajoute au panier</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+
+          <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+       Description
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        {article.description}
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <p className='fs-1 border-bottom border-warning'>En plus</p>
+<Produits/>
+    </div>
+        </div>
+    
 
 
 

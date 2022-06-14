@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('articles',[ArticleController::class,'index']);
 Route::post('add_user',[Usercontroller::class,'store']);
+Route::get('users',[Usercontroller::class,'index']);
 
 
 Route::post('add_articles',[ArticleController::class,'create']);

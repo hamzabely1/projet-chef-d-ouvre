@@ -17,7 +17,10 @@ class Usercontroller extends Controller
      */
     public function index()
     {
-        //
+    $user = User::all();
+response()->json($user);
+
+return $user;
     }
 
     /**
@@ -38,13 +41,15 @@ class Usercontroller extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user->name = $request->input('nom');
-        $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
 
-    $user->save();
-    return $user;
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return response()->json([
+            "user" => $request->all()
+        ]);
 }
 
 

@@ -43,22 +43,22 @@ margin: 15px;
 
 
   
-/* mes category fruitsd et légumes sur le pc*/
+/* mes category fruitsd et légumes */
+.card_category{
+  height: 50px;
+  width: 150px;
+  border-radius: 5px;
+border: 1px solid #FF920D;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 10px;
+}
 
- .img-display-legumes{
-     background-image: url('https://img-3.journaldesfemmes.fr/HwUgYMFAXpGcR9A7Xrw4oF67Mf4=/1500x/smart/409e102e633d42759746f73e286431a3/ccmcms-jdf/11057068.jpg');
-     height: 200px;
-     width: 400px;
-     border-radius: 5px;
- }
- .img-display-fruits{
-    background-image: url('https://fac.img.pmdstatic.net/fit/https.3A.2F.2Fi.2Epmdstatic.2Enet.2Ffac.2F2021.2F02.2F01.2F5dd61eb2-1ed2-46c2-b1ec-d0b2b279c9fe.2Ejpeg/1200x900/quality/80/crop-from/center/regime-cetogene-ou-low-carb-15-fruits-pauvres-en-glucides-a-privilegier.jpeg');
-    height: 200px;
-    width: 400px;
-    border-radius: 5px;
- }
 
- 
+.card_category:hover{
+  
+}
   
 
     /*css de footer*/
@@ -151,48 +151,11 @@ margin: 15px;
 
 
 @media screen and (max-width: 500px) {
-    .category {
-    
-     height: 0px;
-     width: 0px;
-      }
 
-     .phone_legumes{
-        height: 38px;
-        width: 120px;
-        border: solid #FF920D;
-
-        border-radius: 20px;
-        background-size: contain;
-
-    }
-    .phone_fruits::before{
-        color: #FF920D;
-        content: "Fruits ";
-        
-    }
-    .phone_legumes::before{
-        color: #FF920D;
-        content: "Légumes";
-        
-    }
     .collona{
         columns: 1;
     }
-    .category{
-        display: none;
-    }
 
-
-    .phone_fruits{
-    height: 38px;
-    width: 120px;
-    text-decoration: 'hamza';
-    
-    border-radius: 20px;
-border: solid #FF920D;
-    background-size: contain;
-    }
     }
 
 @media screen and (max-width: 768px) {
@@ -200,6 +163,9 @@ border: solid #FF920D;
     height: 250px;
     width: 180px;
     margin-top: 10mm;
+    }
+    .card_category{
+      width: 120px;
     }
     
 }
