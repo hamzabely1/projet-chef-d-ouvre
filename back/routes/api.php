@@ -22,9 +22,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('articles',[ArticleController::class,'index']);
-Route::post('add_user',[Usercontroller::class,'store']);
-Route::get('users',[Usercontroller::class,'index']);
+Route::post('register',[Usercontroller::class,'create']);
+Route::post('login',[Usercontroller::class,'login']);
+
+
+Route::middleware(['auth:sanctum'])->group( function () {
+    Route::post('logout',[Usercontroller::class,'logout']);
+
+});
+
 
 
 Route::post('add_articles',[ArticleController::class,'create']);
-Route::get('articles/{id}',[ArticleController::class,'store']);

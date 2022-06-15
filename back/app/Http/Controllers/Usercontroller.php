@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Pipeline\Hub;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use PhpParser\Parser\Tokens;
 use Symfony\Component\Console\Input\Input;
 
 class Usercontroller extends Controller
@@ -28,18 +32,7 @@ return $user;
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function create(request $request )
     {
 
         $user = new User();
@@ -50,6 +43,41 @@ return $user;
         return response()->json([
             "user" => $request->all()
         ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function login(Request $request)
+    {
+       $validator = Validator::make($request->all(), [
+'email'=>'required|max:191',
+'password'=>'required',
+       ]);
+       if ($validator->fails()) {
+    return response()->json([
+    ]);
+       }else{
+   $user = User::where('email',$request->email)->first();
+if(! $user || ! Hash::check($request->password,$user->password)){
+return response()->json([
+'status'=>401,
+'message'=>"informations d'identification incorrectes",
+]);
+}else{
+   $token = $user->createToken($user->email.'_Token')->plainTextToken;
+    return response()->json([
+    'status'=>200,
+    'token'=>$token,
+    'username'=>$user->name,
+    'role'=>$user->role,
+    'message'=>"succes",
+    ]);
+}
+    }
 }
 
 
@@ -60,9 +88,22 @@ return $user;
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function logout()
     {
-        //
+
+
+auth()->user()->tokens->each(function($token,$key){
+    $token->delete();
+});
+ response()->json([
+
+    'status'=>200,
+    'message'=>'déconnexion réussie',
+
+]);
+
+
+
     }
 
     /**

@@ -45,9 +45,11 @@ const Home = () => {
 
 <div >
 <div class="conatiner d-flex justify-content-center  ">
-  <Link to='/fruits'><div className='card_category'>Fruits🍎</div>          </Link>
-
+  <Link to='/fruits' className='noHover'><div className='card_category'>Fruits🍎</div>          </Link>
+<Link className='noHover'  to='/legumes'>
 <div className='card_category'>Légumes🍋</div>
+
+</Link>
 
 
 </div>

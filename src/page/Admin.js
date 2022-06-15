@@ -50,27 +50,48 @@ let result = await fetch('http://127.0.0.1:8000/api/add_articles',{
 
 
 
-
+const flex={
+  display:'flex',
+  justifyContent :'center'
+   };
+   const form={
+     height:'300px',
+     width:'300px',
+      };
 
 
   return (
-    <div>
+    <div style={flex}>
 
 
 
-<div className='container-sm'>
+  <div style={form}>
   <label>nom</label>
 <input name='nom' onChange={(e)=>setNom(e.target.value)} className="form-control" type="text" placeholder="Default input" />
+<label>prix</label>
 <input name='prix' onChange={(e)=>setPrix(e.target.value)}  className="form-control" type="text" placeholder="Default input" aria-label="default input example"/>
+<label>description</label>
+
 <input name='description' onChange={(e)=>setDesciption(e.target.value)}  className="form-control" type="text" placeholder="Default input" aria-label="default input example"/>
+<label>origins</label>
+
 <input name='origines' onChange={(e)=>setOrigines(e.target.value)}  className="form-control" type="text" placeholder="Default input" aria-label="default input example"/>
+<label>note</label>
+
 <input name='note' onChange={(e)=>setNote(e.target.value)}  className="form-control" type="text" placeholder="Default input" aria-label="default input example"/>
+<label>type</label>
+
 <input name='type' onChange={(e)=>setType(e.target.value)} className="form-control" type="text" placeholder="Default input" aria-label="default input example"/>
+<label>image</label>
+
 <input name='image' onChange={(e)=> setImage(e.target.files[0])}  className="form-control" type="file" placeholder="Default input" aria-label="default input example"/>
+
 
 <input class="form-check-input" type="checkbox" onChange={(e)=>setCheck(e.target.value)} value="" id="flexCheckDefault"></input>
 <input type='submit' onClick={enregistrer}   className='btn btn-drak' ></input>
 </div>
+
+
 
 
 

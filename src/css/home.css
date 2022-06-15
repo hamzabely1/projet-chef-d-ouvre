@@ -55,11 +55,10 @@ justify-content: center;
 margin: 10px;
 }
 
+.noHover:hover
+{ color:inherit; }
 
-.card_category:hover{
-  
-}
-  
+
 
     /*css de footer*/
 
