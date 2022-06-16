@@ -32,7 +32,7 @@ function App() {
 <Route path="login" element={localStorage.getItem('role') ?<Home/> :<Login/>}/>
 <Route path="register" element={localStorage.getItem('role') ?<Home/> :<Register/>}/>
 
-<Route path="admin" element={localStorage.getItem('role') === '1' ?<Home/> :<Admin/>}/>
+<Route path="admin" element={role === '1' ?<Home/> :<Admin/>}/>
 
 <Route path='articles/:id' element={<Articles/>}/>
 

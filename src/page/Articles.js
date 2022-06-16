@@ -17,28 +17,33 @@ const Articles = () => {
 
 
 
-  var button_achet = ''
 
+
+
+
+/*condition pour le role = if le role et undefined il peut pas achete else il est connect avec le role user il peut ajoute au panier*/
+
+  var button_achet = ''
   if (role == undefined) {
     button_achet = (
 <il>
-<button  class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button  className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
 Ajouter au panier
 </button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body text-danger">
+      <div className="modal-body text-danger">
        Pour Ajoute au panier connect-vous
       </div>
-      <div class="modal-footer">
-        <button  class="btn btn-light" data-bs-dismiss="modal">Close</button>
+      <div className="modal-footer">
+        <button  className="btn btn-light" data-bs-dismiss="modal">Close</button>
         <Link to='/register'>
-                <button   class="btn btn-dark" data-bs-dismiss="modal">S'inscrire</button>
+                <button   className="btn btn-dark" data-bs-dismiss="modal">S'inscrire</button>
         </Link>
       </div>
     </div>
@@ -49,12 +54,9 @@ Ajouter au panier
 
     )
 
-  } else if(role != undefined) {
-
+  } else if(role == 'user') {
     button_achet = (
-
-      <Link  className='cards col-md-3 d-flex flex-column' state={{article:panier}} to={`/panier/${article.id}`}>
-</Link>
+<button className='btn btn-dark' >Ajouter au panier</button>
     )
   }
 
