@@ -25,8 +25,11 @@ const Produits = () => {
 
   return (
     <div>
+<div className='d-flex justify-content-center'>
 
-<p className='fs-1 border-bottom border-warning'>En evidents</p>
+  <p className='fs-1 border-bottom border-warning w-50'>En evidents</p>
+
+</div>
   <div className='container'>
              <div className='row d-flex justify-center'>
 {
