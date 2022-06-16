@@ -12,6 +12,7 @@ const Articles = () => {
   const role = localStorage.getItem('role')
   const { article } = location.state
 
+  const  [panier,setArticles]= useState([])
 
 
 
@@ -52,8 +53,8 @@ Ajouter au panier
 
     button_achet = (
 
-<button  className="btn btn-dark" >Ajouter au panier</button>
-
+      <Link  className='cards col-md-3 d-flex flex-column' state={{article:panier}} to={`/panier/${article.id}`}>
+</Link>
     )
   }
 

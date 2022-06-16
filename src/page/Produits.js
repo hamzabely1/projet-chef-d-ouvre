@@ -4,11 +4,9 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 const Produits = () => {
 
-  const hover ={
+ 
 
 
-    hover:'none'
-  }
 
 
   /*Mon api avec lance fetch qui recuper la table de mes articles*/
@@ -35,7 +33,7 @@ const Produits = () => {
 {
     articles.map(article =>{
         return(
-            <Link  style={hover} className='cards col-md-3 d-flex flex-column' state={{article:article}} to={`/articles/${article.id}`}>
+            <Link  className='cards col-md-3 d-flex flex-column' state={{article:article}} to={`/articles/${article.id}`}>
 
                
             <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className='w-100 mt-1'></img>

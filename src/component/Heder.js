@@ -47,7 +47,7 @@ swal('success','logout','success')
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
-  <li><a class="dropdown-item text " href="#">Panier 🛒</a></li>
+  <li><a class="dropdown-item text " href="/panier">Panier 🛒</a></li>
     <li><a onClick={log_out} class="dropdown-item text text-danger" href="#">Se déconnecter</a></li>
 
 
