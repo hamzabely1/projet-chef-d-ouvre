@@ -3,7 +3,8 @@ import Heder from '../component/Heder'
 
 import axios from 'axios';
 import { toBeChecked } from '@testing-library/jest-dom/dist/matchers';
-
+import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
 
 
 const Admin = () => {
@@ -17,22 +18,14 @@ const [type,setType] = useState('');
 const [origines,setOrigines] = useState('');
 const [image,setImage] = useState('');
 const [note,setNote] = useState('');
-const [check,setCheck] = useState('');
 
-
-        
-
+let navigation = useNavigate();
 
 
 
-async function enregistrer (){ 
+ function enregistrer (){ 
 
-  if(check === true){
-      console.log('hamza');
-  }else{
-    console.log('big')
-  }
-
+  
 const formArticles = new FormData();
 formArticles.append('nom',nom);
 formArticles.append('prix',prix);
@@ -43,12 +36,37 @@ formArticles.append('image',image);
 formArticles.append('note',note);
 
 
-let result = await fetch('http://127.0.0.1:8000/api/add_articles',{
+
+if (nom === '') {
+  swal('Warning','Remplie le champ de nom de article','warning')
+}else if(prix ===''){
+  swal('Warning','Remplie le champ de prix de articles','warning')
+
+}else if(description ===''){
+  swal('Warning','Remplie le champ de la description','warning')
+
+}else if(type ===''){
+  swal('Warning','Remplie le champ de type','warning')
+
+}else if(prix ===''){
+  swal('Warning','Remplie le champ de prix','warning')
+
+}else if(origines ===''){
+  swal('Warning','Remplie le champ de origines','warning')
+}else if(image ===''){
+  swal('Warning','Remplie le champ de iamge','warning')
+}
+else if(note ===''){
+  swal('Warning','Remplie le champ de note','warning')
+}else if(nom != '' && prix != '' && description != '' && prix != '' && origines != '' && image != '' && type != ''){
+ fetch('http://127.0.0.1:8000/api/add_articles',{
   method:'POST',
   body:formArticles
-})}
+})
+navigation('/home')
+ }
 
-
+}
 
 const flex={
   display:'flex',
@@ -66,29 +84,36 @@ const flex={
 
 
   <div style={form}>
-  <label>nom</label>
-<input name='nom' onChange={(e)=>setNom(e.target.value)} className="form-control" type="text" placeholder="Default input" />
-<label>prix</label>
-<input name='prix' onChange={(e)=>setPrix(e.target.value)}  className="form-control" type="text" placeholder="Default input" aria-label="default input example"/>
-<label>description</label>
+  <label>Nom</label>
+<input name='nom' onChange={(e)=>setNom(e.target.value)} className="form-control" type="text" placeholder="Nom" />
+<label className='mt-2'>Prix</label>
+<input name='prix' onChange={(e)=>setPrix(e.target.value)}  className="form-control" type="text" placeholder="Prix" aria-label="default input example"/>
+<label  className='mt-2'>Description</label>
 
-<input name='description' onChange={(e)=>setDesciption(e.target.value)}  className="form-control" type="text" placeholder="Default input" aria-label="default input example"/>
-<label>origins</label>
+<input name='description' onChange={(e)=>setDesciption(e.target.value)}  className="form-control" type="text" placeholder="Description" aria-label="default input example"/>
+<label  className='mt-2'>Origins</label>
 
-<input name='origines' onChange={(e)=>setOrigines(e.target.value)}  className="form-control" type="text" placeholder="Default input" aria-label="default input example"/>
-<label>note</label>
+<input name='origines' onChange={(e)=>setOrigines(e.target.value)}  className="form-control" type="text" placeholder="Origins" aria-label="default input example"/>
+<label  className='mt-2'>Note</label>
 
-<input name='note' onChange={(e)=>setNote(e.target.value)}  className="form-control" type="text" placeholder="Default input" aria-label="default input example"/>
-<label>type</label>
+<input name='note' onChange={(e)=>setNote(e.target.value)}  className="form-control" type="text" placeholder="Note" aria-label="default input example"/>
+<label  className='mt-2'>type</label>
 
-<input name='type' onChange={(e)=>setType(e.target.value)} className="form-control" type="text" placeholder="Default input" aria-label="default input example"/>
-<label>image</label>
+
+
+<select class="form-select" name='type'  onChange={(e)=>setType(e.target.value)} aria-label="Default select example">
+  <option selected>choisissez la catégorie</option>
+  <option value="fruits">fruits</option>
+  <option value="legumes">legumes</option>
+</select>
+
+
+<label  className='mt-2'>Image</label>
 
 <input name='image' onChange={(e)=> setImage(e.target.files[0])}  className="form-control" type="file" placeholder="Default input" aria-label="default input example"/>
 
 
-<input class="form-check-input" type="checkbox" onChange={(e)=>setCheck(e.target.value)} value="" id="flexCheckDefault"></input>
-<input type='submit' onClick={enregistrer}   className='btn btn-drak' ></input>
+<input type='submit'  onClick={enregistrer}   className='buttons mt-2'></input>
 </div>
 
 

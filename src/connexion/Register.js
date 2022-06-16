@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import swal from 'sweetalert'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+
 const Register = () => {
 
 
@@ -11,8 +13,7 @@ const Register = () => {
   const [password, setPassword] = useState('')
 
 
-
-
+let navigation = useNavigate();
 
 
    function envoi() {
@@ -33,7 +34,11 @@ const Register = () => {
         email: email,
         password: password
       }).then(res => console.log(res))
+
+
+      navigation('/login')
     }
+    
   }
 
   /*mon css avec React*/

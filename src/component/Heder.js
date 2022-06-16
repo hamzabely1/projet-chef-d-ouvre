@@ -92,9 +92,9 @@ swal('success','logout','success')
                   Catégories
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item" href="fruits">Fruits🍎</a></li>
+                  <li><a className="dropdown-item" href="/fruits">Fruits🍎</a></li>
                   <hr></hr>
-                  <li><a className="dropdown-item" href="legumes">Legumes🍋</a></li>
+                  <li><a className="dropdown-item" href="/legumes">Legumes🍋</a></li>
 
                 </ul>
               </li>

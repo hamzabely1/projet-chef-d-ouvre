@@ -48,7 +48,7 @@ Ajouter au panier
 
     )
 
-  } else if(role == 'user') {
+  } else if(role != undefined) {
 
     button_achet = (
 

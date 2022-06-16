@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
+
 const Login = () => {
 
 
@@ -74,10 +75,10 @@ window.location.reload()
 <label>Votre Email</label>
 
 
-<input   name="email" onChange={(e)=>setEmail(e.target.value)} className="form-control input-sm" type="text" placeholder="Email" aria-label="Repository description" />
+<input   name="email" onChange={(e)=>setEmail(e.target.value)} className="form-control input-sm" type="email" placeholder="Email" aria-label="Repository description" />
 <br></br>
 <label>mots de passe</label>
-<input   name="password"  onChange={(e)=>setPassword(e.target.value)}  className="form-control input-sm" type="text" placeholder="Mots de passe" aria-label="Repository description" />
+<input  type="password"  name="password"  onChange={(e)=>setPassword(e.target.value)}  className="form-control input-sm"  placeholder="Mots de passe" aria-label="Repository description" />
 <br></br>
 
 

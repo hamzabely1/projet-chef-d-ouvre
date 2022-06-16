@@ -19,15 +19,6 @@ const Fruits = () => {
     });
   }, [setArticles]);
 
-
-
-
-
-
-
-
-
-
   return (
     <div>
 
@@ -45,7 +36,7 @@ const Fruits = () => {
  articles.filter(articless => 
 articless.type === "fruits").map(article=>(
      
-            <Link className='card cards col-md-3 d-flex flex-column' state={{article:article}} to={`articles/${article.id}`}>
+            <Link className='card cards col-md-3 d-flex flex-column' state={{article:article}} to={`/articles/${article.id}`}>
 
                
             <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className='w-100 mt-1'></img>
