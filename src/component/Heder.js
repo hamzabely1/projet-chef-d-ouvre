@@ -49,9 +49,6 @@ swal('success','logout','success')
 
   <li><a class="dropdown-item text " href="/panier">Panier 🛒</a></li>
     <li><a onClick={log_out} class="dropdown-item text text-danger" href="#">Se déconnecter</a></li>
-
-
-
   </ul>
 
   

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import categories_fruits from '../img/categories_fruits.jpg'
-
+import Footer from '../connexion/Footer'
 
 
 const Fruits = () => {
@@ -61,6 +61,12 @@ articless.type === "fruits").map(article=>(
 
 </div>
 </div>
+
+
+
+
+
+
 
     </div>
   )
