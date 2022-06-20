@@ -99,7 +99,7 @@ Ajouter au panier
                       <li className="list-group-item fs-2" name='nom' value={nom}  >{article.nom}</li>
                       <li className="list-group-item" name='prix' >{article.prix}€/ KG</li>
                       <li className="list-group-item">Quantite:
-                        <input name='quantite' type='number' min='0' max='10' onChange={(e)=>setQuantite(e.target.value)} className='borber border-dark'></input>kg
+                        <input name='quantite' type='number' min='0' max='10' onChange={(e)=>setQuantite(e.target.value)} className='borber border-black border rounded'></input>kg
 
 
 
