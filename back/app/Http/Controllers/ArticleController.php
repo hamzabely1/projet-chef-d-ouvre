@@ -36,7 +36,7 @@ class ArticleController extends Controller
         $artciles->image = 'articles/'.$file_name;
         $artciles->prix = $request->input('prix');
         $artciles->type = $request->input('type');
-    
+
         $artciles->note = $request->input('note');
         $artciles->description = $request->input('description');
         $artciles->origines = $request->input('origines');
@@ -64,11 +64,11 @@ class ArticleController extends Controller
      * @param  \App\Models\article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
 
-       $articles = article::find($id);
-       return response()->json($articles);
+
+     
     }
 
     /**
@@ -79,7 +79,8 @@ class ArticleController extends Controller
      */
     public function edit(article $article)
     {
-        //
+
+
     }
 
     /**

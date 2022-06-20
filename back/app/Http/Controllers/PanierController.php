@@ -22,10 +22,19 @@ class PanierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $add_article = new panier();
+        $add_article->name =$request-> nom;
+        $add_article->image =$request-> image;
+  $add_article->prix = $request->prix;
+$add_article->save();
+
+return response()->json($add_article);
     }
+
+
+
 
     /**
      * Store a newly created resource in storage.

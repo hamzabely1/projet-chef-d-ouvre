@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\article;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PanierController;
 use App\Http\Controllers\Usercontroller;
+use App\Models\panier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +33,7 @@ Route::middleware(['auth:sanctum'])->group( function () {
 
 });
 
+Route::post('add_article/panier',[PanierController::class,'create']);
 
 
 Route::post('add_articles',[ArticleController::class,'create']);

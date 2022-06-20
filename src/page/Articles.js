@@ -6,15 +6,24 @@ import { Link, useLocation } from 'react-router-dom'
 import Produits from './Produits'
 const Articles = () => {
 
+const[nom,setNom] = useState('')
+const[image,setImage] = useState('')
+const[prix,setPrix] = useState('')
 
 
   let location = useLocation();
   const role = localStorage.getItem('role')
   const { article } = location.state
 
-  const  [panier,setArticles]= useState([])
 
-
+ const pass_au_panier = ()=>{
+  console.log(nom,image);
+  axios.post('http://127.0.0.1:8000/api/add_article/panier',{
+name:nom,
+image:image,
+prix:prix
+  })
+ }
 
 
 
@@ -56,7 +65,7 @@ Ajouter au panier
 
   } else if(role == 'user') {
     button_achet = (
-<button className='btn btn-dark' >Ajouter au panier</button>
+<button className='btn btn-dark' onClick={pass_au_panier} >Ajouter au panier</button>
     )
   }
 
@@ -77,7 +86,7 @@ Ajouter au panier
             <div className=" mb-3">
               <div className="row g-0">
                 <div className="col-md-4">
-                  <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className="img-fluid rounded-start w-100" alt="..." />
+                  <img name='image'   src={`${process.env.REACT_APP_IMAGE}${article.image}`} onChange={(e)=>setImage(e.target.valeu)} className="img-fluid rounded-start w-100" alt="..." />
 
 
                 </div>
@@ -86,8 +95,8 @@ Ajouter au panier
 
 
                     <ul className="list-group list-group-flush">
-                      <li className="list-group-item fs-2">{article.nom}</li>
-                      <li className="list-group-item">{article.prix}€/ KG</li>
+                      <li className="list-group-item fs-2" name='nom' value={nom}  onChange={(e)=>setNom(e.target.valeu)} >{article.nom}</li>
+                      <li className="list-group-item" onChange={(e)=>setPrix(e.target.valeu)}>{article.prix}€/ KG</li>
                       <li className="list-group-item">Quantite:
                         <input type='number' min='0' max='10' className='borber border-dark'></input>kg
 

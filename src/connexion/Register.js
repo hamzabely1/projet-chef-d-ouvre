@@ -72,7 +72,7 @@ let navigation = useNavigate();
 
                     <Link to ='/login'> <p className='tetx-info'>Vous êtes déjà inscrit? </p> </Link>
 <br></br>
-          <button type='button' onClick={envoi} className="btn btn-dark" >S'inscrire</button>
+          <button type='button' onClick={envoi} className="buttons" >S'inscrire</button>
           
           
                   </form>
