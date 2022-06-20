@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('panier', function (Blueprint $table) {
+        Schema::create('paniers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('image');

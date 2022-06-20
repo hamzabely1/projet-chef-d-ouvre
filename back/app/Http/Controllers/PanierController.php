@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\panier;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\returnSelf;
+
 class PanierController extends Controller
 {
     /**
@@ -25,12 +27,11 @@ class PanierController extends Controller
     public function create(Request $request)
     {
         $add_article = new panier();
-        $add_article->name =$request-> nom;
-        $add_article->image =$request-> image;
-  $add_article->prix = $request->prix;
-$add_article->save();
-
-return response()->json($add_article);
+        $add_article->name =$request->name;
+        $add_article->image =$request->image;
+        $add_article->prix = $request->prix;
+        $add_article->save();
+        return response()->json($add_article);
     }
 
 
@@ -53,9 +54,11 @@ return response()->json($add_article);
      * @param  \App\Models\panier  $panier
      * @return \Illuminate\Http\Response
      */
-    public function show(panier $panier)
+    public function show()
     {
-        //
+
+        $panier = panier::all();
+        return response()->json($panier);
     }
 
     /**

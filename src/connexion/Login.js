@@ -19,8 +19,6 @@ const Login = () => {
     } else if (password === '') {
       swal('Warning', 'Remplie le champ de password', 'warning')
     } else if (email != '' && password != '') {
-
-
         axios.post('http://127.0.0.1:8000/api/login', {
           email: email,
           password: password

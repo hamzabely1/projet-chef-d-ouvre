@@ -1,0 +1,9 @@
+.produit{
+    height: 100px;
+    width: 300px; border: solid 1px orange;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px; 
+}

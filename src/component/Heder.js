@@ -49,7 +49,7 @@ swal('success','logout','success')
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
   <li><a class="dropdown-item text " href="/panier">Panier 🛒</a></li>
-    <li><a onClick={log_out} class="dropdown-item text text-danger" href="#">Se déconnecter</a></li>
+    <li><a onClick={log_out} class="dropdown-item text text-danger" >Se déconnecter</a></li>
   </ul>
 
   
@@ -81,7 +81,7 @@ swal('success','logout','success')
               </li>
 
               <li className=" nav-item dropdown">
-                <a className="nav-link active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a className="nav-link " href="#equipe" aria-expanded="page">
                   Equipe
                 </a>
               </li>

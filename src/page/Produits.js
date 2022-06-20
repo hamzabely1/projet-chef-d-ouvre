@@ -25,7 +25,6 @@ const Produits = () => {
     <div>
 <div className='d-flex justify-content-center'>
 
-  <p className='fs-1 border-bottom border-warning w-50'>En evidents</p>
 
 </div>
   <div className='container'>
@@ -34,8 +33,6 @@ const Produits = () => {
     articles.map(article =>{
         return(
             <Link  className='cards col-md-3 d-flex flex-column' state={{article:article}} to={`/articles/${article.id}`}>
-
-               
             <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className='w-100 mt-1'></img>
                <p className='mt-1'>{article.nom}</p>  
                <div className='d-flex mt-1 '>

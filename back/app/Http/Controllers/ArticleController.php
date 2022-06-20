@@ -15,9 +15,6 @@ class ArticleController extends Controller
      */
     public function index()
     {
-         $article = article::all();
-        return response()->json($article);
-
        }
 
     /**
@@ -67,8 +64,11 @@ class ArticleController extends Controller
     public function show()
     {
 
+        $article = article::all();
+        return response()->json($article);
 
-     
+
+
     }
 
     /**

@@ -113,7 +113,7 @@ const flex={
 <input name='image' onChange={(e)=> setImage(e.target.files[0])}  className="form-control" type="file" placeholder="Default input" aria-label="default input example"/>
 
 
-<input type='submit'  onClick={enregistrer}   className='buttons mt-2'></input>
+<input type='submit' value='envoyer'  onClick={enregistrer}   className='buttons mt-2'></input>
 </div>
 
 

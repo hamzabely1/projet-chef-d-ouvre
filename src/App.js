@@ -9,6 +9,7 @@ import Articles from './page/Articles';
 import Admin from './page/Admin';
 
 import Legumes from './page/Legumes';
+import Panier from './page/Panier';
 let role = localStorage.getItem('role')
 
 
@@ -28,6 +29,7 @@ function App() {
 <Route path='home' element={<Home/>}/>
 <Route path='fruits' element={<Fruits/>}/>
 <Route path='legumes' element={<Legumes/>}/>
+<Route path='panier' element={<Panier/>}/>
 
 <Route path="login" element={localStorage.getItem('role') ?<Home/> :<Login/>}/>
 <Route path="register" element={localStorage.getItem('role') ?<Home/> :<Register/>}/>

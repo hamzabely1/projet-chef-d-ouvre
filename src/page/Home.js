@@ -62,6 +62,11 @@ const Home = () => {
 
 
     <div class="col collona">
+      <div className='d-flex justify-center'>
+    <p className='fs-1 border-bottom border-warning w-50'>En evidents</p>
+
+      </div>
+
       <Produits/>
     </div>
 

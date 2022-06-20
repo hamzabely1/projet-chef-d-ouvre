@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('articles',[ArticleController::class,'index']);
+Route::get('articles',[ArticleController::class,'show']);
 Route::post('register',[Usercontroller::class,'create']);
 Route::post('login',[Usercontroller::class,'login']);
 
@@ -33,7 +33,8 @@ Route::middleware(['auth:sanctum'])->group( function () {
 
 });
 
-Route::post('add_article/panier',[PanierController::class,'create']);
 
+Route::post('add/panier',[PanierController::class,'create']);
 
 Route::post('add_articles',[ArticleController::class,'create']);
+Route::get('show/panier',[PanierController::class,'show']);

@@ -5,24 +5,25 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Produits from './Produits'
 const Articles = () => {
+let location = useLocation();
+const { article } = location.state
 
-const[nom,setNom] = useState('')
-const[image,setImage] = useState('')
-const[prix,setPrix] = useState('')
+const [nom,setNom] = useState(article.nom)
+const [image,setImage] = useState(article.image)
+const [prix,setPrix] =useState(article.prix)
+const [quantite,setQuantite] =useState('')
 
-
-  let location = useLocation();
-  const role = localStorage.getItem('role')
-  const { article } = location.state
+const role = localStorage.getItem('role')
 
 
  const pass_au_panier = ()=>{
-  console.log(nom,image);
-  axios.post('http://127.0.0.1:8000/api/add_article/panier',{
+  console.log(quantite);
+  console.log(nom,image,prix);
+  axios.post('http://127.0.0.1:8000/api/add/panier',{
 name:nom,
 image:image,
 prix:prix
-  })
+  }).then(res => console.log(res))
  }
 
 
@@ -86,7 +87,7 @@ Ajouter au panier
             <div className=" mb-3">
               <div className="row g-0">
                 <div className="col-md-4">
-                  <img name='image'   src={`${process.env.REACT_APP_IMAGE}${article.image}`} onChange={(e)=>setImage(e.target.valeu)} className="img-fluid rounded-start w-100" alt="..." />
+                  <img name='image' src={`${process.env.REACT_APP_IMAGE}${article.image}`} className="img-fluid rounded-start w-100" alt="..." />
 
 
                 </div>
@@ -95,10 +96,10 @@ Ajouter au panier
 
 
                     <ul className="list-group list-group-flush">
-                      <li className="list-group-item fs-2" name='nom' value={nom}  onChange={(e)=>setNom(e.target.valeu)} >{article.nom}</li>
-                      <li className="list-group-item" onChange={(e)=>setPrix(e.target.valeu)}>{article.prix}€/ KG</li>
+                      <li className="list-group-item fs-2" name='nom' value={nom}  >{article.nom}</li>
+                      <li className="list-group-item" name='prix' >{article.prix}€/ KG</li>
                       <li className="list-group-item">Quantite:
-                        <input type='number' min='0' max='10' className='borber border-dark'></input>kg
+                        <input name='quantite' type='number' min='0' max='10' onChange={(e)=>setQuantite(e.target.value)} className='borber border-dark'></input>kg
 
 
 

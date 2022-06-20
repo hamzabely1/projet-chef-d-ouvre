@@ -4,7 +4,8 @@ import equipe2 from '../img/equipe2.png'
 const Equipe = () => {
 
   return (
-    <div>
+    <div id='equipe'>
+
 
 
 <p className='fs-2 mt-2 mb-2 border-bottom  border-warning w-100 d-flex justify-content-center'>Equipe</p>
@@ -12,7 +13,7 @@ const Equipe = () => {
 <br></br>
 
 
-<div className="container">
+<div className="container" >
   <div className="row">
     <div className="col">
     <div className='container'>
