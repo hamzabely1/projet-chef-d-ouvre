@@ -44,7 +44,7 @@ swal('success','logout','success')
 <div class="dropdown col-2">
   <button class=" dropdown-toggle"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
    {usersss}
-   {role}
+ 
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 

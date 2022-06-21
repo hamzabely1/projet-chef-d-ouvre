@@ -3,6 +3,7 @@ import axios from 'axios';
 import swal from 'sweetalert'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
+import { type } from '@testing-library/user-event/dist/type';
 
 const Register = () => {
 
@@ -11,21 +12,25 @@ const Register = () => {
   const [nom, setNom] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
 
 let navigation = useNavigate();
 
-var message_error = ''
+
 
    function envoi() {
 
-
-    if (nom == '') {
+    if(nom == '') {
+      swal('Warning', 'Remplie le champ de nom', 'warning')
+    } else if(email ==  '') {
       swal('Warning', 'Remplie le champ de email', 'warning')
-    } else if (email === '') {
-      swal('Warning', 'Remplie le champ de password', 'warning')
-    } else if (email != '' && password != '' && nom != '') {
+
+     } else if (password == '') {
+        swal('Warning', 'Remplie le champ de la mot de Passe', 'warning')
+   } else if (email != '' && password != '' && nom != '') {
   
+
        axios.post('http://127.0.0.1:8000/api/register', {
         name: nom,
         email: email,
@@ -33,10 +38,10 @@ var message_error = ''
       }).then(res =>{
         if (res.status == 200) {
           console.log(res);
-        message_error =(
-        <p className='text-danger'>Doit contenir entre 8 et 20 caractères.</p>
-        )
+  setError(res.data.message_pass)
+  
       } else {
+    
     
       }
 
@@ -46,9 +51,9 @@ var message_error = ''
     }
 
 
+  }
 
 
-    }
 
   /*mon css avec React*/
 
@@ -71,15 +76,16 @@ var message_error = ''
           <input name='nom' onChange={(e) => setNom(e.target.value)} className="form-control input-sm " type="text" placeholder="Nom" aria-label="Repository description" />
           <br></br>
         
-     
+
           <label>Votre Email</label>
-          <input max type="email" name='email' onChange={(e) => setEmail(e.target.value)} className="form-control input-sm" placeholder="Email" aria-label="Repository description" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          <input  type="email" name='email' onChange={(e) => setEmail(e.target.value)} className="form-control input-sm" placeholder="Email" aria-label="Repository description" id="exampleInputEmail1" aria-describedby="emailHelp" />
           <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre e-mail avec quelqu'un d'autre.</div>
 
           <br></br>
           <label>Créé votre mots de passe</label>
           <input name='password' onChange={(e) => setPassword(e.target.value)} className="form-control input-sm" type="text" placeholder="Mots de passe" aria-label="Repository description" />
-  {message_error}
+{error}
+
           <br></br>
 
                     <Link  to ='/login'> <p className='tetx-info mt-5'>Vous êtes déjà inscrit? </p> </Link>

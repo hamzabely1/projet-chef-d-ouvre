@@ -15,7 +15,10 @@ const Carousele = () => {
     <div className="col-4">
     <p className='fs-1 fw-semibold'>Abrico</p>
      <p className='mb-2 mt-2'>7.96 € / KG</p>
-    <button className='btn btn-dark mt-2'>shop</button>
+     <a href='articles/1'>
+          <button className='btn btn-dark mt-2'>shop</button>
+
+     </a>
     </div>
    
     <div className="col-2  w-80 img-fluid">
