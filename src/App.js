@@ -26,7 +26,9 @@ function App() {
 
 <BrowserRouter>
 <Routes>
-<Route path='home' element={<Home/>}/>
+<Route path='/' element={<Home/>}/>
+<Route path='/home' element={<Home/>}/>
+
 <Route path='fruits' element={<Fruits/>}/>
 <Route path='legumes' element={<Legumes/>}/>
 <Route path='panier' element={<Panier/>}/>

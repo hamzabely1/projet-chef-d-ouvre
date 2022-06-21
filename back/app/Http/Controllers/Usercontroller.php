@@ -35,14 +35,57 @@ return $user;
     public function create(request $request )
     {
 
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->save();
-        return response()->json([
-            "user" => $request->all()
+
+
+        $validator = Validator::make($request->all(), [
+
+            'name' => 'required|max: 191',
+            'email' => 'required|email|max: 191|unique:users,email',
+            'password' => 'required|min: 8',
+
         ]);
+
+        if($validator->fails())
+
+        {
+            return response()->json([
+            'message'=>'errors']);
+        }
+
+        else
+        {
+            $user = User::create([
+
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=> Hash::make($request->password)
+
+        ]);
+
+
+        $token = $user->createToken ($user->email.'_Token')->plainTextToken;
+
+            return response()->json ([
+
+              'status'=>200,
+              'username'=>$user->name,
+              'token'=>$token,
+              'reg'=>'RegistrationChecker',
+              'message'=> 'Registation Sucessfully'
+
+             ]);
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 
     /**

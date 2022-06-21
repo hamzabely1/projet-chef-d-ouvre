@@ -15,31 +15,40 @@ const Register = () => {
 
 let navigation = useNavigate();
 
+var message_error = ''
 
    function envoi() {
 
+
     if (nom == '') {
-
-      swal('Warning','Remplie le champ de nom','warning')
-
-
-    } else if (email == '') {
-      swal('Warning','Remplie le champ de email','warning')
-    } else if (password == "") {
-      swal('Warning','Remplie le champ de password','warning')
- 
-    }else if (nom != '' && email != '' && password != '') {
+      swal('Warning', 'Remplie le champ de email', 'warning')
+    } else if (email === '') {
+      swal('Warning', 'Remplie le champ de password', 'warning')
+    } else if (email != '' && password != '' && nom != '') {
+  
        axios.post('http://127.0.0.1:8000/api/register', {
         name: nom,
         email: email,
         password: password
-      }).then(res => console.log(res))
-
-
-      navigation('/login')
-    }
+      }).then(res =>{
+        if (res.status == 200) {
+          console.log(res);
+        message_error =(
+        <p className='text-danger'>Doit contenir entre 8 et 20 caractères.</p>
+        )
+      } else {
     
-  }
+      }
+
+
+
+      })
+    }
+
+
+
+
+    }
 
   /*mon css avec React*/
 
@@ -64,13 +73,16 @@ let navigation = useNavigate();
         
      
           <label>Votre Email</label>
-          <input max type="email" name='email' onChange={(e) => setEmail(e.target.value)} className="form-control input-sm" placeholder="Email" aria-label="Repository description" />
+          <input max type="email" name='email' onChange={(e) => setEmail(e.target.value)} className="form-control input-sm" placeholder="Email" aria-label="Repository description" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre e-mail avec quelqu'un d'autre.</div>
+
           <br></br>
           <label>Créé votre mots de passe</label>
           <input name='password' onChange={(e) => setPassword(e.target.value)} className="form-control input-sm" type="text" placeholder="Mots de passe" aria-label="Repository description" />
+  {message_error}
           <br></br>
 
-                    <Link to ='/login'> <p className='tetx-info'>Vous êtes déjà inscrit? </p> </Link>
+                    <Link  to ='/login'> <p className='tetx-info mt-5'>Vous êtes déjà inscrit? </p> </Link>
 <br></br>
           <button type='button' onClick={envoi} className="buttons" >S'inscrire</button>
           
