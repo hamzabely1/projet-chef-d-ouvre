@@ -25,22 +25,6 @@ class ArticleController extends Controller
     public function create(request $request)
     {
 
-
-        $artciles = new article();
-        $file_name = Str::random(50).'.'.$request->image->GetClientOriginalExtension();
-        $request->image->move('articles/',$file_name);
-        $artciles->nom = $request->input('nom');
-        $artciles->image = 'articles/'.$file_name;
-        $artciles->prix = $request->input('prix');
-        $artciles->type = $request->input('type');
-        $artciles->description = $request->input('description');
-        $artciles->origines = $request->input('origines');
-
-
-        $artciles->save();
-        return $artciles;
-
-
     }
 
     /**

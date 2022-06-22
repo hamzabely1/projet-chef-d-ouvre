@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use Illuminate\Support\Str;
+
 use Illuminate\Http\Request;
 
 class Admincontroller extends Controller
@@ -37,7 +39,19 @@ class Admincontroller extends Controller
     public function store(Request $request)
     {
 
+        $artciles = new article();
+        $file_name = Str::random(50).'.'.$request->image->GetClientOriginalExtension();
+        $request->image->move('articles/',$file_name);
+        $artciles->nom = $request->input('nom');
+        $artciles->image = 'articles/'.$file_name;
+        $artciles->prix = $request->input('prix');
+        $artciles->type = $request->input('type');
+        $artciles->description = $request->input('description');
+        $artciles->origines = $request->input('origines');
 
+
+        $artciles->save();
+        return $artciles;
 
     }
 
@@ -82,7 +96,8 @@ class Admincontroller extends Controller
             'description' =>$request->description,
             'image' =>$request->image,
             'prix' =>$request->prix,
-            'origines'=>$request->origines
+            'origines'=>$request->origines,
+            'stock'=>$request->stock,
 
         ]);
         return response()->json('success');

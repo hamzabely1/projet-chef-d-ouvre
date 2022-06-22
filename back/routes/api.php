@@ -35,7 +35,7 @@ Route::middleware(['auth:sanctum'])->group( function () {
 });
 
 Route::post('add/panier',[PanierController::class,'create']);
-Route::post('add_articles',[ArticleController::class,'create']);
 Route::get('show/panier',[PanierController::class,'show']);
 
 Route::resource('admin',Admincontroller::class);
+Route::post('add_articles',[Admincontroller::class,'store']);

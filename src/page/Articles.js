@@ -1,9 +1,12 @@
 import React from 'react'
-import { useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Produits from './Produits'
+import swal from 'sweetalert'
+
+
+
 const Articles = () => {
 let location = useLocation();
 const { article } = location.state
@@ -17,21 +20,27 @@ const token = localStorage.getItem('token')
 
 
  const pass_au_panier = ()=>{
-  console.log(quantite);
-  console.log(nom,image,prix);
+ if (quantite == '') {
+  swal('choisissez la quantité')
+   console.log(nom,image,prix);
+ } else {
+  
+ 
   axios.post('http://127.0.0.1:8000/api/add/panier',{
 name:nom,
 image:image,
-prix:prix
+prix:prix,
+quantite:quantite,
   }).then(res => console.log(res))
+ }
+swal('success','A été ajouté avec succès','success')
+
  }
 
 
 
 
-
-
-/*condition pour le role = if le role et undefined il peut pas achete else il est connect avec le role user il peut ajoute au panier*/
+/*condition pour le token = if le token et undefined il peut pas achete else il est connect avec le token  il peut ajoute au panier*/
 
   var button_achet = ''
   if (token == undefined) {
@@ -99,7 +108,7 @@ Ajouter au panier
                       <li className="list-group-item fs-2" name='nom' value={nom}  >{article.nom}</li>
                       <li className="list-group-item" name='prix' >{article.prix}€/ KG</li>
                       <li className="list-group-item">Quantite:
-                        <input name='quantite' type='number' min='0' max='10' onChange={(e)=>setQuantite(e.target.value)} className='borber border-black border rounded'></input>kg
+                        <input name='quantite' type='number' min='1' max='10' onChange={(e)=>setQuantite(e.target.value)} className='borber border-black border rounded'></input>kg
 
 
 

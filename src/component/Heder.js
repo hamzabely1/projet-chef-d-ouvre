@@ -71,11 +71,9 @@ window.location.reload()
 
     )
 
-  } else if(token != undefined)  {
+  } else if(token != undefined && role == undefined )  {
 
     auth_button = (
-
-
 
       <div>
       <nav className="navbar navbar-expand-lg text-dark">
@@ -124,7 +122,8 @@ window.location.reload()
 
    </div>
 )
-  }else if(role != undefined){
+  }else if(role == 1 && token != undefined){
+    auth_button=(
     <div>
     <nav className="navbar navbar-expand-lg text-dark">
       <div className="container-fluid">
@@ -149,7 +148,6 @@ window.location.reload()
 {nom}
 </button>
 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
   <li><a onClick={log_out} className="dropdown-item text text-danger" >Se déconnecter</a></li>
 </ul>
 </div>
@@ -160,7 +158,7 @@ window.location.reload()
 
  </div>
 
-
+)
 
   }
 

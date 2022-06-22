@@ -29,8 +29,13 @@ const Login = () => {
 
             if (res.data.status === 200) {
               localStorage.setItem('nom', res.data.nom)
+              if (res.data.role == undefined) {
+                
+              }else{
+                  localStorage.setItem('role', res.data.role)
+
+              }
               localStorage.setItem('token', res.data.token)
-              localStorage.setItem('role', res.data.role)
               swal('Success', res.data.message, 'success')
 
               navigation('/home')
@@ -60,50 +65,29 @@ const Login = () => {
     marginTop: "130px",
   };
   return (
-    <div>
-
+    
       <div>
-
-
-
-        <div style={flex}>
-
-
+        <div style={flex} className='container'>
           <form style={form}>
-
             <h1>Connexion</h1>
-
-
             <br></br>
-
-
-            <label>Votre Email</label>
-
-
+          
+          <label>Votre Email</label>
             <input name="email" onChange={(e) => setEmail(e.target.value)} className="form-control input-sm" type="email" placeholder="Email" aria-label="Repository description" />
             <br></br>
             <label>mots de passe</label>
             <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} className="form-control input-sm" placeholder="Mots de passe" aria-label="Repository description" />
             <br></br>
-
-
-            <button onClick={function_login} className="buttons" type="button">confirm</button>
-
+          <button onClick={function_login} className="buttons" type="button">confirm</button>
           </form>
-          <img className='w-65 img_login' src={img_login} ></img>
+      
+                            <img className='w-75 img_login ' src={img_login} ></img>
 
         </div>
+
       </div>
 
 
-
-
-
-
-
-
-
-    </div>
   )
 }
 

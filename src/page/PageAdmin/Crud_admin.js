@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import css from '../../css/home.css'
 
 const Home_admin =() => {
 
@@ -29,44 +29,45 @@ const Home_admin =() => {
 
     return (
         <div>
-         
-            <table className="table">
-            
-<td>id</td>
-<td>type</td>
-<td>nom</td>
-<td>img</td>
 
 
-<hr></hr>
-                <tbody>
-                    <hr></hr>
-                   
+
+                    
+<div className='container'>
+<div className='row d-flex justify-center'>
                     {articles.map((article,index)=>(
-                        <tr key={article.id}>
-                            <td>{++index}</td>
-<td>{article.type}</td>
-                            <td>{article.nom}</td>
-                            <td>{article.prix}</td>
-                            <td>{article.description}</td>
-                            <td>{article.stock}</td>
-                           
+                      
 
-                            <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className='w-25 '></img>
-                          {article.stock == 1 ? <button className="btn btn-success w-50+
-                          ">a disposizione</button> : <button className="btn btn-danger">indisponible</button>  }
-                            <td>
-                              
-                                <Link className="btn btn" to={{ pathname: "/edit_admin/" + article.id }}>modifier</Link>&nbsp;
-                                <button type="" className="btn btn-danger"
+                            <div className="cards_admin col-md-3 d-flex flex-column">  
+                           
+<div className="w-100">
+                            <img className="" src={`${process.env.REACT_APP_IMAGE}${article.image}`}></img>
+</div>
+<p>nom:{article.nom}</p>
+<p>prix:{article.prix}</p>
+
+<p>type:{article.type}</p>
+
+<p>origins:{article.origines}</p>
+
+
+                          {article.stock == 1 ? <button className="mt-1 btn btn-success
+                          ">a disposizione</button> : <button className=" mt-1 btn btn-warning">indisponible</button>}
+                          
+<div className="mt-3 ">
+
+                                <Link className="btn btn-dark" to={{ pathname: "/edit_admin/" + article.id }}>modifier</Link>
+                                <button type="" className="btn btn-danger ml-2"
                                     onClick={()=>{delete_Articles(article.id)}}
-                                    >Delete</button>
-                            </td>
-                        </tr>
+                                    >Supprimé</button>
+                         </div>
+                            </div>
+                         
+                        
                     ))}
-                </tbody>
-            </table>
-        </div>
+           </div>
+           </div>
+           </div>
 
     )
 }

@@ -25,6 +25,7 @@ const  Edit_admin =(props)=> {
                 prix:res.data.prix,
                 description:res.data.description,
                 origines:res.data.origines,
+                stock:res.data.stock
 
             });
         });
@@ -41,7 +42,7 @@ const  Edit_admin =(props)=> {
 console.log(inputs);
         axios.put('http://127.0.0.1:8000/api/admin/'+id,inputs).then((res)=>{
             navigate('/');
-          
+          console.log(inputs);
         })
     }
 
@@ -95,10 +96,18 @@ console.log(inputs);
 />
 <label>type</label>
 
-<input type="text" name="type" className="form-control mb-2"
-   value={inputs.type || ''}
-   onChange={handleChange}
-/>
+<select  value={inputs.type} class="form-select" name='type'  onChange={handleChange} aria-label="Default select example">
+  <option selected>choisissez la catégorie</option>
+  <option value="fruits">fruits</option>
+  <option value="legumes">legumes</option>
+</select>
+<label className="mt-1">disponibilité</label>
+
+<select value={inputs.stock || '' } class="form-select" name='stock'  onChange={handleChange} aria-label="Default select example">
+  <option  selected>choisissez la catégorie</option>
+  <option value='0'>indisponible</option>
+  <option value='1'>disponible</option>
+</select>
 
 
 

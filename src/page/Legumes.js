@@ -51,7 +51,7 @@ const Legumes = () => {
              {
 
  articles.filter(articless => 
-articless.type === "legumes").map(article=>(
+articless.type === "legumes" && articless.stock == 1).map(article=>(
      
             <Link className='card cards col-md-3 d-flex flex-column' state={{article:article}} to={`articles/${article.id}`}>
 
