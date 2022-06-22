@@ -27,7 +27,7 @@ const Login = () => {
             console.log(res);
 
             if (res.data.status === 200) {
-              localStorage.setItem('username', res.data.username)
+              localStorage.setItem('nom', res.data.nom)
               localStorage.setItem('token', res.data.token)
               localStorage.setItem('role', res.data.role)
               swal('Success', res.data.message, 'success')

@@ -13,7 +13,7 @@ const [image,setImage] = useState(article.image)
 const [prix,setPrix] =useState(article.prix)
 const [quantite,setQuantite] =useState('')
 
-const role = localStorage.getItem('role')
+const token = localStorage.getItem('token')
 
 
  const pass_au_panier = ()=>{
@@ -34,7 +34,7 @@ prix:prix
 /*condition pour le role = if le role et undefined il peut pas achete else il est connect avec le role user il peut ajoute au panier*/
 
   var button_achet = ''
-  if (role == undefined) {
+  if (token == undefined) {
     button_achet = (
 <il>
 <button  className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -64,7 +64,7 @@ Ajouter au panier
 
     )
 
-  } else if(role == 'user') {
+  } else if(token != undefined) {
     button_achet = (
 <button className='btn btn-dark' onClick={pass_au_panier} >Ajouter au panier</button>
     )

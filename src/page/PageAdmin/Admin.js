@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Heder from '../component/Heder'
+import Heder from '../../component/Heder'
 
 import axios from 'axios';
 import { toBeChecked } from '@testing-library/jest-dom/dist/matchers';

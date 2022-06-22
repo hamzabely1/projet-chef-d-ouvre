@@ -1,38 +1,32 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-import { createBrowserHistory } from 'history'
 import swal from 'sweetalert'
 
 const Heder = () => {
 
-  const usersss = localStorage.getItem('username');
-  const role = localStorage.getItem('role');
+  const nom = localStorage.getItem('nom');
   const token = localStorage.getItem('token');
 
-  let history = createBrowserHistory();
 
+
+  /*ma function pour supprime le token et le nom de utilisateur */
   const log_out = () => {
-
- localStorage.removeItem("username")
+ localStorage.removeItem("nom")
     localStorage.removeItem("token")
     localStorage.removeItem("role")
 swal('success','logout','success')
-  
-    history.push('/home');
-    window.location.reload()
+window.location.reload()
   }
+
  
 
-  var auth_button = ''
-
-  if (usersss == undefined) {
+  let auth_button = ''
+  if (token == undefined) {
     auth_button = (
 <il>
 
-  <a className='text-dark' href='register  '>S'inscrire</a>
-<a className='text-dark ml-2 ' href='login'>Login</a>
+  <a className='text-dark' href='/register  '>S'inscrire</a>
+<a className='text-dark ml-2 ' href='/login'>Login</a>
 
 </il>
 
@@ -41,9 +35,10 @@ swal('success','logout','success')
   } else {
 
     auth_button = (
+
 <div class="dropdown col-2">
   <button class=" dropdown-toggle"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-   {usersss}
+   {nom}
  
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -52,9 +47,7 @@ swal('success','logout','success')
     <li><a onClick={log_out} class="dropdown-item text text-danger" >Se déconnecter</a></li>
   </ul>
 
-  
 </div>
-
 
     )
   }

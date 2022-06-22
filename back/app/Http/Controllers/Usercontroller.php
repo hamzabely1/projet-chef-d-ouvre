@@ -39,19 +39,22 @@ return $user;
 
         $validator = Validator::make($request->all(), [
 
-            'name' => 'required|max: 191',
-            'email' => 'required|email|max: 191|unique:users,email',
-            'password' => 'required|min: 8',
+    $name = 'name' => 'required|max: 191',
+           $email = 'email' => 'required|email|max: 191|unique:users,email',
+           $password = 'password' => 'required|',
 
         ]);
 
         if($validator->fails())
-
         {
-            return response()->json([
-            'message'=>'errors']);
-        }
+            return response()->json ([
+                'status'=>200,
+                'message'=>"error email(insert '@')"
 
+            ]);
+
+
+    }
         else
         {
             $user = User::create([
@@ -67,11 +70,10 @@ return $user;
 
             return response()->json ([
 
-              'status'=>200,
+              'status'=>400,
               'username'=>$user->name,
               'token'=>$token,
-              'reg'=>'RegistrationChecker',
-              'message'=> 'Registation Sucessfully'
+              'message'=> 'inscription réussie'
 
              ]);
         }
@@ -102,20 +104,35 @@ return $user;
        ]);
        if ($validator->fails()) {
     return response()->json([
+        'message'=>"error "
     ]);
        }else{
    $user = User::where('email',$request->email)->first();
 if(! $user || ! Hash::check($request->password,$user->password)){
 return response()->json([
 'status'=>401,
-'message'=>"informations d'identification incorrectes",
+'message'=>"l'email et le mot de passe sont incorrects",
 ]);
 }else{
+    if($user->role == 1) // 1= Admin
+    {
+        $role='admin';
+        $token = $user->createToken ($user->email.'_AdminToken',['server:admin'])->plainTextToken;
+
+    }
+    else{
+
+        $token = $user->createToken ($user->email.'_userToken',[""])->plainTextToken;
+
+    }
+
+
+
    $token = $user->createToken($user->email.'_Token')->plainTextToken;
     return response()->json([
     'status'=>200,
     'token'=>$token,
-    'username'=>$user->name,
+    'nom'=>$user->name,
     'role'=>$user->role,
     'message'=>"succes",
     ]);

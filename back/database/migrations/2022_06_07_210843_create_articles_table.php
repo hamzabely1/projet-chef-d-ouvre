@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('image');
             $table->string('prix');
-            $table->boolean('stock')->nullable(0);
+            $table->boolean('stock')->nullable();
             $table->string('description');
             $table->string('note');
             $table->string('origines');
