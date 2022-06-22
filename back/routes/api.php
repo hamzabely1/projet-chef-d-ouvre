@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admincontroller;
 use App\Http\Controllers\article;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PanierController;
@@ -33,8 +34,8 @@ Route::middleware(['auth:sanctum'])->group( function () {
 
 });
 
-
 Route::post('add/panier',[PanierController::class,'create']);
-
 Route::post('add_articles',[ArticleController::class,'create']);
 Route::get('show/panier',[PanierController::class,'show']);
+
+Route::resource('admin',Admincontroller::class);

@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('prix');
             $table->boolean('stock')->nullable();
             $table->string('description');
-            $table->string('note');
             $table->string('origines');
             $table->timestamps();
         });

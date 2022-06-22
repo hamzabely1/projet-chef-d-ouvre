@@ -7,7 +7,7 @@ import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 
 
-const Admin = () => {
+const Create_admin = () => {
 
 
 
@@ -17,7 +17,6 @@ const [description,setDesciption] = useState('');
 const [type,setType] = useState('');
 const [origines,setOrigines] = useState('');
 const [image,setImage] = useState('');
-const [note,setNote] = useState('');
 
 let navigation = useNavigate();
 
@@ -33,7 +32,6 @@ formArticles.append('description',description);
 formArticles.append('type',type);
 formArticles.append('origines',origines);
 formArticles.append('image',image);
-formArticles.append('note',note);
 
 
 
@@ -56,9 +54,7 @@ if (nom === '') {
 }else if(image ===''){
   swal('Warning','Remplie le champ de iamge','warning')
 }
-else if(note ===''){
-  swal('Warning','Remplie le champ de note','warning')
-}else if(nom != '' && prix != '' && description != '' && prix != '' && origines != '' && image != '' && type != ''){
+else if(nom != '' && prix != '' && description != '' && prix != '' && origines != '' && image != '' && type != ''){
  fetch('http://127.0.0.1:8000/api/add_articles',{
   method:'POST',
   body:formArticles
@@ -83,7 +79,10 @@ const flex={
 
 
 
-  <div style={form}>
+  <div style={form} >
+<p className='mt-1 mb-1'>Ajouter un artcile</p>
+
+    <div className='col card p-4'>
   <label>Nom</label>
 <input name='nom' onChange={(e)=>setNom(e.target.value)} className="form-control" type="text" placeholder="Nom" />
 <label className='mt-2'>Prix</label>
@@ -91,12 +90,10 @@ const flex={
 <label  className='mt-2'>Description</label>
 
 <input name='description' onChange={(e)=>setDesciption(e.target.value)}  className="form-control" type="text" placeholder="Description" aria-label="default input example"/>
-<label  className='mt-2'>Origins</label>
+<label  className='mt-2'>Origines</label>
 
 <input name='origines' onChange={(e)=>setOrigines(e.target.value)}  className="form-control" type="text" placeholder="Origins" aria-label="default input example"/>
-<label  className='mt-2'>Note</label>
 
-<input name='note' onChange={(e)=>setNote(e.target.value)}  className="form-control" type="text" placeholder="Note" aria-label="default input example"/>
 <label  className='mt-2'>type</label>
 
 
@@ -112,8 +109,9 @@ const flex={
 
 <input name='image' onChange={(e)=> setImage(e.target.files[0])}  className="form-control" type="file" placeholder="Default input" aria-label="default input example"/>
 
-
-<input type='submit' value='envoyer'  onClick={enregistrer}   className='buttons mt-2'></input>
+<div >
+<input type='submit' value='envoyer'  onClick={enregistrer}   className='buttons mt-5'></input>
+</div>
 </div>
 
 
@@ -124,7 +122,8 @@ const flex={
 
 
     </div>
+    </div>
   )
 }
 
-export default Admin
+export default Create_admin

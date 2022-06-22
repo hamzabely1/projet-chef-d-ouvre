@@ -33,8 +33,6 @@ class ArticleController extends Controller
         $artciles->image = 'articles/'.$file_name;
         $artciles->prix = $request->input('prix');
         $artciles->type = $request->input('type');
-
-        $artciles->note = $request->input('note');
         $artciles->description = $request->input('description');
         $artciles->origines = $request->input('origines');
 
@@ -53,6 +51,8 @@ class ArticleController extends Controller
      */
     public function store($id)
     {
+
+
     }
 
     /**
@@ -63,11 +63,10 @@ class ArticleController extends Controller
      */
     public function show()
     {
+        $articles = article::all();
+        return response()->json($articles);
 
-        $article = article::all();
-        return response()->json($article);
-
-
+        return $articles;
 
     }
 
@@ -77,8 +76,9 @@ class ArticleController extends Controller
      * @param  \App\Models\article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(article $article)
+    public function edit($id)
     {
+
 
 
     }
@@ -90,9 +90,9 @@ class ArticleController extends Controller
      * @param  \App\Models\article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, article $article)
+    public function update( $id ,Request $request)
     {
-        //
+
     }
 
     /**
@@ -101,8 +101,8 @@ class ArticleController extends Controller
      * @param  \App\Models\article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(article $article)
+    public function delete($id)
     {
-        //
+
     }
 }

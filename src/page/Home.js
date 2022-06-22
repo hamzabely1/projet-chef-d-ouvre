@@ -4,15 +4,17 @@ import { Link } from 'react-router-dom'
 import homecss from '../css/home.css'
 import Footer from '../component/Footer'
 import legumes from '../img/legumes.jpg'
-import fruits from '../img/fruits.jpeg'
 import Carousele from '../component/Carousele'
 import Produits from './Produits'
 import Pourquoi_nous from './Pourquoi_nous'
 import Equipe from './Equipe'
+import Create_admin from '../page/PageAdmin/Create_admin'
+import Edit_admin from './PageAdmin/Edit_admin'
+import Home_admin from './PageAdmin/Crud_admin'
 
-const orange = {
-  color: '#FF920D'
-}
+
+
+
 const Home = () => {
 
 let page_home = ''
@@ -39,7 +41,7 @@ if (role == undefined) {
               </div>
             </div>
           </div>
-          <div class="col collona">
+          <div className="col collona">
             <div className='d-flex justify-center'>
               <p className='fs-1 border-bottom border-warning w-50'>En evidents</p>
             </div>
@@ -65,7 +67,28 @@ if (role == undefined) {
 
 page_home =(
   <div>
-    <p>hamza</p>
+    <nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Mes articles</button>
+    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Ajoute un article</button>
+    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Commandes effectuées</button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+
+
+
+
+<Home_admin/>
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+<Create_admin/>
+
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+  <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
+</div>
 
   </div>
 

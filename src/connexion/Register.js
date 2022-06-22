@@ -79,7 +79,7 @@ swal('warnig',res.data.message,'warning')
       <div className='container' style={flex}>
         <form style={form}>
 
-          <h1>INSCRIPTION</h1>
+          <h1>S'inscrire</h1>
           <div class=" mt-5">
             <label for="validationCustom01" class="form-label">Nom</label>
             <input name='nom' onChange={(e) => setNom(e.target.value)} type="text" class="form-control" id="validationCustom01" required />
@@ -106,7 +106,7 @@ swal('warnig',res.data.message,'warning')
 
           <Link to='/login'> <p className='tetx-info mt-5'>Vous êtes déjà inscrit? </p> </Link>
           <br></br>
-          <button type='button'  onClick={envoi} className="buttons" >S'inscrire</button>
+          <button type='button'  onClick={envoi} className="buttons" >confirm</button>
 
 
         </form>
