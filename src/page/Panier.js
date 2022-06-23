@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Produits from './Produits';
 
 import css from '../css/panier.css'
+import Articles from './Articles';
 
 const Panier = () => {
 
@@ -40,7 +41,7 @@ const Panier = () => {
 
 </div>
   <div className='container'>
-             <div className='row d-flex '>
+             <div className='row d-flex col-9 '>
 {
     produits.map(article =>{
         return(
@@ -50,22 +51,22 @@ const Panier = () => {
             <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className='w-10 mt-1'></img>
                <p className='mt-1'>{article.name}</p>  
                <div className='d-flex mt-1 '>
-<p>3.90</p>
+<p>{article.quantite}Kg</p>au prix de{article.prix} le kilo
 </div>
  </div>
      )
     })
 }
 
+
+</div>
+</div>
+
+
 <div>
   montaun : 12.50 $
 </div>
 <button className='buttons'>payment</button>
-</div>
-</div>
-
-
-
 
 
 

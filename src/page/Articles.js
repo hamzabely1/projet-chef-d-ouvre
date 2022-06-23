@@ -20,20 +20,19 @@ const token = localStorage.getItem('token')
 
 
  const pass_au_panier = ()=>{
- if (quantite == '') {
-  swal('choisissez la quantité')
+ if (quantite == 0) {
+swal('Ajouter la quantité')
    console.log(nom,image,prix);
  } else {
-  
- 
   axios.post('http://127.0.0.1:8000/api/add/panier',{
 name:nom,
 image:image,
 prix:prix,
 quantite:quantite,
   }).then(res => console.log(res))
+  swal('success','A été ajouté avec succès','success')
+
  }
-swal('success','A été ajouté avec succès','success')
 
  }
 
@@ -106,9 +105,9 @@ Ajouter au panier
 
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item fs-2" name='nom' value={nom}  >{article.nom}</li>
-                      <li className="list-group-item" name='prix' >{article.prix}€/ KG</li>
+                      <li className="list-group-item" name='prix' >{article.prix * quantite}€/ KG</li>
                       <li className="list-group-item">Quantite:
-                        <input name='quantite' type='number' min='1' max='10' onChange={(e)=>setQuantite(e.target.value)} className='borber border-black border rounded'></input>kg
+                        <input name='quantite' type='number' min='0' max='10' onChange={(e)=>setQuantite(e.target.value)} className='borber border-black border rounded'></input>kg
 
 
 
