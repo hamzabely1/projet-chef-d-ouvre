@@ -116,7 +116,7 @@ return response()->json([
 }else{
     if($user->role == 1) // 1= Admin
     {
-        $role='admin';
+        $role ='admin';
         $token = $user->createToken ($user->email.'_AdminToken',['server:admin'])->plainTextToken;
 
     }

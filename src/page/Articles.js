@@ -31,9 +31,7 @@ prix:prix,
 quantite:quantite,
   }).then(res => console.log(res))
   swal('success','A été ajouté avec succès','success')
-
  }
-
  }
 
 

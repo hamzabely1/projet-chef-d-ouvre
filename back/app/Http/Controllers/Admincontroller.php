@@ -99,6 +99,7 @@ class Admincontroller extends Controller
             'origines'=>$request->origines,
             'stock'=>$request->stock,
 
+
         ]);
         return response()->json('success');
     }

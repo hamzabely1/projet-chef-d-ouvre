@@ -103,7 +103,7 @@ console.log(inputs);
 </select>
 <label className="mt-1">disponibilité</label>
 
-<select value={inputs.stock || '' } class="form-select" name='stock'  onChange={handleChange} aria-label="Default select example">
+<select value={inputs.stock} class="form-select" name='stock'  onChange={handleChange} aria-label="Default select example">
   <option  selected>choisissez la catégorie</option>
   <option value='0'>indisponible</option>
   <option value='1'>disponible</option>

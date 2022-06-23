@@ -10,7 +10,16 @@ import Articles from './Articles';
 const Panier = () => {
 
   const [produits,setProduits] = useState([])
-  let location = useLocation();
+const [total,setTotal] = useState([])
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/total').then((resp) => {
+      const all = resp.data;
+      setTotal(all);
+    });
+  }, [total]);
+
+
 
 
 
@@ -24,7 +33,11 @@ const Panier = () => {
 
 
    
- 
+  const delete_Articles = (id) => {
+    axios.delete('http://127.0.0.1:8000/api/admin/'+id).then(res=>{
+        setProduits();
+    })
+}
 
   
 
@@ -41,18 +54,22 @@ const Panier = () => {
 
 </div>
   <div className='container'>
-             <div className='row d-flex col-9 '>
+             <div className='row d-flex col-12 '>
 {
     produits.map(article =>{
         return(
             <div  className='produit col-md-3 d-flex flex-column' state={{article:article}} to={`/articles/${article.id}`}>
 
                
-            <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className='w-10 mt-1'></img>
+            <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className='w-25 mt-1'></img>
                <p className='mt-1'>{article.name}</p>  
                <div className='d-flex mt-1 '>
-<p>{article.quantite}Kg</p>au prix de{article.prix} le kilo
+<p>{article.quantite}Kg</p>{article.prix}le kilo
+
 </div>
+<button  onClick={delete_Articles} className='btn btn-danger mt-2'>supprime</button>
+
+
  </div>
      )
     })
@@ -64,7 +81,13 @@ const Panier = () => {
 
 
 <div>
-  montaun : 12.50 $
+  {
+    total.map(map =>{
+      return(
+        <p>{map.prix }</p>
+      )
+    })
+  }
 </div>
 <button className='buttons'>payment</button>
 

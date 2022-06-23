@@ -15,7 +15,7 @@ const clock = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  >
 
 <div className='container-sm'>
 
-<p className='fs-1 fw-bolder'> Taz fruits</p>
+<p className='fs-1 '> Taz fruits</p>
 
 
 <img src={taz} class="img-fluid " alt="..."></img>

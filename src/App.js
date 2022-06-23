@@ -29,7 +29,6 @@ function App() {
 
 <BrowserRouter>
 <Routes>
-  /*la route des mes page */
 <Route path='/' element={<Home/>}/>
 <Route path='/home' element={<Home/>}/>
 

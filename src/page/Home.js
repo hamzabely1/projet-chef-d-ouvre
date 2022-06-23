@@ -31,7 +31,7 @@ if (role == undefined) {
           <div>
             <div className='d-flex justify-content-center'>
               <div >
-                <div class="conatiner d-flex justify-content-center  ">
+                <div className="conatiner d-flex justify-content-center  ">
                   <Link to='/fruits' className='noHover'><div className='card_category'>Fruits🍎</div>          </Link>
                   <Link className='noHover' to='/legumes'>
                     <div className='card_category'>Légumes🍋</div>
@@ -48,7 +48,7 @@ if (role == undefined) {
           </div>
         </div>
         <br></br>
-        <Pourquoi_nous />
+        <Pourquoi_nous/>
         <br></br>
         <Equipe/>
       </div>

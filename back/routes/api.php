@@ -24,9 +24,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/*Route pour recupere l'artcile tous*/
 Route::get('articles',[ArticleController::class,'show']);
+
+/*Route pour le login et S'inscrire*/
 Route::post('register',[Usercontroller::class,'create']);
 Route::post('login',[Usercontroller::class,'login']);
+
+
 
 
 Route::middleware(['auth:sanctum'])->group( function () {
@@ -34,8 +39,13 @@ Route::middleware(['auth:sanctum'])->group( function () {
 
 });
 
+
+/*Route pour le panier*/
 Route::post('add/panier',[PanierController::class,'create']);
 Route::get('show/panier',[PanierController::class,'show']);
+Route::get('total',[PanierController::class,'total']);
 
+
+/*Roue pour l'admin */
 Route::resource('admin',Admincontroller::class);
 Route::post('add_articles',[Admincontroller::class,'store']);

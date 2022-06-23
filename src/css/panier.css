@@ -1,5 +1,5 @@
 .produit{
-    height: 100px;
+    height: 200px;
     width: 300px; border: solid 1px orange;
     border-radius: 15px;
     display: flex;

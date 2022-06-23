@@ -68,9 +68,11 @@ class PanierController extends Controller
      * @param  \App\Models\panier  $panier
      * @return \Illuminate\Http\Response
      */
-    public function edit(panier $panier)
+    public function total()
     {
-        //
+        $total = panier::all('prix');
+        return response()->json($total);
+        return $total;
     }
 
     /**
@@ -91,8 +93,10 @@ class PanierController extends Controller
      * @param  \App\Models\panier  $panier
      * @return \Illuminate\Http\Response
      */
-    public function destroy(panier $panier)
+    public function destroy($id)
     {
-        //
+        panier::whereId($id)->first()->delete();
+
+        return response()->json('success');
     }
 }

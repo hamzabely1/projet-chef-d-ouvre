@@ -15,7 +15,9 @@ class article extends Model
         'description',
         'image',
         'origines',
-        'prix'
+        'prix',
+        'stock'
+
     ];
 
 }
