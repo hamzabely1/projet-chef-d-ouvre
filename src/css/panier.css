@@ -1,9 +1,11 @@
 .produit{
-    height: 200px;
-    width: 300px; border: solid 1px orange;
+    height: 100px;
+    width: 300px; 
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 15px; 
+    border:solid black 1px;
+  
 }

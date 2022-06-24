@@ -13,6 +13,7 @@ import Panier from './page/Panier';
 import Home_admin from './page/PageAdmin/Crud_admin';
 import Edit_admin from './page/PageAdmin/Edit_admin'
 import Plus_sur_taz from './page/Plus_sur_taz';
+import Paiment from './page/Paiment';
 let role = localStorage.getItem('role')
 
 
@@ -34,7 +35,9 @@ function App() {
 
 <Route path='fruits' element={<Fruits/>}/>
 <Route path='legumes' element={<Legumes/>}/>
-<Route path='panier' element={<Panier/>}/>
+<Route path='panier' element={localStorage.getItem('nom') ?<Panier/> :<Home/>}/>
+<Route path='paiment' element={localStorage.getItem('nom') ?<Paiment/> :<Home/>}/>
+
 <Route path="plus" element={<Plus_sur_taz/>}/>
 
 <Route path="login" element={localStorage.getItem('nom') ?<Home/> :<Login/>}/>

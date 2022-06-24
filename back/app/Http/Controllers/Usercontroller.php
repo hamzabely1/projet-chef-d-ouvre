@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\panier;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Validator;
@@ -195,8 +196,8 @@ auth()->user()->tokens->each(function($token,$key){
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        panier::all()->delete();
     }
 }
