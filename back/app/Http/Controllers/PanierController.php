@@ -25,14 +25,30 @@ class PanierController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
+
+
     {
-        $add_article = new panier();
-        $add_article->name =$request->name;
-        $add_article->image =$request->image;
-        $add_article->prix = $request->prix;
-        $add_article->quantite =$request->quantite;
-        $add_article->save();
-        return response()->json($add_article);
+
+
+        $add_article = panier::where('name',$request->name)->first();
+        if ( $add_article == true) {
+
+            return response()->json([
+                'message'=>"error "
+            ]);
+
+        } else {
+
+$add = new panier();
+            $add->name =$request->name;
+            $add->image =$request->image;
+            $add->prix = $request->prix;
+            $add->quantite =$request->quantite;
+            $add->save();
+            return response()->json($add_article);
+        }
+
+
     }
 
 

@@ -17,7 +17,9 @@ const role = localStorage.getItem('role')
  localStorage.removeItem("nom")
     localStorage.removeItem("token")
     localStorage.removeItem("role")
+
 swal('success','logout','success')
+window.location.reload()
 
 axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
   console.log(res);

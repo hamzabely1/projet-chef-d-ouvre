@@ -79,12 +79,8 @@ const [total,setTotal] = useState([])
      )
     })
 }
-
-
-
 </div>
-
-</div><div classNAme='col-12'>
+</div><div className='col-12'>
   {
     total.map(map =>{
       return(
@@ -93,16 +89,7 @@ const [total,setTotal] = useState([])
     })
   }
 </div>
-
 <button className='buttons'>payment</button>
-
-
-
-
-
-
-
-
     </div>
   )
 }
