@@ -33,49 +33,33 @@ return $user;
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(request $request )
+    public function inscription(request $request )
     {
-
-
-
         $validator = Validator::make($request->all(), [
-
-    $name = 'name' => 'required|max: 191',
-           $email = 'email' => 'required|email|max: 191|unique:users,email',
-           $password = 'password' => 'required|',
-
+        'name' => 'required|max: 191',
+        'email' => 'required|email|max: 191|unique:users,email',
+        'password' => 'required|',
         ]);
-
-        if($validator->fails())
-        {
+        if($validator->fails()){
             return response()->json ([
                 'status'=>200,
                 'message'=>"error email(insert '@')"
 
-            ]);
-
-
-    }
-        else
-        {
+            ]);}
+        else{
             $user = User::create([
 
             'name'=>$request->name,
             'email'=>$request->email,
             'password'=> Hash::make($request->password)
-
         ]);
-
-
         $token = $user->createToken ($user->email.'_Token')->plainTextToken;
-
             return response()->json ([
 
               'status'=>400,
               'username'=>$user->name,
               'token'=>$token,
               'message'=> 'inscription réussie'
-
              ]);
         }
 
@@ -153,7 +137,7 @@ return response()->json([
     {
 
 
-auth()->user()->tokens->each(function($token,$key){
+auth()->user()->tokens->each(function($token){
     $token->delete();
 });
  response()->json([

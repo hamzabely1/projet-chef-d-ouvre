@@ -29,18 +29,27 @@ name:nom,
 image:image,
 prix:prix,
 quantite:quantite,
-  }).then(res => console.log(res))
-  swal('success','A été ajouté avec succès','success')
+  }).then(res => {
+    
+
+if (res.data.message === 'error') {
+  
+  swal('succes','le produit a été ajouté avec succès','success')
+
+
+} else {
+  swal('le produit a déjà été ajouté au panier')
+}
+
+  })
+
  }
- }
-
-
-
+}
 
 /*condition pour le token = if le token et undefined il peut pas achete else il est connect avec le token  il peut ajoute au panier*/
 
   var button_achet = ''
-  if (token == undefined) {
+  if (token === undefined) {
     button_achet = (
 <il>
 <button  className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -65,67 +74,41 @@ Ajouter au panier
     </div>
   </div>
 </div>
-
 </il>
-
     )
-
-  } else if(token != undefined) {
+  } else if(token !== undefined) {
     button_achet = (
 <button className='btn btn-dark' onClick={pass_au_panier} >Ajouter au panier</button>
     )
   }
 
-
-
-
-
-
-
-
   return (
     
     <div>
       <hr></hr>
-      <div className="container-sm ">
-       
+      <div className="container-sm "> 
           <div className="container-fliud ">
             <div className=" mb-3">
               <div className="row g-0">
                 <div className="col-md-4">
                   <img name='image' src={`${process.env.REACT_APP_IMAGE}${article.image}`} className="img-fluid rounded-start w-100" alt="..." />
-
-
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
-
-
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item fs-2" name='nom' value={nom}  >{article.nom}</li>
-                      <li className="list-group-item" name='prix' >{article.prix * quantite}€/ KG</li>
+                      <li className="list-group-item" name='prix' >{article.prix}€/ KG</li>
                       <li className="list-group-item">Quantite:
                         <input name='quantite' type='number' min='0' max='10' onChange={(e)=>setQuantite(e.target.value)} className='borber border-black border rounded'></input>kg
-
-
-
                       </li>
                       <li className="list-group-item"><p>type: {article.type}</p></li>
                     </ul>
-
                     <li className="list-group-item"><p>origins: {article.origines}</p></li>
-
 {button_achet}                  </div>
                 </div>
               </div>
             </div>
-
-
-
-
           </div>
-
-
           <div className="accordion" id="accordionExample">
   <div className="accordion-item">
     <h2 className="accordion-header" id="headingOne">
@@ -139,11 +122,6 @@ Ajouter au panier
       </div>
     </div>
   </div>
-
-
-
-
-
   <p className='fs-1 border-bottom border-warning'>En plus</p>
 <Produits/>
     </div>

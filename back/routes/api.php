@@ -28,12 +28,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('articles',[ArticleController::class,'show']);
 
 /*Route pour le login et S'inscrire*/
-Route::post('register',[Usercontroller::class,'create']);
+Route::post('register',[Usercontroller::class,'inscription']);
 Route::post('login',[Usercontroller::class,'login']);
 
 
 
 Route::delete('delete_all',[Usercontroller::class,'destroy']);
+
 
 Route::middleware(['auth:sanctum'])->group( function () {
     Route::post('logout',[Usercontroller::class,'logout']);

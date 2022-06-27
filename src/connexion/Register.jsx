@@ -6,21 +6,23 @@ import { useNavigate } from 'react-router-dom'
 import img_login from '../img/img_login.png'
  const Register = () => {
 
+  let navigation = useNavigate();
 
-
+/*mes constant */
   const [nom, setNom] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
 
-  let navigation = useNavigate();
 
 
 
-  function envoi() {
+/*function de button*/
 
-/*condition pour mes input ce ils ont vid ou pas*/
+  function inscription() {
+
+/*condition pour mes entrées si elles sont vides ou non*/
 
     if (nom == '') {
       swal('Warning', 'Remplie le champ de nom', 'warning')
@@ -38,26 +40,15 @@ import img_login from '../img/img_login.png'
      console.log(res);
          
 swal('warnig',res.data.message,'warning')
-
- 
         } else {
           swal('success' ,res.data.message,'success')
           localStorage.setItem('token',res.data.token);
           localStorage.setItem('nom',res.data.username);
-
-
-
           navigation('/')
           window.location.reload()
-
         }
-
-
-
       })
     }
-
-
   }
 
 
@@ -83,30 +74,19 @@ swal('warnig',res.data.message,'warning')
           <div class=" mt-5">
             <label for="validationCustom01" class="form-label">Nom</label>
             <input name='nom' onChange={(e) => setNom(e.target.value)} type="text" class="form-control" id="validationCustom01" required />
-            <div class="valid-feedback">
-              Looks good!
-            </div>
           </div>
-
           <div class=" mt-2">
             <label for="validationCustom01" class="form-label">Email</label>
             <input name='email' onChange={(e) => setEmail(e.target.value)}  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            <div class="valid-feedback">
-              Looks good!
-            </div>
           </div>
-
               <div class=" mt-2">
             <label for="validationCustom01" class="form-label">Cree un mot de passe </label>
             <input name='password' onChange={(e) => setPassword(e.target.value)} type="text" class="form-control" id="validationCustom01" required />
-            <div class="valid-feedback">
-              Looks good!
-            </div>
           </div>
 
-          <Link to='/login'> <p className='tetx-info mt-5'>Vous êtes déjà inscrit? </p> </Link>
+          <Link to='/login'> <p className='tetx-info mt-5'>Vous êtes déjà inscrit?</p> </Link>
           <br></br>
-          <button type='button'  onClick={envoi} className="buttons" >confirm</button>
+          <button type='button'  onClick={inscription} className="buttons" >confirm</button>
 
 
         </form>
