@@ -26,21 +26,20 @@ const Login = () => {
 
   }).then(res => {
             console.log(res);
-
+  localStorage.setItem('nom', res.data.nom)
             if (res.data.status === 200) {
-              localStorage.setItem('nom', res.data.nom)
+            
               if (res.data.role == undefined) {
-                
+             console.log(res);
               }else{
-                  localStorage.setItem('role', res.data.role)
-
+console.log('okay');
+   navigation('/admin')
               }
+              
               localStorage.setItem('token', res.data.token)
               swal('Success', res.data.message, 'success')
 
-              navigation('/home')
-              window.location.reload()
-
+         
             }
 
             else if (res.data.status === 401) {
