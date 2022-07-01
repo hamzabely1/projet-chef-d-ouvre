@@ -39,7 +39,6 @@ const  Edit_admin =(props)=> {
 
     const submitForm = () =>{
 
-console.log(inputs);
         axios.put('http://127.0.0.1:8000/api/admin/'+id,inputs).then((res)=>{
             navigate('/');
           console.log(inputs);
@@ -55,8 +54,6 @@ console.log(inputs);
            height:'300px',
            width:'300px',
             };
-
-
     return (
         <div style={flex}>
             <div style={form}>
@@ -67,23 +64,16 @@ console.log(inputs);
                         <label>Nom de produits</label>
                         <input type="text" name="nom" className="form-control mb-2"
                                 value={inputs.nom || ''}
-                                onChange={handleChange}
-                             />
-
+                                onChange={handleChange} />
                         <label>Prix</label>
                         <input type="text" name="prix" className="form-control mb-2"
                             value={inputs.prix || ''}
-                            onChange={handleChange}
-                        />
+                            onChange={handleChange}/>
                                                 <label>Description</label>
-
                          <input type="text" name="description" className="form-control mb-2"
                             value={inputs.description || ''}
-                            onChange={handleChange}
-                        />
-                                        
+                            onChange={handleChange}/>  
                                                 <label>Origines</label>
-
                          <input type="text" name="origines" className="form-control mb-2"
                             value={inputs.origines || ''}
                             onChange={handleChange}
@@ -92,25 +82,19 @@ console.log(inputs);
 
 <input type="text" name="image" className="form-control mb-2"
    value={inputs.image || ''}
-   onChange={handleChange}
-/>
+   onChange={handleChange}/>
 <label>type</label>
-
 <select  value={inputs.type} class="form-select" name='type'  onChange={handleChange} aria-label="Default select example">
   <option selected>choisissez la catégorie</option>
   <option value="fruits">fruits</option>
   <option value="legumes">legumes</option>
 </select>
 <label className="mt-1">disponibilité</label>
-
 <select value={inputs.stock} class="form-select" name='stock'  onChange={handleChange} aria-label="Default select example">
   <option  selected>choisissez la catégorie</option>
   <option value='0'>indisponible</option>
   <option value='1'>disponible</option>
 </select>
-
-
-
                         <button type="button" onClick={submitForm} className="btn btn-info mt-2">Update</button>
                     </div>
                 </div>

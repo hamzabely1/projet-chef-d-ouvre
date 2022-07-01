@@ -22,10 +22,10 @@ class Usercontroller extends Controller
      */
     public function index()
     {
-    $user = User::all();
-response()->json($user);
+        $user = User::all();
+        response()->json($user);
 
-return $user;
+        return $user;
     }
 
     /**
@@ -33,46 +33,35 @@ return $user;
      *
      * @return \Illuminate\Http\Response
      */
-    public function inscription(request $request )
+    public function inscription(request $request)
     {
         $validator = Validator::make($request->all(), [
-        'name' => 'required|max: 191',
-        'email' => 'required|email|max: 191|unique:users,email',
-        'password' => 'required|',
+            'name' => 'required|max: 191',
+            'email' => 'required|email|max: 191|unique:users,email',
+            'password' => 'required|',
         ]);
-        if($validator->fails()){
-            return response()->json ([
-                'status'=>200,
-                'message'=>"error email(insert '@')"
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 200,
+                'message' => "error email(insert '@')"
 
-            ]);}
-        else{
+            ]);
+        } else {
             $user = User::create([
 
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=> Hash::make($request->password)
-        ]);
-        $token = $user->createToken ($user->email.'_Token')->plainTextToken;
-            return response()->json ([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password)
+            ]);
+            $token = $user->createToken($user->email . '_Token')->plainTextToken;
+            return response()->json([
 
-              'status'=>400,
-              'username'=>$user->name,
-              'token'=>$token,
-              'message'=> 'inscription réussie'
-             ]);
+                'status' => 400,
+                'username' => $user->name,
+                'token' => $token,
+                'message' => 'inscription réussie'
+            ]);
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 
     /**
@@ -83,47 +72,55 @@ return $user;
      */
     public function login(Request $request)
     {
-       $validator = Validator::make($request->all(), [
-'email'=>'required|max:191',
-'password'=>'required',
-       ]);
-       if ($validator->fails()) {
-    return response()->json([
-        'message'=>"error "
-    ]);
-       }else{
-   $user = User::where('email',$request->email)->first();
-if(! $user || ! Hash::check($request->password,$user->password)){
-return response()->json([
-'status'=>401,
-'message'=>"l'email et le mot de passe sont incorrects",
-]);
-}else{
-    if($user->role == 1) // 1= Admin
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|max:191',
+            'password' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => "error "
+            ]);
+        } else {
+            $user = User::where('email', $request->email)->first();
+            if (!$user || !Hash::check($request->password, $user->password)) {
+                return response()->json([
+                    'status' => 401,
+                    'message' => "l'email et le mot de passe sont incorrects",
+                ]);
+            } else {
+                if ($user->role == 1) // 1= Admin
+                {
+                    $token = $user->createToken($user->email . '_AdminToken', ['admin'])->plainTextToken;
+                } else {
+
+                    $token = $user->createToken($user->email . '_userToken', ["user"])->plainTextToken;
+                }
+
+
+
+                return response()->json([
+                    'status' => 200,
+                    'token' => $token,
+                    'nom' => $user->name,
+                    'role' => $user->role,
+                    'message' => "succes",
+                ]);
+            }
+        }
+    }
+
+    public function checkAdmin(Request $request)
     {
-        $role ='admin';
-        $token = $user->createToken ($user->email.'_AdminToken',['server:admin'])->plainTextToken;
+        if($request->user()->tokenCan("user")) {
+            return response()->json("user");
+        }
+
+        if($request->user()->tokenCan("admin")) {
+            return response()->json("admin");
+        }
+
 
     }
-    else{
-
-        $token = $user->createToken ($user->email.'_userToken',[""])->plainTextToken;
-
-    }
-
-
-
-   $token = $user->createToken($user->email.'_Token')->plainTextToken;
-    return response()->json([
-    'status'=>200,
-    'token'=>$token,
-    'nom'=>$user->name,
-    'role'=>$user->role,
-    'message'=>"succes",
-    ]);
-}
-    }
-}
 
 
 
@@ -137,18 +134,15 @@ return response()->json([
     {
 
 
-auth()->user()->tokens->each(function($token){
-    $token->delete();
-});
- response()->json([
+        auth()->user()->tokens->each(function ($token) {
+            $token->delete();
+        });
+        response()->json([
 
-    'status'=>200,
-    'message'=>'déconnexion réussie',
+            'status' => 200,
+            'message' => 'déconnexion réussie',
 
-]);
-
-
-
+        ]);
     }
 
     /**
