@@ -10,6 +10,7 @@ use Illuminate\Contracts\Pipeline\Hub;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use PhpParser\Parser\Tokens;
 use Symfony\Component\Console\Input\Input;
 
@@ -36,6 +37,7 @@ class Usercontroller extends Controller
     public function inscription(request $request)
     {
         $validator = Validator::make($request->all(), [
+
             'name' => 'required|max: 191',
             'email' => 'required|email|max: 191|unique:users,email',
             'password' => 'required|',
@@ -44,11 +46,16 @@ class Usercontroller extends Controller
             return response()->json([
                 'status' => 200,
                 'message' => "error email(insert '@')"
-
             ]);
+        }else{
+            $user_register = User::where('email', $request->email)->first();
+            if ($user_register) {
+                return response()->json([
+
+                    "error" => 'Compte déja existant',
+                ]);
         } else {
             $user = User::create([
-
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password)
@@ -64,6 +71,9 @@ class Usercontroller extends Controller
         }
     }
 
+
+}
+
     /**
      * Store a newly created resource in storage.
      *
@@ -72,6 +82,7 @@ class Usercontroller extends Controller
      */
     public function login(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'email' => 'required|max:191',
             'password' => 'required',
@@ -88,16 +99,13 @@ class Usercontroller extends Controller
                     'message' => "l'email et le mot de passe sont incorrects",
                 ]);
             } else {
-                if ($user->role == 1) // 1= Admin
+                if ($user->role == 1)
                 {
                     $token = $user->createToken($user->email . '_AdminToken', ['admin'])->plainTextToken;
                 } else {
 
                     $token = $user->createToken($user->email . '_userToken', ["user"])->plainTextToken;
                 }
-
-
-
                 return response()->json([
                     'status' => 200,
                     'token' => $token,

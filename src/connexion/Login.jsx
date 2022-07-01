@@ -3,6 +3,8 @@ import axios from 'axios'
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
 import img_login from '../img/img_login.png'
+import * as Cookie from '../connexion/Cookie';
+
 
 const Login = () => {
 
@@ -26,21 +28,17 @@ const Login = () => {
 
   }).then(res => {
             console.log(res);
-
+  localStorage.setItem('nom', res.data.nom)
             if (res.data.status === 200) {
-              localStorage.setItem('nom', res.data.nom)
               if (res.data.role == undefined) {
-                
+             console.log(res);
               }else{
-                  localStorage.setItem('role', res.data.role)
-
+   navigation('/')
+   window.location.reload()
               }
-              localStorage.setItem('token', res.data.token)
+              Cookie.SetCookie('token', res.data.token, 30)
+              Cookie.SetCookie('nom', res.data.nom)
               swal('Success', res.data.message, 'success')
-
-              navigation('/home')
-              window.location.reload()
-
             }
 
             else if (res.data.status === 401) {

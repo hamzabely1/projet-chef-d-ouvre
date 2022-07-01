@@ -52,4 +52,7 @@ Route::delete('delete/{id}',[PanierController::class,'destroy']);
 /*Route pour l'admin */
 Route::resource('admin',Admincontroller::class);
 Route::post('add_articles',[Admincontroller::class,'store']);
+
 Route::post('checkadmin',[Usercontroller::class,'checkAdmin'])->middleware("auth:sanctum");
+
+

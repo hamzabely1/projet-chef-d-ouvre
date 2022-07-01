@@ -4,6 +4,8 @@ import swal from 'sweetalert'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import img_login from '../img/img_login.png'
+import * as Cookie from '../connexion/Cookie';
+
  const Register = () => {
 
   let navigation = useNavigate();
@@ -38,15 +40,23 @@ import img_login from '../img/img_login.png'
       }).then(res => {
         if (res.data.status == 200) {
      console.log(res);
-         
 swal('warnig',res.data.message,'warning')
-        } else {
-          swal('success' ,res.data.message,'success')
-          localStorage.setItem('token',res.data.token);
-          localStorage.setItem('nom',res.data.username);
-          navigation('/')
+        } else if(res.data.error != '') {
+        
+          swal('warnig',res.data.error,'warning')
+
+        }else{
+    swal('success' ,res.data.message,'success')
+    Cookie.SetCookie('token', res.data.token, 30)
+    Cookie.SetCookie('nom', res.data.nom, 30)
+    navigation('/')
           window.location.reload()
+
+
         }
+
+
+
       })
     }
   }

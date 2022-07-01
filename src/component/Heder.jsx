@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react'
 
 import swal from 'sweetalert'
+import * as Cookie from '../connexion/Cookie'
 
 const Heder = () => {
 
@@ -14,9 +15,10 @@ const role = localStorage.getItem('role')
 
   /*ma function pour supprime le token et le nom de utilisateur */
   const log_out = () => {
- localStorage.removeItem("nom")
-    localStorage.removeItem("token")
-    localStorage.removeItem("role")
+Cookie.deleteCookie("nom")
+    Cookie.deleteCookie("token")
+  
+
 
 swal('success','logout','success')
 window.location.reload()
@@ -28,10 +30,13 @@ axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
 
   }
 
+  let coc = Cookie.getCookie('token')
+
  
 
   let auth_button = ''
-  if (token == undefined) {
+  
+  if (coc === undefined) {
     auth_button = (
       <div>
       <nav className="navbar navbar-expand-lg text-dark">
@@ -79,7 +84,7 @@ axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
 
     )
 
-  } else if(token != undefined && role == undefined )  {
+  } else if(coc != undefined  )  {
 
     auth_button = (
 
