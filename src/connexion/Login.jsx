@@ -3,6 +3,8 @@ import axios from 'axios'
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
 import img_login from '../img/img_login.png'
+import * as Cookie from '../connexion/Cookie';
+
 
 const Login = () => {
 
@@ -36,7 +38,9 @@ console.log('okay');
    navigation('/admin')
               }
               
-              localStorage.setItem('token', res.data.token)
+              Cookie.SetCookie('token', res.data.token, 30)
+              Cookie.SetCookie('nom', res.data.nom)
+
               swal('Success', res.data.message, 'success')
 
          

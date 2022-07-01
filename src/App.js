@@ -14,6 +14,9 @@ import Home_admin from './page/PageAdmin/Crud_admin';
 import Edit_admin from './page/PageAdmin/Edit_admin'
 import Plus_sur_taz from './page/Plus_sur_taz';
 import Paiment from './page/Paiment';
+import AdminPrivateRoute from './page/PageAdmin/AdminPrivateRoute';
+import Email from '../src/component/Email'
+import RouteAdmin from './route/RouteAdmin'
 
 
 axios.interceptors.request.use(function (config) {
@@ -47,7 +50,7 @@ function App() {
 
 <Route path="login" element={<Login/>}/>
 <Route path="register" element={<Register/>}/>
-<Route path="admin" element={<Create_admin/>}/>
+<Route path="admin" element={<RouteAdmin><Create_admin/></RouteAdmin>}/>
 
 <Route path="register" element={<Register/>}/>
 <Route path="login" element={<Login/>}/>
@@ -55,6 +58,7 @@ function App() {
 <Route path="edit_admin/:id" element={<Edit_admin/>}/>
 
 <Route path='articles/:id' element={<Articles/>}/>
+<Route path='email' element={<Email/>}/>
 
 </Routes>
 
