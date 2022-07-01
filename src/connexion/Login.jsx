@@ -30,20 +30,15 @@ const Login = () => {
             console.log(res);
   localStorage.setItem('nom', res.data.nom)
             if (res.data.status === 200) {
-            
               if (res.data.role == undefined) {
              console.log(res);
               }else{
-console.log('okay');
-   navigation('/admin')
+   navigation('/')
+   window.location.reload()
               }
-              
               Cookie.SetCookie('token', res.data.token, 30)
               Cookie.SetCookie('nom', res.data.nom)
-
               swal('Success', res.data.message, 'success')
-
-         
             }
 
             else if (res.data.status === 401) {

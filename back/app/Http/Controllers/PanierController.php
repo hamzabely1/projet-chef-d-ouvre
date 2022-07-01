@@ -112,7 +112,6 @@ $add = new panier();
     public function destroy($id)
     {
         panier::whereId($id)->first()->delete();
-
         return response()->json('success');
     }
 }
