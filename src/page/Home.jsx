@@ -8,7 +8,6 @@ import Produits from './Produits'
 import Pourquoi_nous from './Pourquoi_nous'
 import Equipe from './Equipe'
 import Create_admin from './PageAdmin/Create_admin'
-import Edit_admin from './PageAdmin/Edit_admin'
 import Home_admin from './PageAdmin/Crud_admin'
 
 

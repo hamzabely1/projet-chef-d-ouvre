@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Produits from './Produits'
 import swal from 'sweetalert'
+import * as Cookie from '../connexion/Cookie'
 
 
 
@@ -16,8 +17,8 @@ const [image,setImage] = useState(article.image)
 const [prix,setPrix] =useState(article.prix)
 const [quantite,setQuantite] =useState('')
 
-const token = localStorage.getItem('token')
 
+let token = Cookie.getCookie('token')
 
  const pass_au_panier = ()=>{
  if (quantite == 0) {
@@ -49,7 +50,7 @@ if (res.data.message === 'error') {
 /*condition pour le token = if le token et undefined il peut pas achete else il est connect avec le token  il peut ajoute au panier*/
 
   var button_achet = ''
-  if (token === undefined) {
+  if (token == undefined) {
     button_achet = (
 <il>
 <button  className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -55,12 +55,14 @@ class Usercontroller extends Controller
                     "error" => 'Compte déja existant',
                 ]);
         } else {
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password)
-            ]);
-            $token = $user->createToken($user->email . '_Token')->plainTextToken;
+            $user = new User;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $token = Str::random(80);
+            $user->token = $token;
+            $user->save();
+
             return response()->json([
 
                 'nom' => $user->name,
@@ -98,18 +100,15 @@ class Usercontroller extends Controller
                     'message' => "l'email et le mot de passe sont incorrects",
                 ]);
             } else {
-                if ($user->role == 1)
-                {
-                    $token = $user->createToken($user->email . '_AdminToken', ['admin'])->plainTextToken;
-                } else {
 
-                    $token = $user->createToken($user->email . '_userToken', ["user"])->plainTextToken;
-                }
+                $token = Str::random(80);
+                $user->token = $token;
+                $user->save();
+
                 return response()->json([
                     'status' => 200,
-                    'token' => $token,
+                    'token'=> $token,
                     'nom' => $user->name,
-                    'role' => $user->role,
                     'message' => "succes",
                 ]);
             }
@@ -118,17 +117,27 @@ class Usercontroller extends Controller
 
     public function checkAdmin(Request $request)
     {
-        
-        if($request->user()->tokenCan("user")) {
-            return response()->json("user");
+
+        $user = User::where('token', $request->token)->first();
+        if ($user) {
+            if ($user->role == 1) {
+                return response()->json([
+                    'role' => 'admin',
+                ]);
+            } else {
+                return response()->json([
+                    'role' =>'user',
+                ]);
+            }
+
         }
-
-        if($request->user()->tokenCan("admin")) {
-            return response()->json("admin");
-        }
-
-
     }
+
+
+
+
+
+
 
 
 
@@ -185,5 +194,14 @@ class Usercontroller extends Controller
     public function destroy()
     {
         panier::all()->delete();
+
+
+
     }
+
+
+
 }
+
+
+
