@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 import Produits from './Produits'
 import swal from 'sweetalert'
 import * as Cookie from '../connexion/Cookie'
+import Similaire from './Similaire'
 
 
 
@@ -124,7 +125,7 @@ Ajouter au panier
     </div>
   </div>
   <p className='fs-1 border-bottom border-warning'>En plus</p>
-<Produits/>
+<Similaire/>
     </div>
         </div>
     </div>

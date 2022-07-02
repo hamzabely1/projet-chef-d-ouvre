@@ -28,10 +28,7 @@ const ProtectedRoute = ({children}) => {
         return <Navigate to="/" replace />;
     } else if (role === 'admin'){
         return children;
-    }else{
-        return <Navigate to="/" replace />;
     }
-
 }
 
 export default ProtectedRoute;

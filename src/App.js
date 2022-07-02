@@ -39,7 +39,6 @@ function App() {
 <Route path='fruits' element={<Fruits/>}/>
 <Route path='legumes' element={<Legumes/>}/>
 <Route path='panier' element={<Panier/>}/>z
-
 <Route path="login" element={<Login/>}/>
 <Route path="register" element={<Register/>}/>
 <Route path="fruits"element={<Fruits/>}/>
@@ -49,7 +48,6 @@ function App() {
 <Route path="plus" element={<Plus_sur_taz/>}/>
 <Route path="/admin" element={<ProtectionRoute><Home_admin/></ProtectionRoute>}/>
 <Route path='articles/:id' element={<Articles/>}/>
-
 </Routes>
 
 

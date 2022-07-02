@@ -8,13 +8,24 @@ const Heder = () => {
 
   /*ma function pour supprime le token et le nom de utilisateur */
   const log_out = () => {
-Cookie.deleteCookie("nom")
- Cookie.deleteCookie("token")
+    swal({
+      title: "êtes-vous sûr de vouloir quitter?",
+      text: "",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+  Cookie.deleteCookie("nom")
+          Cookie.deleteCookie("token")
+ window.location.reload()  
+      } 
+    });
+    
+
   
 
 
-swal('success','logout','success')
-window.location.reload()
 
 axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
   console.log(res);
@@ -32,6 +43,7 @@ axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
   if (token === undefined) {
     auth_button = (
       <div>
+        
       <nav className="navbar navbar-expand-lg text-dark">
         <div className="container-fluid">
                       <a className="noHover  fs-3"  href="/home">Taz fruits🍒</a>
