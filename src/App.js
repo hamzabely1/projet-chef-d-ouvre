@@ -6,7 +6,7 @@ import Heder from './component/Heder';
 import Register from './connexion/Register';
 import Login from './connexion/Login';
 import Articles from './page/Articles';
-import Admin from './page/PageAdmin/Create';
+import Admin from './page/PageAdmin/Create_admin';
 
 import Legumes from './page/Legumes';
 import Panier from './page/Panier';
@@ -17,9 +17,7 @@ import Home_admin from './page/PageAdmin/Home_admin';
 import Edit_admin from './page/PageAdmin/Edit_admin'
 import Plus_sur_taz from './page/Plus_sur_taz';
 import Paiment from './page/Paiment';
-import AdminPrivateRoute from './page/PageAdmin/AdminPrivateRoute';
-import Email from '../src/component/Email'
-import RouteAdmin from './route/RouteAdmin'
+import AdminRoute from './route/AdminRoute';
 import * as Cookie from '../src/connexion/Cookie'
 
 
@@ -40,22 +38,15 @@ function App() {
 <Route path='/home' element={<Home/>}/>
 <Route path='fruits' element={<Fruits/>}/>
 <Route path='legumes' element={<Legumes/>}/>
-<Route path='panier' element={<Panier/>}/>
+<Route path='panier' element={<Panier/>}/>z
 
-<Route path="login" element={localStorage.getItem('nom') ?<Home/> :<Login/>}/>
-<Route path="register" element={localStorage.getItem('nom') ?<Home/> :<Register/>}/>
+<Route path="login" element={<Login/>}/>
+<Route path="register" element={<Register/>}/>
 <Route path="fruits"element={<Fruits/>}/>
 <Route path="legumes" element={<Legumes/>}/>
 <Route path="panier"element={ Cookie.getCookie('token') ?<Panier/> :<Home/>}/>
 <Route path="paiment" element={localStorage.getItem('token') ?<Paiment/> :<Home/>}/>"
 <Route path="plus" element={<Plus_sur_taz/>}/>
-
-<Route path="login" element={<Login/>}/>
-<Route path="register" element={<Register/>}/>
-<Route path="admin" element={<Create_admin/>}/>
-
-<Route path="register" element={localStorage.getItem('role') ?<Home/> :<Register/>}/>
-<Route path="login" element={localStorage.getItem('role') ?<Home/> :<Login/>}/>
 <Route path="home_admin" element={<Home_admin/>}/>
 
 <Route path='articles/:id' element={<Articles/>}/>

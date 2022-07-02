@@ -27,18 +27,12 @@ const Login = () => {
           password: password
 
   }).then(res => {
-            console.log(res);
-  localStorage.setItem('nom', res.data.nom)
             if (res.data.status === 200) {
-              if (res.data.role == undefined) {
-             console.log(res);
-              }else{
-   navigation('/')
-   window.location.reload()
-              }
               Cookie.SetCookie('token', res.data.token, 30)
               Cookie.SetCookie('nom', res.data.nom)
               swal('Success', res.data.message, 'success')
+              navigation('/')
+              window.location.reload()
             }
 
             else if (res.data.status === 401) {

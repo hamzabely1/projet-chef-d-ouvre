@@ -6,17 +6,10 @@ import * as Cookie from '../connexion/Cookie'
 
 const Heder = () => {
 
-  const nom = localStorage.getItem('nom');
-  const token = localStorage.getItem('token');
-const role = localStorage.getItem('role')
-
-
-
-
   /*ma function pour supprime le token et le nom de utilisateur */
   const log_out = () => {
 Cookie.deleteCookie("nom")
-    Cookie.deleteCookie("token")
+ Cookie.deleteCookie("token")
   
 
 
@@ -26,17 +19,17 @@ window.location.reload()
 axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
   console.log(res);
 })
-
-
   }
 
-  let coc = Cookie.getCookie('token')
+
+  let nom = Cookie.getCookie('nom')
+  let token = Cookie.getCookie('token')
 
  
 
   let auth_button = ''
   
-  if (coc === undefined) {
+  if (token === undefined) {
     auth_button = (
       <div>
       <nav className="navbar navbar-expand-lg text-dark">
@@ -84,7 +77,7 @@ axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
 
     )
 
-  } else if(coc != undefined  )  {
+  } else if(token != undefined  )  {
 
     auth_button = (
 
@@ -131,48 +124,8 @@ axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
           </div>
         </div>
       </nav>
- 
-
    </div>
 )
-  }else if(role == 1 && token != undefined){
-    auth_button=(
-    <div>
-    <nav className="navbar navbar-expand-lg text-dark">
-      <div className="container-fluid">
-                    <a className="noHover  fs-3"  href="/home">Taz fruits🍒</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className=" collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-       
-
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a className="dropdown-item" href="/fruits">Fruits🍎</a></li>
-                <hr></hr>
-                <li><a className="dropdown-item" href="/legumes">Legumes🍋</a></li>
-              </ul>
-            
-          </ul>
-          <div className="dropdown col-2">
-<button className=" dropdown-toggle"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-
-{nom}
-</button>
-<ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-  <li><a onClick={log_out} className="dropdown-item text text-danger" >Se déconnecter</a></li>
-</ul>
-</div>
-        </div>
-      </div>
-    </nav>
-
-
- </div>
-
-)
-
   }
 
 

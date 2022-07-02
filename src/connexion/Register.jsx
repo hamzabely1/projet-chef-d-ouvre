@@ -38,25 +38,18 @@ import * as Cookie from '../connexion/Cookie';
         email: email,
         password: password
       }).then(res => {
-        if (res.data.status == 200) {
-     console.log(res);
-swal('warnig',res.data.message,'warning')
-        } else if(res.data.error != '') {
-        
-          swal('warnig',res.data.error,'warning')
 
+        if (res.data.status == 200) {
+swal('warnig',res.data.message,'warning')
+        } else if(res.data.status == 401) {
+          swal('warnig',res.data.error,'warning')
         }else{
     swal('success' ,res.data.message,'success')
-    Cookie.SetCookie('token', res.data.token, 30)
-    Cookie.SetCookie('nom', res.data.nom, 30)
+    Cookie.SetCookie('token', res.data.token)
+    Cookie.SetCookie('nom', res.data.nom)
     navigation('/')
           window.location.reload()
-
-
         }
-
-
-
       })
     }
   }

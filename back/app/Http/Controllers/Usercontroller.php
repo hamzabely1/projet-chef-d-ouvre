@@ -39,7 +39,7 @@ class Usercontroller extends Controller
         $validator = Validator::make($request->all(), [
 
             'name' => 'required|max: 191',
-            'email' => 'required|email|max: 191|unique:users,email',
+            'email' => 'required|email|max: 191',
             'password' => 'required|',
         ]);
         if ($validator->fails()) {
@@ -51,7 +51,7 @@ class Usercontroller extends Controller
             $user_register = User::where('email', $request->email)->first();
             if ($user_register) {
                 return response()->json([
-
+                    'status'=>401,
                     "error" => 'Compte déja existant',
                 ]);
         } else {
@@ -63,8 +63,7 @@ class Usercontroller extends Controller
             $token = $user->createToken($user->email . '_Token')->plainTextToken;
             return response()->json([
 
-                'status' => 400,
-                'username' => $user->name,
+                'nom' => $user->name,
                 'token' => $token,
                 'message' => 'inscription réussie'
             ]);
@@ -119,6 +118,7 @@ class Usercontroller extends Controller
 
     public function checkAdmin(Request $request)
     {
+        
         if($request->user()->tokenCan("user")) {
             return response()->json("user");
         }
