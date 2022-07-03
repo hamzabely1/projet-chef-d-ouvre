@@ -24,7 +24,6 @@ let token = Cookie.getCookie('token')
  const pass_au_panier = ()=>{
  if (quantite == 0) {
 swal('Ajouter la quantité')
-   console.log(nom,image,prix);
  } else {
   axios.post('http://127.0.0.1:8000/api/add/panier',{
 name:nom,

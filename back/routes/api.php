@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admincontroller;
 use App\Http\Controllers\article;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Commandecontroller;
 use App\Http\Controllers\PanierController;
 use App\Http\Controllers\Usercontroller;
 use App\Models\panier;
@@ -54,5 +55,6 @@ Route::resource('admin',Admincontroller::class);
 Route::post('add_articles',[Admincontroller::class,'store']);
 
 Route::post('checkadmin',[Usercontroller::class,'checkAdmin']);
+Route::post('add/commande',[Commandecontroller::class,'create']);
 
 

@@ -1,11 +1,25 @@
 .produit{
     height: 100px;
-    width: 300px; 
+    width: 260px; 
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 15px; 
-    border:solid black 1px;
-  
+border: solid orange 1px;
 }
+
+.panier{
+
+    height:900px;
+    border-radius: 5px;
+width: 600px;
+}
+
+
+@media screen and (min-width:648px) {
+    .responsive
+    {
+display: flex;
+    }
+      
+  }

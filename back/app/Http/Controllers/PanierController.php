@@ -42,7 +42,7 @@ class PanierController extends Controller
 $add = new panier();
             $add->name =$request->name;
             $add->image =$request->image;
-            $add->prix = $request->prix;
+            $add->prix = $request->prix = $request->quantite * $request->prix;
             $add->quantite =$request->quantite;
             $add->save();
             return response()->json($add_article);
