@@ -9,11 +9,13 @@ import Pourquoi_nous from './Pourquoi_nous'
 import Equipe from './Equipe'
 import Create_admin from './PageAdmin/Create_admin'
 import Home_admin from './PageAdmin/Crud_admin'
-
+import Heder from '../component/Heder'
 
 
 
 const Home = () => {
+
+
 
 let page_home = ''
 
@@ -100,6 +102,8 @@ page_home =(
 
   return (
     <div>
+<Heder/>
+
 {page_home}
     </div>
 

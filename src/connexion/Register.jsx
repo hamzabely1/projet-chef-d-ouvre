@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import img_login from '../img/img_login.png'
 import * as Cookie from '../connexion/Cookie';
-
+import Heder from '../component/Heder';
  const Register = () => {
 
   let navigation = useNavigate();
@@ -70,6 +70,7 @@ swal('warnig',res.data.message,'warning')
 
   return (
     <div>
+      <Heder/>
       <div className='container' style={flex}>
         <form style={form}>
 

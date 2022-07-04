@@ -57,7 +57,8 @@ const  Edit_admin =(props)=> {
     return (
         <div style={flex}>
             <div style={form}>
-            <h2 className="mb-4">Edit Produits</h2>
+                <a></a>
+            <h2 className="mb-4">Edit Articles</h2>
             <div className="row">
                 <div className="col">
                     <div className="card p-4">

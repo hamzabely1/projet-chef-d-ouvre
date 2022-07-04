@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Mockery\Undefined;
 use PhpParser\Parser\Tokens;
 use Symfony\Component\Console\Input\Input;
 
@@ -124,11 +125,12 @@ class Usercontroller extends Controller
                 return response()->json([
                     'role' => 'admin',
                 ]);
-            } else {
+            } else if($user->role == 0) {
                 return response()->json([
                     'role' =>'user',
                 ]);
             }
+            
 
         }
     }

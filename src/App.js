@@ -16,16 +16,18 @@ import Home_admin from './page/PageAdmin/Home_admin';
 
 import Edit_admin from './page/PageAdmin/Edit_admin'
 import Plus_sur_taz from './page/Plus_sur_taz';
-import Paiment from './page/Paiment';
-import ProtectionRoute from './route/ProtectionRoute';
+import ProtectionRouteAdmin from './route/ProtectionRouteAdmin';
 import * as Cookie from '../src/connexion/Cookie'
+
+import ProtectionRouteUser from './route/ProtectionRouteUser';
+import ProtectionRoute from './route/ProtectionRoute'
 
 
 function App() {
   return (
     <div className="App">
      
-<Heder/>
+
 
 
 
@@ -35,18 +37,15 @@ function App() {
 <BrowserRouter>
 <Routes>
 <Route path='/' element={<Home/>}/>
-<Route path='/home' element={<Home/>}/>
-<Route path='fruits' element={<Fruits/>}/>
-<Route path='legumes' element={<Legumes/>}/>
-<Route path='panier' element={<Panier/>}/>z
-<Route path="login" element={<Login/>}/>
-<Route path="register" element={<Register/>}/>
-<Route path="fruits"element={<Fruits/>}/>
-<Route path="legumes" element={<Legumes/>}/>
-<Route path="panier"element={ Cookie.getCookie('token') ?<Panier/> :<Home/>}/>
-<Route path="paiment" element={Cookie.getCookie('token') ?<Paiment/> :<Home/>}/>"
-<Route path="plus" element={<Plus_sur_taz/>}/>
-<Route path="/admin" element={<ProtectionRoute><Home_admin/></ProtectionRoute>}/>
+<Route path='/fruits' element={<ProtectionRoute><Fruits/></ProtectionRoute>}/>
+<Route path='/legumes' element={<ProtectionRoute><Legumes/></ProtectionRoute>}/>
+<Route path='/panier' element={<ProtectionRouteUser><Panier/></ProtectionRouteUser>}/>z
+<Route path="/login" element={<ProtectionRoute><Login/></ProtectionRoute>}/>
+<Route path="/register" element={<ProtectionRoute><Register/></ProtectionRoute>}/>
+<Route path="/plus" element={<ProtectionRoute><Plus_sur_taz/></ProtectionRoute>}/>
+<Route path="/admin" element={<ProtectionRouteAdmin><Home_admin/></ProtectionRouteAdmin>}/>
+<Route path="/edit_admin/:id" element={<ProtectionRouteAdmin><Edit_admin/></ProtectionRouteAdmin>}/>
+
 <Route path='articles/:id' element={<Articles/>}/>
 </Routes>
 

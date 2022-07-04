@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Produits from './Produits';
-
+import Heder from '../component/Heder';
 import css from '../css/panier.css'
 import Articles from './Articles';
 
@@ -59,13 +59,16 @@ adresse:adresse,
 code_postal:code_postal,
 articles:artciles,
 total:totale
+
       })
 
   }
 
 
   return (
-    <div className='container ' >
+   
+    <div className='container' >
+      <Heder/> 
       <div className='d-flex justify-content-center'>
         <p className='fs-1 border-bottom border-warning w-50'>Panier</p>
       </div>

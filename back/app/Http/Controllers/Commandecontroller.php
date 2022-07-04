@@ -34,7 +34,7 @@ class Commandecontroller extends Controller
         $command->adresse = $request->adresse;
         $command->code_postale = $request->code_postal;
         $command->numero = $request->numero;
-                $command->total = $request->total;
+        $command->total = $request->total;
 
 
 

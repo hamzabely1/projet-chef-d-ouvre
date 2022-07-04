@@ -4,7 +4,7 @@ import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
 import img_login from '../img/img_login.png'
 import * as Cookie from '../connexion/Cookie';
-
+import Heder from '../component/Heder'
 
 const Login = () => {
 
@@ -31,8 +31,8 @@ const Login = () => {
               Cookie.SetCookie('token', res.data.token, 30)
               Cookie.SetCookie('nom', res.data.nom)
               swal('Success', res.data.message, 'success')
-              navigation('/')
-              window.location.reload()
+              navigation('/admin')
+            window.location.reload()
             }
 
             else if (res.data.status === 401) {
@@ -59,6 +59,7 @@ const Login = () => {
   return (
     
       <div>
+        <Heder/>
         <div style={flex} className='container'>
           <form style={form}>
             <h1>Connexion</h1>

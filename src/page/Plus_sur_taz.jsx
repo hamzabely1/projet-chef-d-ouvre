@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../component/Footer'
 import taz from '../img/taz.png'
+import Heder from '../component/Heder'
 const Plus_sur_taz = () => {
 
 
@@ -12,6 +13,7 @@ const clock = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"  >
 
   return (
     <div>
+      <Heder/>
 
 <div className='container-sm'>
 

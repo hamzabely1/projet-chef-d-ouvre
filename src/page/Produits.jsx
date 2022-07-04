@@ -23,6 +23,7 @@ const Produits = () => {
 
   return (
     <div>
+    
 <div className='d-flex justify-content-center'>
 
 

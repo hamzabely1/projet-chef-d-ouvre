@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Crud_admin from '../PageAdmin/Crud_admin'
 import Create_admin from "./Create_admin";
+import HederAdmin from "./HederAdmin";
 
 const Home_admin =() => {
 
@@ -29,7 +30,8 @@ const Home_admin =() => {
 
     return (
         <div>
-         
+         <HederAdmin/>
+
          <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Articles</button>

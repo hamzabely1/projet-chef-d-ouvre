@@ -6,6 +6,7 @@ import Produits from './Produits'
 import swal from 'sweetalert'
 import * as Cookie from '../connexion/Cookie'
 import Similaire from './Similaire'
+import Heder from '../component/Heder'
 
 
 
@@ -86,6 +87,7 @@ Ajouter au panier
   return (
     
     <div>
+      <Heder/>
       <hr></hr>
       <div className="container-sm "> 
           <div className="container-fliud ">

@@ -5,13 +5,14 @@ import * as Cookie from '../connexion/Cookie';
 import axios from 'axios';
 
 
-const ProtectedRouteAdmin = ({children}) => {
+const ProtectedRouteUser = ({children}) => {
 
 
     const AuthRole = async() => {
+        let token = Cookie.getCookie('token');
+        console.log(token);
         let response = await axios.post(`http://127.0.0.1:8000/api/checkadmin`, {
-        }).then(res =>{
-            setRole(res.data.role);
+            token: token
         })
         return response;
     }
@@ -22,14 +23,12 @@ const ProtectedRouteAdmin = ({children}) => {
     useEffect(() => {
         AuthRole().then(res => setRole(res.data.role));
     }, [])
-  
 
-    if (role === 'visiteur') {
+    if (role === 'admin') {
+        
+    } else if (role === 'user'){
         return children;
-    } else{
-        return children;
-
     }
 }
 
-export default ProtectedRouteAdmin;
+export default ProtectedRouteUser;

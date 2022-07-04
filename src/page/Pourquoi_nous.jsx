@@ -2,7 +2,6 @@ import React from 'react'
 import taz from '../img/taz_fruits.jpg'
 
 
-
 const Pourquoi_nous = () => {
 
 

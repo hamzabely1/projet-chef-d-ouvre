@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import categories_legumes from '../img/categories_legumes.jpg'
+import Heder from '../component/Heder';
 
 const Legumes = () => {
 
@@ -37,7 +38,7 @@ const Legumes = () => {
 
   return (
     <div>
-
+<Heder/>
 
 
 <div className='container-xl'>
