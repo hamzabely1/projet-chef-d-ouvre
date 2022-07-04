@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('commande', function (Blueprint $table) {
+        Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
             $table->string('numero');
-            $table->string('articles');
+            $table->string('articles')->nullable();
             $table->string('adresse');
             $table->string('code_postal');
             $table->string('prenom');
             $table->string('total');
+            $table->integer('user_id');
+
             $table->timestamps();
         });
     }

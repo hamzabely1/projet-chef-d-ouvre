@@ -30,6 +30,8 @@ const Login = () => {
             if (res.data.status === 200) {
               Cookie.SetCookie('token', res.data.token, 30)
               Cookie.SetCookie('nom', res.data.nom)
+              Cookie.SetCookie('user_id', res.data.id)
+
               swal('Success', res.data.message, 'success')
               navigation('/admin')
             window.location.reload()

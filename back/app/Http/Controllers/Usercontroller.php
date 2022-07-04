@@ -68,7 +68,8 @@ class Usercontroller extends Controller
 
                 'nom' => $user->name,
                 'token' => $token,
-                'message' => 'inscription réussie'
+                'message' => 'inscription réussie',
+                'id' => $user->id,
             ]);
         }
     }
@@ -111,6 +112,7 @@ class Usercontroller extends Controller
                     'token'=> $token,
                     'nom' => $user->name,
                     'message' => "succes",
+                    'id' => $user->id,
                 ]);
             }
         }
@@ -130,8 +132,24 @@ class Usercontroller extends Controller
                     'role' =>'user',
                 ]);
             }
-            
 
+
+        }
+    }
+
+
+
+    public function connexion(Request $request)
+    {
+        $user = User::where('token', $request->token)->first();
+        if ($user) {
+            return response()->json([
+                'status' => true,
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+            ]);
         }
     }
 

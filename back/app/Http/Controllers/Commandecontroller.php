@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\commande;
+use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class Commandecontroller extends Controller
 {
@@ -13,8 +15,21 @@ class Commandecontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id )
     {
+
+        $user = User::where('id',$user_id)->first();
+        $commande = commande::where('user_id',$user_id);
+        if ($user) {
+            $commandes = commande::where('user_id', $commande->user_id)->orderBy('id','DESC')->get();
+            return response()->json([
+                'data' =>$commandes
+            ],200);
+        } else {
+return response()->json([
+    'data' =>false
+],400);
+        }
 
     }
 
@@ -23,27 +38,39 @@ class Commandecontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create( request $request )
+    public function create( request $request ,$user_id )
     {
 
 
+        $user = User::where('id', $user_id)->first();
+
+        $validator = Validator::make($request->all(), [
+            'nom' => 'required|',
+            'prenom' => 'required|',
+            'adresse' => 'required|',
+            'code_postal' => 'required|',
+            'numero' => 'required|',
+
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => $validator->errors()
+            ]);
+        }else{
         $command = new commande();
         $command->nom = $request->nom;
         $command->prenom = $request->prenom;
         $command->articles = $request->articles;
         $command->adresse = $request->adresse;
-        $command->code_postale = $request->code_postal;
+        $command->code_postal = $request->code_postal;
         $command->numero = $request->numero;
-        $command->total = $request->total;
-
-
-
-        $command->save();
+        $command->user_id = $user->id;
+       $command->save();
         return $command;
+return response()->json([
 
-
-
-
+]);
+        }
     }
 
     /**

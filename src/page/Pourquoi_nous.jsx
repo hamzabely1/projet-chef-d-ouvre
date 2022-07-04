@@ -13,7 +13,7 @@ const Pourquoi_nous = () => {
 <p className='fs-2 mt-2 mb-2 border-bottom w-100  border-warning w-100 d-flex justify-content-center'>Pourquoi nous choisir</p>
 
 <div className="">
-  <img className='img-fluid ' src={taz} class="col-md-5 float-md-end mb-3 ms-md-3" alt="..."/>
+  <img className='img-fluid col-md-5 float-md-end mb-3 ms-md-3 ' src={taz}  alt="..."/>
 <p className='fs-3 mt-10'>Taz fruits en marche</p>
   <p className='mt-5'>
     A paragraph of placeholder text. We're using it here to show the use of the clearfix class. We're adding quite a few meaningless phrases here to demonstrate how the columns interact here with the floated image.

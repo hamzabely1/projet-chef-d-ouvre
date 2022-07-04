@@ -55,6 +55,14 @@ Route::resource('admin',Admincontroller::class);
 Route::post('add_articles',[Admincontroller::class,'store']);
 
 Route::post('checkadmin',[Usercontroller::class,'checkAdmin']);
-Route::post('add/commande',[Commandecontroller::class,'create']);
+Route::post('connexion',[Usercontroller::class,'connexion']);
+
+Route::post('add/commande/{user_id}',[Commandecontroller::class,'create']);
+
+Route::get('commande/{user_id}',[Commandecontroller::class,'index']);
+
+
+
+
 
 

@@ -62,8 +62,7 @@ const Home_admin =() => {
                                     >Supprimé</button>
                          </div>
                             </div>
-                         
-                        
+
                     ))}
            </div>
            </div>
@@ -73,3 +72,4 @@ const Home_admin =() => {
 }
 
 export default Home_admin
++312

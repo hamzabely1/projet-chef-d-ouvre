@@ -13,7 +13,7 @@ const Carousele = () => {
         <Carousel.Item>
         <div className="row justify-content-around">
     <div className="col-4">
-    <p className='fs-1 fw-semibold'>Abrico</p>
+    <p className='fs-1 fw-semibold'>Abricot</p>
      <p className='mb-2 mt-2'>7.96 € / KG</p>
      <a href='articles/1'>
           <button className='btn btn-dark mt-2'>shop</button>
@@ -52,7 +52,7 @@ const Carousele = () => {
         <Carousel.Item>
         <div className="row justify-content-around">
     <div className="col-4">
-    <p className='fs-1 fw-semibold'>Mirtil</p>
+    <p className='fs-1 fw-semibold'>myrtilles</p>
      <p className='mb-2 mt-2'>7.96 € / KG</p>
     <button className='btn btn-dark mt-2'>shop</button>
     </div>

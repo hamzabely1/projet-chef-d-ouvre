@@ -5,13 +5,13 @@ import * as Cookie from '../connexion/Cookie';
 import axios from 'axios';
 
 
-const ProtectedRouteAdmin = ({children}) => {
+const ProtectedRoute = ({children}) => {
 
 
     const AuthRole = async() => {
-        let response = await axios.post(`http://127.0.0.1:8000/api/checkadmin`, {
-        }).then(res =>{
-            setRole(res.data.role);
+        let token = Cookie.getCookie('token');
+        let response = await axios.post(`http://127.0.0.1:8000/api/connexion`, {
+     token: token
         })
         return response;
     }
@@ -20,16 +20,13 @@ const ProtectedRouteAdmin = ({children}) => {
     const [role, setRole] = useState()
     
     useEffect(() => {
-        AuthRole().then(res => setRole(res.data.role));
+        AuthRole().then(res => setRole(res.data.status));
     }, [])
-  
-
-    if (role === 'visiteur') {
+    if (role === false) {
         return children;
-    } else{
-        return children;
-
+    } else if (role === true) {
+        return <Navigate to="/" replace />;
     }
 }
 
-export default ProtectedRouteAdmin;
+export default ProtectedRoute;

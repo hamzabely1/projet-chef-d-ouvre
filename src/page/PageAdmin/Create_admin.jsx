@@ -98,7 +98,7 @@ const flex={
 
 
 
-<select class="form-select" name='type'  onChange={(e)=>setType(e.target.value)} aria-label="Default select example">
+<select className="form-select" name='type'  onChange={(e)=>setType(e.target.value)} aria-label="Default select example">
   <option selected>choisissez la catégorie</option>
   <option value="fruits">fruits</option>
   <option value="legumes">legumes</option>

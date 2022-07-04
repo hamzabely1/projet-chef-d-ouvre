@@ -75,17 +75,17 @@ swal('warnig',res.data.message,'warning')
         <form style={form}>
 
           <h1>S'inscrire</h1>
-          <div class=" mt-5">
-            <label for="validationCustom01" class="form-label">Nom</label>
-            <input name='nom' onChange={(e) => setNom(e.target.value)} type="text" class="form-control" id="validationCustom01" required />
+          <div className=" mt-5">
+            <label for="validationCustom01" className="form-label">Nom</label>
+            <input name='nom' onChange={(e) => setNom(e.target.value)} type="text" className="form-control" id="validationCustom01" required />
           </div>
-          <div class=" mt-2">
-            <label for="validationCustom01" class="form-label">Email</label>
-            <input name='email' onChange={(e) => setEmail(e.target.value)}  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          <div className=" mt-2">
+            <label for="validationCustom01" className="form-label">Email</label>
+            <input name='email' onChange={(e) => setEmail(e.target.value)}  type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
           </div>
-              <div class=" mt-2">
-            <label for="validationCustom01" class="form-label">Cree un mot de passe </label>
-            <input name='password' onChange={(e) => setPassword(e.target.value)} type="text" class="form-control" id="validationCustom01" required />
+              <div className=" mt-2">
+            <label for="validationCustom01" className="form-label">Cree un mot de passe </label>
+            <input name='password' onChange={(e) => setPassword(e.target.value)} type="text" className="form-control" id="validationCustom01" required />
           </div>
 
           <Link to='/login'> <p className='tetx-info mt-5'>Vous êtes déjà inscrit?</p> </Link>
