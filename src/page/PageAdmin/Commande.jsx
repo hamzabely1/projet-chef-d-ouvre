@@ -8,14 +8,13 @@ import { useEffect } from 'react';
 const Command = () => {
 
 
-const [data,setData] = useState('')
-let user_id = localStorage.getItem('user_id')
+const [command,setCommand] = useState('')
 
 
 useEffect(() => {
-  axios.get(`http://127.0.0.1:8000/commande/${user_id}`)
+  axios.get(`http://127.0.0.1:8000/commande`)
   .then((res) => {
-      setData(res.data.data);
+      setCommand(res.data.data);
   });
 }, []);
 
@@ -26,12 +25,6 @@ useEffect(() => {
 
   return (
     <div>
-
-
-
-
-
-
 
         
     </div>

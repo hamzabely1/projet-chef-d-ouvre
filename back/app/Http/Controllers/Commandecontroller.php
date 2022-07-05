@@ -18,19 +18,9 @@ class Commandecontroller extends Controller
     public function index($user_id )
     {
 
-        $user = User::where('id',$user_id)->first();
-        $commande = commande::where('user_id',$user_id);
-        if ($user) {
-            $commandes = commande::where('user_id', $commande->user_id)->orderBy('id','DESC')->get();
-            return response()->json([
-                'data' =>$commandes
-            ],200);
-        } else {
-return response()->json([
-    'data' =>false
-],400);
-        }
-
+ $command = commande::all();
+ return response()->json($command);
+ 
     }
 
     /**

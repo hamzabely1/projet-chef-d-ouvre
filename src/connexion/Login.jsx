@@ -3,7 +3,7 @@ import axios from 'axios'
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
 import img_login from '../img/img_login.png'
-import Heder from '../component/Heder'
+import Heder from '../component/Header'
 
 const Login = () => {
 
@@ -29,11 +29,9 @@ const Login = () => {
             if (res.data.status === 200) {
               localStorage.setItem('token', res.data.token, 30)
               localStorage.setItem('nom', res.data.nom)
-              localStorage.setItem('user_id', res.data.id)
-
+console.log(res);
               swal('Success', res.data.message, 'success')
               navigation('/admin')
-            window.location.reload()
             }
 
             else if (res.data.status === 401) {

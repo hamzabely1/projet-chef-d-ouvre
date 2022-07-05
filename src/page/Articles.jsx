@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 import Produits from './Produits'
 import swal from 'sweetalert'
 import Similaire from './Similaire'
-import Heder from '../component/Heder'
+import Header from '../component/Header'
 
 
 
@@ -86,7 +86,7 @@ Ajouter au panier
   return (
     
     <div>
-      <Heder/>
+      <Header/>
       <hr></hr>
       <div className="container-sm "> 
           <div className="container-fliud ">

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import Heder from '../../component/Heder'
+import Heder from '../../component/Header'
 
 import axios from 'axios';
-import { toBeChecked } from '@testing-library/jest-dom/dist/matchers';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 
@@ -98,11 +97,11 @@ const flex={
 
 
 
-<select className="form-select" name='type'  onChange={(e)=>setType(e.target.value)} aria-label="Default select example">
+<selected className="form-select" name='type'  onChange={(e)=>setType(e.target.value)} aria-label="Default select example">
   <option selected>choisissez la catégorie</option>
-  <option value="fruits">fruits</option>
-  <option value="legumes">legumes</option>
-</select>
+  <option defaultValue="fruits">fruits</option>
+  <option defaultValue="legumes">legumes</option>
+</selected>
 
 
 <label  className='mt-2'>Image</label>
@@ -110,7 +109,7 @@ const flex={
 <input name='image' onChange={(e)=> setImage(e.target.files[0])}  className="form-control" type="file" placeholder="Default input" aria-label="default input example"/>
 
 <div >
-<input type='submit' value='envoyer'  onClick={enregistrer}   className='buttons mt-5'></input>
+<input type='submit' defaultValue='envoyer'  onClick={enregistrer}   className='buttons mt-5'></input>
 </div>
 </div>
 

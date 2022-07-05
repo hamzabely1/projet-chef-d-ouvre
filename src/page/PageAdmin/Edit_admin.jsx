@@ -64,38 +64,38 @@ const  Edit_admin =(props)=> {
                     <div className="card p-4">
                         <label>Nom de produits</label>
                         <input type="text" name="nom" className="form-control mb-2"
-                                value={inputs.nom || ''}
+                                defaultValue={inputs.nom || ''}
                                 onChange={handleChange} />
                         <label>Prix</label>
                         <input type="text" name="prix" className="form-control mb-2"
-                            value={inputs.prix || ''}
+                            defaultValue={inputs.prix || ''}
                             onChange={handleChange}/>
                                                 <label>Description</label>
                          <input type="text" name="description" className="form-control mb-2"
-                            value={inputs.description || ''}
+                            defaultValue={inputs.description || ''}
                             onChange={handleChange}/>  
                                                 <label>Origines</label>
                          <input type="text" name="origines" className="form-control mb-2"
-                            value={inputs.origines || ''}
+                            defaultValue={inputs.origines || ''}
                             onChange={handleChange}
                         />
                                 <label>Image</label>
 
 <input type="text" name="image" className="form-control mb-2"
-   value={inputs.image || ''}
+   deafaultValue={inputs.image || ''}
    onChange={handleChange}/>
 <label>type</label>
-<select  value={inputs.type} className="form-select" name='type'  onChange={handleChange} aria-label="Default select example">
+<selected  value={inputs.type} className="form-select" name='type'  onChange={handleChange} aria-label="Default select example">
   <option selected>choisissez la catégorie</option>
-  <option value="fruits">fruits</option>
-  <option value="legumes">legumes</option>
-</select>
+  <option deafaultValue="fruits">fruits</option>
+  <option deafaultValue="legumes">legumes</option>
+</selected>
 <label className="mt-1">disponibilité</label>
-<select value={inputs.stock} className="form-select" name='stock'  onChange={handleChange} aria-label="Default select example">
+<selected deafaultValue={inputs.stock} className="form-select" name='stock'  onChange={handleChange} aria-label="Default select example">
   <option  selected>choisissez la catégorie</option>
-  <option value='0'>indisponible</option>
-  <option value='1'>disponible</option>
-</select>
+  <option deafaultValue='0'>indisponible</option>
+  <option deafaultValue='1'>disponible</option>
+</selected>
                         <button type="button" onClick={submitForm} className="btn btn-info mt-2">Update</button>
                     </div>
                 </div>

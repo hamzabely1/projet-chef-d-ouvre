@@ -37,10 +37,7 @@ Route::post('login',[Usercontroller::class,'login']);
 Route::delete('delete_all',[Usercontroller::class,'destroy']);
 
 
-Route::middleware(['auth:sanctum'])->group( function () {
     Route::post('logout',[Usercontroller::class,'logout']);
-
-});
 
 
 /*Route pour le panier*/
@@ -59,7 +56,7 @@ Route::post('connexion',[Usercontroller::class,'connexion']);
 
 Route::post('add/commande/{user_id}',[Commandecontroller::class,'create']);
 
-Route::get('commande/{user_id}',[Commandecontroller::class,'index']);
+Route::get('commande/',[Commandecontroller::class,'index']);
 
 
 

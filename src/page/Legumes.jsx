@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import categories_legumes from "../img/categories_legumes.jpg";
-import Heder from "../component/Heder";
+import Header from "../component/Header";
 
 const Legumes = () => {
   const [articles, setArticles] = useState([]);
@@ -19,7 +19,7 @@ const Legumes = () => {
 
   return (
     <div>
-      <Heder />
+      <Header />
 
       <div className="container-xl">
         <img className="img-fluid" src={categories_legumes}></img>

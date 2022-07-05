@@ -5,6 +5,10 @@ import swal from 'sweetalert'
 
 const Heder = () => {
 
+  let nom = localStorage.getItem('nom')
+  let token = localStorage.getItem('token')
+
+
   /*ma function pour supprime le token et le nom de utilisateur */
   const log_out = () => {
     swal({
@@ -22,18 +26,24 @@ const Heder = () => {
     });
     
 
+    /*recupere le token et le nom sur le localStorage*/
+  
   
 
 
 
-axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
-  console.log(res);
+axios.post('http://127.0.0.1:8000/api/logout',{
+  token:token
+
+}
+).then(res=>{
+console.log('====================================');
+console.log(res);
+console.log('====================================');
 })
   }
 
 
-  let nom = localStorage.getItem('nom')
-  let token = localStorage.getItem('token')
 
  
 

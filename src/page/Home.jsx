@@ -9,7 +9,7 @@ import Pourquoi_nous from "./Pourquoi_nous";
 import Equipe from "./Equipe";
 import Create_admin from "./PageAdmin/Create_admin";
 import Home_admin from "./PageAdmin/Crud_admin";
-import Heder from "../component/Heder";
+import Header from "../component/Header";
 
 const Home = () => {
   
@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <div>
-      <Heder/>
+      <Header/>
       <div>
         <div className="container-sm">
           <br></br>

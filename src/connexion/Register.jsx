@@ -4,7 +4,7 @@ import swal from 'sweetalert'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import img_login from '../img/img_login.png'
-import Heder from '../component/Heder';
+import Heder from '../component/Header';
  const Register = () => {
 
   let navigation = useNavigate();

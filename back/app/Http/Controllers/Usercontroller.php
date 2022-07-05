@@ -112,7 +112,7 @@ class Usercontroller extends Controller
                     'token'=> $token,
                     'nom' => $user->name,
                     'message' => "succes",
-                    'id' => $user->id,
+                   
                 ]);
             }
         }
@@ -167,19 +167,14 @@ class Usercontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function logout()
+    public function logout(Request $request)
     {
 
+        $token =  $request->token->first();
 
-        auth()->user()->tokens->each(function ($token) {
-            $token->delete();
-        });
-        response()->json([
+$token->delete();
+return $token;
 
-            'status' => 200,
-            'message' => 'déconnexion réussie',
-
-        ]);
     }
 
     /**

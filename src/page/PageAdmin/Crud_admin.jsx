@@ -35,9 +35,8 @@ const Home_admin =() => {
                     
 <div className='container'>
 <div className='row d-flex justify-center'>
-                    {articles.map((article,index)=>(
-                      
-
+                    {articles.map(article=>(
+                  
                             <div className="cards_admin col-md-3 d-flex flex-column">  
                            
 <div className="w-100">
@@ -62,7 +61,7 @@ const Home_admin =() => {
                                     >Supprimé</button>
                          </div>
                             </div>
-
+                        
                     ))}
            </div>
            </div>
@@ -72,4 +71,3 @@ const Home_admin =() => {
 }
 
 export default Home_admin
-+312

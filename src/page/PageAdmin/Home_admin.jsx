@@ -1,30 +1,13 @@
-import { useState,useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
 import Crud_admin from '../PageAdmin/Crud_admin'
 import Create_admin from "./Create_admin";
-import HederAdmin from "./HederAdmin";
+import HederAdmin from "./HeaderAdmin";
 
 const Home_admin =() => {
 
-    const [articles, setArticles] = useState([]);
 
-    useEffect(()=>{
-        fetchAll_artciles();
-    },[]);
-
-    const fetchAll_artciles = () => {
-        axios.get('http://127.0.0.1:8000/api/artciles').then(res=>{
-            setArticles(res.data);
-        })
-    }
+   
 
 
-    const delete_Articles = (id) => {
-        axios.delete('http://127.0.0.1:8000/api/admin'+id).then(res=>{
-            fetchAll_artciles();
-        })
-    }
 
 
 

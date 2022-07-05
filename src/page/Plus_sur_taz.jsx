@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../component/Footer";
 import taz from "../img/taz.png";
-import Heder from "../component/Heder";
+import Header from "../component/Header";
 const Plus_sur_taz = () => {
   const clock = (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
@@ -12,7 +12,7 @@ const Plus_sur_taz = () => {
 
   return (
     <div>
-      <Heder />
+      <Header />
 
       <div className="container-sm">
         <p className="fs-1 "> Taz fruits</p>

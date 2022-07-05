@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Heder from "../component/Heder";
+import Heder from "../component/Header";
 import css from "../css/panier.css";
 
 

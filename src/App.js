@@ -5,7 +5,7 @@ import Fruits from './page/Fruits';
 import Register from './connexion/Register';
 import Login from './connexion/Login';
 import Articles from './page/Articles';
-import Commande from '../src/page/Commande'
+import Commande from './page/PageAdmin/Commande'
 import Legumes from './page/Legumes';
 import Panier from './page/Panier';
 

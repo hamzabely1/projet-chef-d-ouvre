@@ -2,7 +2,7 @@ import React from 'react'
 
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
-const HederAdmin = () => {
+const HeaderAdmin = () => {
 
   let nom = localStorage.getItem('nom')
   const navigation = useNavigate();
@@ -51,13 +51,13 @@ const HederAdmin = () => {
             {nom}
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a onClick={log_out} className="dropdown-item text text-danger" >Se déconnecter</a></li>
+              <li><a onClick={()=>log_out()} className="dropdown-item text text-danger" >Se déconnecter</a></li>
             </ul>
     </div>
-      </nav >
-   </div >
-    </div >
+      </nav>
+   </div>
+    </div>
   )
 }
 
-export default HederAdmin
+export default HeaderAdmin

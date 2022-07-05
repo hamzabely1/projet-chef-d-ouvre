@@ -4,7 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import categories_fruits from '../img/categories_fruits.jpg'
-import Heder from '../component/Heder'
+import Header from '../component/Header'
 
 const Fruits = () => {
 
@@ -20,7 +20,7 @@ const Fruits = () => {
 
   return (
     <div>
-<Heder/>
+<Header/>
 
 <div className='container-xl'>
 <img className='img_fluid' src={categories_fruits}></img>
