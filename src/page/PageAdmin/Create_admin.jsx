@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Heder from '../../component/Header'
 
-import axios from 'axios';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 
@@ -58,7 +57,7 @@ else if(nom != '' && prix != '' && description != '' && prix != '' && origines !
   method:'POST',
   body:formArticles
 })
-navigation('/home')
+window.location.reload()
  }
 
 }
@@ -97,11 +96,11 @@ const flex={
 
 
 
-<selected className="form-select" name='type'  onChange={(e)=>setType(e.target.value)} aria-label="Default select example">
-  <option selected>choisissez la catégorie</option>
+<select className="form-select" name='type'  onChange={(e)=>setType(e.target.value)} aria-label="Default select example">
+  <option select>choisissez la catégorie</option>
   <option defaultValue="fruits">fruits</option>
   <option defaultValue="legumes">legumes</option>
-</selected>
+</select>
 
 
 <label  className='mt-2'>Image</label>

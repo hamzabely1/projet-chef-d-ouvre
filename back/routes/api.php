@@ -56,7 +56,7 @@ Route::post('connexion',[Usercontroller::class,'connexion']);
 
 Route::post('add/commande/{user_id}',[Commandecontroller::class,'create']);
 
-Route::get('commande/',[Commandecontroller::class,'index']);
+Route::get('commande',[Commandecontroller::class,'index']);
 
 
 

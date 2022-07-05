@@ -37,7 +37,8 @@ const Similaire = () => {
              <div className='row d-flex justify-center'>
 {
  articles.filter(articless => 
-   articless).map(article =>
+   articless.stock === 1).map((article,key) =>
+   key < 5 ?
    <Link key={article} className='cards col-md-3 d-flex flex-column' 
    state={{article:article}} to={`/articles/${article.id}`}>
             <img src={`${process.env.REACT_APP_IMAGE}${article.image}`} className='w-100 mt-1'></img>
@@ -60,6 +61,7 @@ const Similaire = () => {
 <p className='mt-1'>{article.prix}€/ KG</p>   
 
  </Link> 
+ :null
   )
 }
 

@@ -5,18 +5,9 @@ import { useEffect } from 'react';
 
 
 
-const Command = () => {
+const Commande = () => {
 
 
-const [command,setCommand] = useState('')
-
-
-useEffect(() => {
-  axios.get(`http://127.0.0.1:8000/commande`)
-  .then((res) => {
-      setCommand(res.data.data);
-  });
-}, []);
 
 
 
@@ -31,4 +22,4 @@ useEffect(() => {
   )
 }
 
-export default Command
+export default Commande

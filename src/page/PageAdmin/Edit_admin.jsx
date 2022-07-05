@@ -40,9 +40,10 @@ const  Edit_admin =(props)=> {
     const submitForm = () =>{
 
         axios.put('http://127.0.0.1:8000/api/admin/'+id,inputs).then((res)=>{
-            navigate('/');
-          console.log(inputs);
+         
         })
+
+        navigate("/admin")
     }
 
 
@@ -82,21 +83,26 @@ const  Edit_admin =(props)=> {
                                 <label>Image</label>
 
 <input type="text" name="image" className="form-control mb-2"
-   deafaultValue={inputs.image || ''}
+   defaultValue={inputs.image || ''}
    onChange={handleChange}/>
 <label>type</label>
-<selected  value={inputs.type} className="form-select" name='type'  onChange={handleChange} aria-label="Default select example">
-  <option selected>choisissez la catégorie</option>
-  <option deafaultValue="fruits">fruits</option>
-  <option deafaultValue="legumes">legumes</option>
-</selected>
+<select  value={inputs.type} className="form-select" name='type'  onChange={handleChange} aria-label="Default select example">
+  <option select>choisissez la catégorie</option>
+  <option value="fruits">fruits</option>
+  <option value="legumes">legumes</option>
+</select>
 <label className="mt-1">disponibilité</label>
-<selected deafaultValue={inputs.stock} className="form-select" name='stock'  onChange={handleChange} aria-label="Default select example">
-  <option  selected>choisissez la catégorie</option>
-  <option deafaultValue='0'>indisponible</option>
-  <option deafaultValue='1'>disponible</option>
-</selected>
-                        <button type="button" onClick={submitForm} className="btn btn-info mt-2">Update</button>
+<select value={inputs.stock} className="form-select" name='stock'  onChange={handleChange} aria-label="Default select example">
+  <option  select>choisissez la catégorie</option>
+  <option value='0'>indisponible</option>
+  <option value='1'>disponible</option>
+</select>
+<div className="d-flex justify-content-center">
+
+<button  onClick={submitForm} className="buttons mt-2 ">Update</button>
+
+</div>
+
                     </div>
                 </div>
             </div>

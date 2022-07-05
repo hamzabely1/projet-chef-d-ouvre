@@ -110,7 +110,6 @@ const Panier = () => {
               <div className="row">
                 <div className=" col-md-offset-4">
                   <div>
-                    <p className="fs-1">Total:</p>
                     <div className="form-row">
                       <div className="col-xs-12 form-group">
                         <label className="control-label">Nom</label>

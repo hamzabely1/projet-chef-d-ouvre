@@ -30,7 +30,7 @@ const Login = () => {
               localStorage.setItem('token', res.data.token, 30)
               localStorage.setItem('nom', res.data.nom)
 console.log(res);
-              swal('Success', res.data.message, 'success')
+              swal('Success', 'success')
               navigation('/admin')
             }
 

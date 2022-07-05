@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import css from '../../css/home.css'
 
-const Home_admin =() => {
+const Crud_admin =() => {
 
     const [articles, setArticles] = useState([]);
 
@@ -70,4 +70,4 @@ const Home_admin =() => {
     )
 }
 
-export default Home_admin
+export default Crud_admin

@@ -26,10 +26,13 @@ const Produits = () => {
                   state={{ article: article }}
                   to={`/articles/${article.id}`}
                 >
-                  <img
+                <div className="w-100">
+                   <img
                     src={`${process.env.REACT_APP_IMAGE}${article.image}`}
-                    className="w-100 mt-1"
+                    className=" mt-1"
                   ></img>
+                </div>
+                 
                   <p className="mt-1">{article.nom}</p>
                   <div className="d-flex mt-1 ">
                     <svg
