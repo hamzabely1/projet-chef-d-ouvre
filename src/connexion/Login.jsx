@@ -3,7 +3,6 @@ import axios from 'axios'
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
 import img_login from '../img/img_login.png'
-import * as Cookie from '../connexion/Cookie';
 import Heder from '../component/Heder'
 
 const Login = () => {
@@ -28,9 +27,9 @@ const Login = () => {
 
   }).then(res => {
             if (res.data.status === 200) {
-              Cookie.SetCookie('token', res.data.token, 30)
-              Cookie.SetCookie('nom', res.data.nom)
-              Cookie.SetCookie('user_id', res.data.id)
+              localStorage.setItem('token', res.data.token, 30)
+              localStorage.setItem('nom', res.data.nom)
+              localStorage.setItem('user_id', res.data.id)
 
               swal('Success', res.data.message, 'success')
               navigation('/admin')

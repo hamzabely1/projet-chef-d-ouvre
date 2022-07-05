@@ -2,7 +2,6 @@ import axios from 'axios';
 import React from 'react'
 
 import swal from 'sweetalert'
-import * as Cookie from '../connexion/Cookie'
 
 const Heder = () => {
 
@@ -16,8 +15,8 @@ const Heder = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-  Cookie.deleteCookie("nom")
-          Cookie.deleteCookie("token")
+  localStorage.removeItem("nom")
+  localStorage.removeItem("token")
  window.location.reload()  
       } 
     });
@@ -33,14 +32,14 @@ axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
   }
 
 
-  let nom = Cookie.getCookie('nom')
-  let token = Cookie.getCookie('token')
+  let nom = localStorage.getItem('nom')
+  let token = localStorage.getItem('token')
 
  
 
   let auth_button = ''
   
-  if (token === undefined) {
+  if (token == undefined) {
     auth_button = (
       <div>
         
@@ -94,6 +93,7 @@ axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
     auth_button = (
 
       <div>
+    
       <nav className="navbar navbar-expand-lg text-dark">
         <div className="container-fluid">
                       <a className="noHover  fs-3"  href="/">Taz fruits🍒</a>
@@ -147,6 +147,9 @@ axios.delete('http://127.0.0.1:8000/api/delete_all').then(res=>{
 
   return (
    <div>
+
+
+
 {auth_button}
    </div>
 

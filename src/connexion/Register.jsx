@@ -4,7 +4,6 @@ import swal from 'sweetalert'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import img_login from '../img/img_login.png'
-import * as Cookie from '../connexion/Cookie';
 import Heder from '../component/Heder';
  const Register = () => {
 
@@ -14,7 +13,6 @@ import Heder from '../component/Heder';
   const [nom, setNom] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
 
 
 
@@ -45,8 +43,8 @@ swal('warnig',res.data.message,'warning')
           swal('warnig',res.data.error,'warning')
         }else{
     swal('success' ,res.data.message,'success')
-    Cookie.SetCookie('token', res.data.token)
-    Cookie.SetCookie('nom', res.data.nom)
+    localStorage.setItem('token', res.data.token)
+    localStorage.setItem('nom', res.data.nom)
     navigation('/')
           window.location.reload()
         }
@@ -76,15 +74,15 @@ swal('warnig',res.data.message,'warning')
 
           <h1>S'inscrire</h1>
           <div className=" mt-5">
-            <label for="validationCustom01" className="form-label">Nom</label>
+            <label htmlFor="validationCustom01" className="form-label">Nom</label>
             <input name='nom' onChange={(e) => setNom(e.target.value)} type="text" className="form-control" id="validationCustom01" required />
           </div>
           <div className=" mt-2">
-            <label for="validationCustom01" className="form-label">Email</label>
+            <label htmlFor="validationCustom01" className="form-label">Email</label>
             <input name='email' onChange={(e) => setEmail(e.target.value)}  type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
           </div>
               <div className=" mt-2">
-            <label for="validationCustom01" className="form-label">Cree un mot de passe </label>
+            <label htmlFor="validationCustom01" className="form-label">Cree un mot de passe </label>
             <input name='password' onChange={(e) => setPassword(e.target.value)} type="text" className="form-control" id="validationCustom01" required />
           </div>
 

@@ -26,7 +26,7 @@ const Equipe = () => {
             </div>
 
           </div>
-          <div class="col">
+          <div className="col">
             <div className='container'>
               <div className='row d-flex justify-center'>
                 <div className=' cards_equipe col-md-3 d-flex flex-column'>

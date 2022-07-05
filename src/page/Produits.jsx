@@ -7,23 +7,22 @@ const Produits = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const apiUrl = "http://127.0.0.1:8000/api/articles";
-    axios.get(apiUrl).then((resp) => {
-      const all = resp.data;
+
+    axios.get("http://127.0.0.1:8000/api/articles").then((res) => {
+      const all = res.data;
       setArticles(all);
     });
-  }, [setArticles]);
+  }, []);
+
 
   return (
     <div>
       <div className="d-flex justify-content-center"></div>
       <div className="container">
         <div className="row d-flex justify-center">
-          {articles
-            .filter((articless) => articless.stock == 1).map((article, key) => (
-              key < 18 ?
-                <Link 
-                  className="cards col-md-3 d-flex flex-column"
+          {articles.filter((articless) => articless.stock == 1).map(article =><Link key={article} 
+             className='cards col-md-3 d-flex flex-column'
+        
                   state={{ article: article }}
                   to={`/articles/${article.id}`}
                 >
@@ -77,10 +76,13 @@ const Produits = () => {
                   <p className="mt-1">{article.prix}€/ KG</p>
                 </Link>
               
-              : null
+        
             )
-            )
+              
           }
+        
+          
+          
         </div>
       </div>
     </div>

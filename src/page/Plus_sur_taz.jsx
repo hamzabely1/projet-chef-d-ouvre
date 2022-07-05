@@ -23,7 +23,7 @@ const Plus_sur_taz = () => {
           <div className="clearfix ">
             <img
               src="https://cdn-s-www.leprogres.fr/images/30D956B9-6E3C-46A9-94FC-A9B423374F28/NW_detail/title-1618680388.jpg"
-              class="col-md-6 float-md-end mb-3 ms-md-3"
+              className="col-md-6 float-md-end mb-3 ms-md-3"
               alt="..."
             />
 
@@ -60,26 +60,26 @@ const Plus_sur_taz = () => {
             <li className="list-group-item w-100">
               <div className="d-flex justify-center">
                 {" "}
-                <p mr-2>🕐Mercrodi </p>{" "}
+                <p >🕐Mercrodi </p>{" "}
                 <p className="text-danger ml-2">Fermé </p>{" "}
               </div>
             </li>
             <li className="list-group-item w-100">
               <div className="d-flex justify-center">
                 {" "}
-                <p mr-2>🕐Jeudi </p> <p className="text-danger ml-2">Fermé </p>{" "}
+                <p >🕐Jeudi </p> <p className="text-danger ml-2">Fermé </p>{" "}
               </div>{" "}
             </li>
             <li className="list-group-item w-100">
               <div className="d-flex justify-center">
                 {" "}
-                <p mr-2>🕐Vendredi </p> <p className="ml-2">7:40 14:10 </p>{" "}
+                <p >🕐Vendredi </p> <p className="ml-2">7:40 14:10 </p>{" "}
               </div>
             </li>
             <li className="list-group-item w-100">
               <div className="d-flex justify-center">
                 {" "}
-                <p mr-2>🕐Samedi </p> <p className="ml-2">7:40 14:10 </p>{" "}
+                <p>🕐Samedi </p> <p className="ml-2">7:40 14:10 </p>{" "}
               </div>
             </li>
             <li className="list-group-item w-100">🕐Dimanche 7:00 14:00</li>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 import { Navigate } from 'react-router-dom';
-import * as Cookie from '../connexion/Cookie';
 import axios from 'axios';
 
 
@@ -9,7 +8,7 @@ const ProtectedRoutePanier = ({children}) => {
 
 
     const AuthRole = async() => {
-        let token = Cookie.getCookie('token');
+        let token = localStorage.getItem('token');
         let response = await axios.post(`http://127.0.0.1:8000/api/connexion`, {
      token: token
         })

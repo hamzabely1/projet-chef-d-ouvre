@@ -1,11 +1,10 @@
 import React from 'react'
 
 import swal from 'sweetalert'
-import * as Cookie from '../../connexion/Cookie'
 import { useNavigate } from 'react-router-dom'
 const HederAdmin = () => {
 
-  let nom = Cookie.getCookie('nom')
+  let nom = localStorage.getItem('nom')
   const navigation = useNavigate();
 
 
@@ -18,8 +17,8 @@ const HederAdmin = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        Cookie.deleteCookie("nom")
-        Cookie.deleteCookie("token")
+        localStorage.removeItem("nom")
+        localStorage.removeItem("token")
         window.location.reload()
         navigation('/')
       }

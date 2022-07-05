@@ -4,14 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Heder from "../component/Heder";
 import css from "../css/panier.css";
-import * as Cookie from '../connexion/Cookie';
 
 
 const Panier = () => {
   let navigation = useNavigate();
   const [article, setArticle] = useState([]);
   const [total, setTotal] = useState([]);
-  let user_id = Cookie.getCookie('user_id')
+  let user_id = localStorage.getItem('user_id')
 
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/total").then((resp) => {
@@ -184,7 +183,7 @@ const Panier = () => {
                       <div className="col-xs-12 form-group ">
                         <label className="control-label">Numéro de carte</label>
                         <input
-                          autocomplete="off"
+                          autoComplete="off"
                           className="form-control card-number"
                           size="20"
                           type="text"
@@ -196,7 +195,7 @@ const Panier = () => {
                       <div className="col-xs-4 form-group cvc">
                         <label className="control-label">CVC</label>
                         <input
-                          autocomplete="off"
+                          autoComplete="off"
                           className="form-control card-cvc"
                           placeholder="ex. 311"
                           size="4"

@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
-import * as Cookie from '../connexion/Cookie'
 
 
 
@@ -10,7 +9,7 @@ const Command = () => {
 
 
 const [data,setData] = useState('')
-let user_id = Cookie.getCookie('user_id')
+let user_id = localStorage.getItem('user_id')
 
 
 useEffect(() => {

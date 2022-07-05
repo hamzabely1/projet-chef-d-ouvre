@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Produits from './Produits'
 import swal from 'sweetalert'
-import * as Cookie from '../connexion/Cookie'
 import Similaire from './Similaire'
 import Heder from '../component/Heder'
 
@@ -20,7 +19,7 @@ const [prix,setPrix] =useState(article.prix)
 const [quantite,setQuantite] =useState('')
 
 
-let token = Cookie.getCookie('token')
+let token = localStorage.getItem('token')
 
  const pass_au_panier = ()=>{
  if (quantite == 0) {
